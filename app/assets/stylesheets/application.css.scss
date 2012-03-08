@@ -1,5 +1,33 @@
 @import "bourbon";
+@import "jquery.tweet";
+
+$gw-column: 100px;          // Column Width
+$gw-gutter: 40px;           // Gutter Width
+
 * {
   margin: 0;
   padding: 0;
+}
+
+nav {
+  ul,li {
+    list-style: none;
+    display: inline;
+  }
+}
+
+.container {
+  width: grid-width(7);     // returns 520px;
+  margin: 0 auto;
+}
+#telephone_number {
+  float: right;
+}
+#description {
+  float: left;
+  width: grid-width(4);     // returns 520px;
+}
+#twitter {
+  float: left;
+  width: grid-width(3);     // returns 520px;
 }
