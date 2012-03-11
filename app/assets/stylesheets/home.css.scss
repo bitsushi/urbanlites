@@ -1,0 +1,58 @@
+#window {
+  height: 400px;
+  background: #111;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+  h1 {
+    position: absolute;
+  }
+  .description {
+    padding: 10px;
+    float: right;
+    width: 200px;
+    height: 100%;
+    background: red;
+  }
+}
+
+.tweet {
+  ul,li {
+    list-style: none;
+  }
+}
+
+.tweet_body {
+	position:relative;
+	padding:10px;
+	color:#000;
+	background:#f3961c; /* default background for browsers without gradient support */
+  &:after {
+    content:"";
+    position:absolute;
+    bottom:-15px; /* value = - border-top-width - border-bottom-width */
+    left:300px; /* controls horizontal position */
+    border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+    border-style:solid;
+    border-color:#f3961c transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+  }
+}
+.tweet_time {
+  padding: 5px;
+  a {
+    text-decoration: none;
+    color: #111;
+  }
+}
+
+#description {
+  float: left;
+  width: grid-width(4);     // returns 520px;
+}
+#twitter {
+  float: left;
+  width: grid-width(3);     // returns 520px;
+}
