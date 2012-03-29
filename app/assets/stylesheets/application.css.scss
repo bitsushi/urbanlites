@@ -3,9 +3,6 @@
 $gw-column: 100px;          // Column Width
 $gw-gutter: 40px;           // Gutter Width
 
-@import "home";
-@import "contact";
-
 
 * {
   margin: 0;
@@ -26,3 +23,9 @@ nav {
 #telephone_number {
   float: right;
 }
+
+@import "home";
+@import "contact";
+@import "services";
+@import "our_ethos";
+@import "slider";

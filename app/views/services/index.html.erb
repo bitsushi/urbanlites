@@ -1,0 +1,11 @@
+<ul id="services">
+<% @services.each do |service| %>
+  <li>
+    <%= service.name %>
+    <%= link_to 'edit', edit_service_path(service) %>
+    <div class="description"><%= service.description %></div>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to 'New Service', new_service_path %>

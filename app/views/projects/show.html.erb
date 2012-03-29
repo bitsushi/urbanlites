@@ -1,0 +1,29 @@
+<h1><%= @project.name %></h1>
+
+<p>
+  <b>Who:</b>
+  <%= @project.who %>
+</p>
+
+<p>
+  <b>Where:</b>
+  <%= @project.where %>
+</p>
+
+<p>
+  <b>What:</b>
+  <%= @project.what %>
+</p>
+
+<p>
+  <b>When:</b>
+  <%= @project.when %>
+</p>
+
+<p>
+  <b>Equipment used:</b>
+  <%= @project.equipment_used %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %>
