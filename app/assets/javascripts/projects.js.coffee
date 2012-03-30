@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+
+  $('#add_video').click ->
+    embed_code = $('#video_url').val().replace(/^[^v]+v.(.{11}).*/,"$1")
+    $('#video_url').val('').focus()
+    player = "<iframe width='280' height='156' src='http://www.youtube.com/embed/#{embed_code}' frameborder='0' allowfullscreen></iframe>"
+    $('#video_list').append("<li>#{player}</li>")
+    return false

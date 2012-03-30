@@ -1,10 +1,12 @@
 #my-slideshow {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+//  overflow: auto;
+position: relative;
 }
+
 #window {
-  height: 400px;
+  height: 360px;
   background: #111;
-  margin: 10px 0;
   position: relative;
   overflow: hidden;
   h1 {

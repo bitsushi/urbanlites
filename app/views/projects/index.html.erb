@@ -1,13 +1,14 @@
 <% @projects.each do |project| %>
 <div>
-  <%= link_to project.name, project %>
+  <h3><%= link_to project.name, project %></h3>
+  <span><%= link_to 'Edit', edit_project_path(project) %></span>
+  <span><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></span>
+
   <span><%= project.who %></span>
   <span><%= project.where %></span>
   <span><%= project.what %></span>
   <span><%= project.when %></span>
   <span><%= project.equipment_used %></span>
-  <span><%= link_to 'Edit', edit_project_path(project) %></span>
-  <span><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></span>
 </div>
 <% end %>
 

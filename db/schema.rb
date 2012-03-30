@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329095849) do
+ActiveRecord::Schema.define(:version => 20120329130823) do
+
+  create_table "downloads", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "file"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "project_id"
+    t.integer  "ordinal"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "slug"
@@ -37,5 +54,15 @@ ActiveRecord::Schema.define(:version => 20120329095849) do
   end
 
   add_index "services", ["ordinal"], :name => "index_services_on_ordinal"
+
+  create_table "videos", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "videos", ["project_id"], :name => "index_videos_on_project_id"
 
 end

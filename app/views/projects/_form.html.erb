@@ -35,6 +35,26 @@
     <%= f.label :equipment_used %><br />
     <%= f.text_area :equipment_used %>
   </div>
+
+  <fieldset id="videos" class="">
+    <legend>Videos</legend>
+    <%= label_tag :video_url %>
+    <%= text_field_tag :video_url, nil, id: 'video_url', placeholder: 'http://www.youtube.com/watch?v=xCT-MB5wdj4' %>
+    <%= button_tag "Add Video", id: 'add_video' %>
+    <div class="hint">Paste in the youtube url</div>
+    <ul id="video_list"></ul>
+  </fieldset>
+
+  <fieldset id="photos" class="">
+    <legend>Photos</legend>
+    <%= label_tag :add_photo %>
+    <ul id="photo_list">
+    <%= f.fields_for :photos do |p| %>
+    <%= p.file_field :image %>
+    <% end %>
+    </ul>
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>

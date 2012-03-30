@@ -1,5 +1,19 @@
-.address {
+#address {
   span {
     display: block;
   }
+  width: grid-width(2);
+  float: left;
+}
+
+#map_canvas {
+  display: block;
+  width: grid-width(5);
+  height: 400px;
+  float: left;
+}
+
+#downloads {
+  clear: both;
+  width: grid-width(8);
 }

@@ -1,5 +1,25 @@
+<div id="my-slideshow">
 <h1><%= @project.name %></h1>
+<ul class="bjqs">
+  <li>
+  <div id="window">
+    aa
+  </div>
+  </li>
+  <li>
+  <div id="window">
+    bb
+  </div>
+  </li>
+  <li>
+  <div id="window">
+    cc
+  </div>
+  </li>
+</ul>
+</div>
 
+<div>
 <p>
   <b>Who:</b>
   <%= @project.who %>
@@ -24,6 +44,6 @@
   <b>Equipment used:</b>
   <%= @project.equipment_used %>
 </p>
-
+</div>
 
 <%= link_to 'Edit', edit_project_path(@project) %>

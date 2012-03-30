@@ -60,7 +60,9 @@ a.bjqs-next{
 
  ol.bjqs-markers{
   position:absolute;
-  bottom:-50px;
+//  bottom:-50px;
+bottom: 5px;
+right: 5px;
 }
 
  ol.bjqs-markers li{

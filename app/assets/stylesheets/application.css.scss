@@ -15,13 +15,18 @@ nav {
     display: inline;
   }
 }
-
+a {
+  text-decoration: none;
+}
 .container {
   width: grid-width(7);     // returns 520px;
   margin: 0 auto;
 }
 #telephone_number {
   float: right;
+}
+header {
+  margin-bottom: 20px;
 }
 
 @import "home";

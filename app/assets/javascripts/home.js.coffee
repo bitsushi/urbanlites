@@ -7,8 +7,8 @@ jQuery ->
     loading_text: "loading tweets..."
     template: "<div class='tweet_body'>{text}</div><div class='tweet_time'>{time}</div>"
   $('#my-slideshow').bjqs
-    'width' : 940,
-    'height' : 340,
-    'showMarkers' : true,
-    'showControls' : true,
-    'centerMarkers' : false
+    width: '100%'
+    height : 360
+    showMarkers: true
+    showControls: true
+    centerMarkers: false

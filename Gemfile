@@ -19,6 +19,7 @@ group :assets do
 end
 
 gem 'friendly_id'
+gem 'carrierwave'
 
 group :production do
   gem 'pg'
