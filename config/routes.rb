@@ -1,6 +1,10 @@
 Urbanlites::Application.routes.draw do
-  resources :downloads
+  get "activity/index"
 
+  resources :downloads
+  match 'activity' => 'activity#index', as: 'activity'
+
+  resources :photos, :only => [:index, :create, :destroy]
   resources :projects
   resources :services
 

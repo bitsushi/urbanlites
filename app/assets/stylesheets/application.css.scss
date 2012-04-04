@@ -9,6 +9,17 @@ $gw-gutter: 40px;           // Gutter Width
   padding: 0;
 }
 
+body {
+  background: #000;
+  color: #EEE;
+  font-size: 16px;
+  font-family: Helvetica;
+}
+
+a {
+  color: #4576F5;
+}
+
 nav {
   ul,li {
     list-style: none;
@@ -30,7 +41,10 @@ header {
 }
 
 @import "home";
+@import "projects";
+@import "activity";
 @import "contact";
 @import "services";
 @import "our_ethos";
 @import "slider";
+@import "fileupload/jquery.fileupload-ui";
