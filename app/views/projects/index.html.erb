@@ -1,5 +1,9 @@
 <% @projects.each do |project| %>
 <div>
+  <div class="thumb" style="float: <%= cycle('left','right') %>">
+  <%= image_tag(project.photos.first) %>
+  </div>
+
   <h3><%= link_to project.name, project %></h3>
   <span><%= link_to 'Edit', edit_project_path(project) %></span>
   <span><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></span>

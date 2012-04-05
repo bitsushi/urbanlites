@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//= require fileupload/jquery.ui.widget.js
+//= require fileupload/jquery.iframe-transport
+//= require fileupload/jquery.fileupload
+//= require fileupload/jquery.fileupload-ui
+
 //= require jquery.tweet
 //= require basic-jquery-slider
 //= require_tree .

@@ -1,25 +1,28 @@
 <div id="my-slideshow">
-<h1><%= @project.name %></h1>
-<ul class="bjqs">
-  <li>
-  <div id="window">
-    aa
-  </div>
-  </li>
-  <li>
-  <div id="window">
-    bb
-  </div>
-  </li>
-  <li>
-  <div id="window">
-    cc
-  </div>
-  </li>
-</ul>
+  <h1 id="project_name"><%= @project.name %><%= link_to 'Edit', edit_project_path(@project) %></h1>
+  <ul class="bjqs">
+  <% @project.photos.each do |photo| %>
+    <li>
+    <div id="window">
+      <%= image_tag photo.image %>
+    </div>
+    </li>
+  <% end %>
+
+<% 3.times do %>
+  <% @project.videos.each do |video| %>
+    <li>
+    <div id="window">
+      <%= raw video_tag(video.url) %>
+    </div>
+    </li>
+  <% end %>
+<% end %>
+  </ul>
 </div>
 
 <div>
+
 <p>
   <b>Who:</b>
   <%= @project.who %>
@@ -45,5 +48,3 @@
   <%= @project.equipment_used %>
 </p>
 </div>
-
-<%= link_to 'Edit', edit_project_path(@project) %>
