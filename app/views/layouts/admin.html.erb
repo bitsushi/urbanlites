@@ -10,11 +10,13 @@
 </head>
 <body>
 
+<div id="admin_bar"><%= link_to("Preview Site", root_path) %></div>
+
 <ul id="navigation">
   <li><%= link_to "Projects", admin_projects_path %></li>
-  <li><%= link_to "Services", admin_projects_path %></li>
+  <li><%= link_to "Services", admin_services_path %></li>
   <%#= link_to "Our Ethos", admin_projects_path %>
-  <li><%= link_to "Activity", admin_projects_path %></li>
+  <li>Activity<%#= link_to "Activity", admin_projects_path %></li>
   <%#= link_to "Contact", admin_projects_path %>
   <li><%= current_user %></li>
   <li><%= link_to "Logout", logout_path %></li>

@@ -19,7 +19,8 @@
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
   <header>
 
-    <%#= current_user if current_user.present? %>
+    <div id="admin_bar"><%= link_to("ADMIN", admin_projects_path) if current_user.present? %></div>
+
     <div class="container">
       <%= link_to "Urban Lites", root_path %>
       <div id="telephone_number">Call us on 0161 402 3271</div>

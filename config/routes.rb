@@ -13,6 +13,7 @@ Urbanlites::Application.routes.draw do
 
   namespace :admin do
     resources :projects
+    resources :services
   end
 
   resources :downloads

@@ -1,0 +1,5 @@
+<ul>
+<% @services.each do |service| %>
+  <li><%= link_to service, edit_admin_service_path(service) %></li>
+<% end %>
+</ul>
