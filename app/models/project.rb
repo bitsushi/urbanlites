@@ -17,4 +17,8 @@ class Project < ActiveRecord::Base
     photos[0]
   end
 
+  def to_s
+    name
+  end
+
 end

@@ -1,0 +1,25 @@
+<%= form_for ['admin',@project] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :who %>
+    <%= f.text_field :who %>
+  </div>
+  <div>
+    <%= f.label :where %>
+    <%= f.text_field :where %>
+  </div>
+  <div>
+    <%= f.label :what %>
+    <%= f.text_field :what %>
+  </div>
+  <div>
+    <%= f.label :equipment_used %>
+    <%= f.text_area :equipment_used %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

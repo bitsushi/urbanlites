@@ -1,15 +1,26 @@
 Urbanlites::Application.routes.draw do
-  get "activity/index"
+
+  resources :sessions
+  resources :users
+
+  get 'activity' => 'activity#index'
+  get 'contact' => 'pages#contact'
+  get 'our-ethos' => 'pages#our_ethos', :as => 'our_ethos'
+
+  # users
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+
+  namespace :admin do
+    resources :projects
+  end
 
   resources :downloads
-  match 'activity' => 'activity#index', as: 'activity'
-
   resources :photos, :only => [:index, :create, :destroy]
   resources :projects
   resources :services
 
-  match 'contact' => 'pages#contact', as: 'contact'
-  match 'our-ethos' => 'pages#our_ethos', as: 'our_ethos'
-
   root to: 'pages#home'
+
 end
