@@ -5,8 +5,8 @@
   </div>
 
   <h3><%= link_to project.name, project %></h3>
-  <span><%= link_to 'Edit', edit_project_path(project) %></span>
-  <span><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></span>
+  <span><%= link_to('Edit', edit_admin_project_path(project)) if current_user %></span>
+  <span><%#= link_to('Destroy', project, confirm: 'Are you sure?', method: :delete) if current_user %></span>
 
   <span><%= project.who %></span>
   <span><%= project.where %></span>

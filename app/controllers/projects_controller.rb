@@ -20,5 +20,4 @@ class ProjectsController < ApplicationController
       format.json { render json: @project }
     end
   end
-
 end
