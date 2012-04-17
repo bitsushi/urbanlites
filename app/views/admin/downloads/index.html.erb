@@ -1,0 +1,13 @@
+<div>
+  <h1>Downloads</h1>
+  <table>
+  <% @downloads.each do |download| %>
+    <tr>
+      <td><%= link_to download, edit_admin_download_path(download) %></td>
+      <td><%= link_to download.file, download.file.url %></td>
+      <td><%= link_to "Delete", admin_download_path(download), method: 'delete', confirm: "Are you sure?" %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<%= link_to "Add Download", new_admin_download_path %>

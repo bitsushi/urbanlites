@@ -1,5 +1,23 @@
-<ul>
-<% @projects.each do |project| %>
-  <li><%= link_to project, edit_admin_project_path(project) %></li>
+<div>
+  <h1>Projects</h1>
+  <table class="sortable">
+  <% @projects.each do |project| %>
+    <tr>
+      <td>^</td>
+      <td><%= link_to project, edit_admin_project_path(project) %></td>
+      <td><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?" %></td>
+    </tr>
+  <% end %>
+  </table>
+  <%= link_to 'New Project', new_admin_project_path %>
+</div>
+
+<div>
+  <h2>Frontpage Window</h2>
+  <span class="hint">Select projects you want to be displayed from the dropdown, drag them into the order you want them to appear and click the save button.</span>
+
+<%= form_tag update_frontpage_items_admin_projects_path, id: 'update_frontpage_items', remote: true do %>
+  <%= select_tag 'project', options_for_select(Project.order('window_ordinal ASC, name ASC').all.map{ |p| [p.name, p.id ]}, Project.all.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
+  <%= button_tag 'save', id: 'save_window_ordinals', disabled: true %>
 <% end %>
-</ul>
+</div>

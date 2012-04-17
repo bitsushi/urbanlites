@@ -25,6 +25,10 @@ a {
   color: #4576F5;
 }
 
+.button {
+  @include button;
+}
+
 nav {
   ul,li {
     list-style: none;
@@ -53,3 +57,4 @@ header {
 @import "our_ethos";
 @import "slider";
 @import "fileupload/jquery.fileupload-ui";
+@import "jquery.bsmselect";

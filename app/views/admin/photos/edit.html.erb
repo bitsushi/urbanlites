@@ -1,0 +1,6 @@
+<%= form_for [:admin, @photo] do |f| %>
+<%= image_tag @photo.image.url, id: 'jcrop_target' %>
+<%= button_to "Edit Thumbnail", id: 'edit_thumbnail' %>
+<%= button_to "Edit FullSize", id: 'edit_fullsize' %>
+<div id="preview">aa</div>
+<% end %>

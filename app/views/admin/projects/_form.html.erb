@@ -1,0 +1,59 @@
+<%= form_for ['admin',@project] do |f| %>
+  <fieldset>
+    <legend>Details</legend>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :who %>
+      <%= f.text_field :who %>
+    </div>
+    <div>
+      <%= f.label :where %>
+      <%= f.text_field :where %>
+    </div>
+    <div>
+      <%= f.label :what %>
+      <%= f.text_field :what %>
+    </div>
+    <div>
+      <%= f.label :equipment_used %>
+      <%= f.text_area :equipment_used %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Photos</legend>
+    <ul>
+    <%= f.fields_for :photos do |p| %>
+      <li id="<%= dom_id p.object %>">
+      <% if p.object.new_record? %>
+        <%= p.label :image %>
+        <%= p.file_field :image %>
+
+      <% else %>
+
+          <%= image_tag p.object.image.thumb.url %>
+          <%= link_to "Delete", admin_photo_path(p.object.id), method: 'delete', confirm: 'Are you sure?', remote: true %>
+          <%= link_to "Edit", edit_admin_photo_path(p.object.id) %>
+      <% end %>
+      </li>
+    <% end %>
+    </ul>
+  </fieldset>
+
+  <fieldset>
+    <legend>Videos</legend>
+    <h4>How to add a new video</h4>
+    <ol>
+      <li><%= link_to "Upload the video", "http://www.youtube.com/my_videos_upload", target: 'blank' %> to YouTube</li>
+      <li>Copy the video URL e.g. http://www.youtube.com/watch?v=rqTE-ig7NhY</li>
+      <li>Paste that URL into the add video box below</li>
+    </ol>
+
+  </fieldset>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

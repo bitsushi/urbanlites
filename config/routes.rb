@@ -9,17 +9,24 @@ Urbanlites::Application.routes.draw do
   # users
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
+  get 'admin' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
 
   namespace :admin do
-    resources :projects
-    resources :services
+    resources :projects do
+      collection do
+        post :update_frontpage_items
+      end
+    end
+    resources :photos
+    resources :services, only: [:index, :edit, :update]
+    resources :downloads
+    resources :posts
   end
 
-  resources :downloads
-  resources :photos, :only => [:index, :create, :destroy]
-  resources :projects
-  resources :services
+  resources :downloads, only: [:index, :show]
+  resources :projects, only: [:index, :show]
+  resources :services, only: [:index, :show]
 
   root to: 'pages#home'
 

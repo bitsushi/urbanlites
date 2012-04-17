@@ -1,5 +1,10 @@
-<ul>
+<div>
+  <h1>Services</h1>
+<table>
 <% @services.each do |service| %>
-  <li><%= link_to service, edit_admin_service_path(service) %></li>
+  <tr>
+  <td><%= link_to service, edit_admin_service_path(service) %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
+</div>

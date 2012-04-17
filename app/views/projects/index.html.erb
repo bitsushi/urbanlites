@@ -1,11 +1,11 @@
 <% @projects.each do |project| %>
-<div>
+<div id="<%= dom_id project %>" class="project">
   <div class="thumb" style="float: <%= cycle('left','right') %>">
-  <%= image_tag(project.photos.first) %>
+  <%= image_tag(project.photos.first.image.thumb.url) if project.photos.first %>
   </div>
 
   <h3><%= link_to project.name, project %></h3>
-  <span><%= link_to('Edit', edit_admin_project_path(project)) if current_user %></span>
+  <!--<span><%= link_to('Edit', edit_admin_project_path(project)) if current_user %></span>-->
   <span><%#= link_to('Destroy', project, confirm: 'Are you sure?', method: :delete) if current_user %></span>
 
   <span><%= project.who %></span>
@@ -18,4 +18,4 @@
 
 <br />
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to('New Project', new_admin_project_path) if current_user.present? %>

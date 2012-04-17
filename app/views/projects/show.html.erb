@@ -1,5 +1,6 @@
 <div id="my-slideshow">
-  <h1 id="project_name"><%= @project.name %><%= link_to 'Edit', edit_project_path(@project) %></h1>
+  <%= link_to('Edit', edit_admin_project_path(@project)) if current_user.present? %>
+  <h1 id="project_name"><%= @project.name %></h1>
   <ul class="bjqs">
   <% @project.photos.each do |photo| %>
     <li>

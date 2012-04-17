@@ -1,3 +1,8 @@
-<h3 class="activity_filter">Twitter</h3>
-<h3 class="activity_filter">Facebook</h3>
-<h3 class="activity_filter">YouTube</h3>
+<ul>
+<% @posts.each do |post| %>
+  <li class="<%= post.type %>">
+    <%= post %>
+    <%= time_ago_in_words post.posted_at %>
+  </li>
+<% end %>
+</ul>

@@ -5,7 +5,7 @@
   <title>ADMIN : Urban Lites</title>
   <meta name="viewport" content="width=device-width">
   <%= stylesheet_link_tag    "admin", :media => "all" %>
-  <%#= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,8 +15,9 @@
 <ul id="navigation">
   <li><%= link_to "Projects", admin_projects_path %></li>
   <li><%= link_to "Services", admin_services_path %></li>
+  <li><%= link_to "Downloads", admin_downloads_path %></li>
   <%#= link_to "Our Ethos", admin_projects_path %>
-  <li>Activity<%#= link_to "Activity", admin_projects_path %></li>
+  <li><%= link_to "Activity", admin_posts_path %></li>
   <%#= link_to "Contact", admin_projects_path %>
   <li><%= current_user %></li>
   <li><%= link_to "Logout", logout_path %></li>

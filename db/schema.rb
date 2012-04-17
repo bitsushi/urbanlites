@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120405142813) do
+ActiveRecord::Schema.define(:version => 20120413134857) do
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(:version => 20120405142813) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "posts", :force => true do |t|
+    t.string   "type",       :limit => 50
+    t.string   "service_id", :limit => 50
+    t.text     "content"
+    t.string   "url",        :limit => 100
+    t.datetime "posted_at"
+    t.boolean  "visible",                   :default => true
+  end
+
+  add_index "posts", ["posted_at"], :name => "index_posts_on_posted_at"
+  add_index "posts", ["type", "service_id"], :name => "index_posts_on_type_and_service_id", :unique => true
+
   create_table "projects", :force => true do |t|
     t.string   "slug"
     t.string   "name"
@@ -38,12 +50,16 @@ ActiveRecord::Schema.define(:version => 20120405142813) do
     t.string   "what"
     t.date     "when"
     t.text     "equipment_used"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "ordinal",        :default => 999
+    t.integer  "window_ordinal", :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
+  add_index "projects", ["ordinal"], :name => "index_projects_on_ordinal"
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["when"], :name => "index_projects_on_when"
+  add_index "projects", ["window_ordinal"], :name => "index_projects_on_window_ordinal"
 
   create_table "services", :force => true do |t|
     t.string   "name"

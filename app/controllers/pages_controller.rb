@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @projects = Project.all
+    @projects = Project.window.all
   end
   def contact
   end

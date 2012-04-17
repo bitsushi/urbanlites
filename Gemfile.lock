@@ -84,15 +84,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
-    mime-types (1.18)
-    mini_magick (3.4)
-      subexec (~> 0.2.1)
     mini_magick (3.4)
       subexec (~> 0.2.1)
     multi_json (1.1.0)
-    multi_json (1.2.0)
-    nokogiri (1.5.0)
     nokogiri (1.5.2)
+    paper_trail (2.6.3)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -155,6 +153,8 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-text (1.4.17)
+      activesupport
     tzinfo (0.3.32)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
@@ -180,9 +180,11 @@ DEPENDENCIES
   launchy
   log_buddy
   mini_magick
+  paper_trail
   pg
   rails (= 3.2.3)
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
+  twitter-text
   uglifier (>= 1.0.3)

@@ -21,3 +21,5 @@ what: 'Audio Equipment',
 when: '2012-01-20',
 equipment_used: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 )
+
+User.create!(email: 'john@bitsushi.com', password: 'pass', password_confirmation: 'pass')

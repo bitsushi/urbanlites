@@ -1,8 +1,12 @@
-class PhotosController < ApplicationController
+class Admin::PhotosController < Admin::BaseController
 
-  def index
-    @photos = Photo.all
-    render :json => @photos.collect { |p| p.to_jq_upload }.to_json
+  # def index
+  #   @photos = Photo.all
+  #   render :json => @photos.collect { |p| p.to_jq_upload }.to_json
+  # end
+
+  def edit
+    @photo = Photo.find(params[:id])
   end
 
   def create

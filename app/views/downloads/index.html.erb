@@ -1,26 +1,13 @@
-<h1>Listing downloads</h1>
+<h1>Downloads</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>File</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @downloads.each do |download| %>
-  <tr>
-    <td><%= link_to download.name, download.file.url %></td>
-    <td><%= download.description %></td>
-    <td><%= download.file %></td>
-    <td><%= link_to 'Edit', edit_download_path(download) %></td>
-    <td><%= link_to 'Destroy', download, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <li>
+    <h3><%= link_to download.name, download.file.url %></h3>
+    <div><%= download.description %></div>
+    <span><%= link_to('Edit', edit_admin_download_path(download))  if current_user.present? %></span>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Download', new_download_path %>
+<%= link_to('New Download', new_admin_download_path) if current_user.present? %>

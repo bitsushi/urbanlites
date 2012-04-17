@@ -1,0 +1,11 @@
+<h1>Posts</h1>
+<span class="hint">Automatically collected every 10 minutes</span>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li class="<%= post.type %>">
+      <%= tweetize post.content %>
+      <span class="timeago hint"><%= time_ago_in_words post.posted_at %> ago</span>
+    </li>
+  <% end %>
+</ul>
