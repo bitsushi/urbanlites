@@ -5,6 +5,16 @@ class Admin::PhotosController < Admin::BaseController
   #   render :json => @photos.collect { |p| p.to_jq_upload }.to_json
   # end
 
+  def update
+    @photo = Photo.find(params[:id])
+
+    if @photo.update_attributes(params[:photo])
+      redirect_to edit_admin_photo_url(@photo), notice: 'Photo was successfully updated.'
+    else
+      render action: "edit"
+    end
+  end
+
   def edit
     @photo = Photo.find(params[:id])
   end

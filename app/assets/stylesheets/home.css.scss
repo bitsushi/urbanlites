@@ -1,11 +1,11 @@
 #my-slideshow {
-  margin-bottom: 20px;
-//  overflow: auto;
-position: relative;
+  //  overflow: auto;
+  position: relative;
 }
 
 #window {
-  height: 360px;
+  border: 1px solid $blue;
+  height: 600px;
   background: #111;
   position: relative;
   overflow: hidden;
@@ -30,8 +30,11 @@ position: relative;
 .tweet_body {
 	position:relative;
 	padding:10px;
-	color:#000;
-	background:#f3961c; /* default background for browsers without gradient support */
+	color:#FFF;
+	background:#394D9D; /* default background for browsers without gradient support */
+	a {
+	  color: #FFF;
+	}
   &:after {
     content:"";
     position:absolute;
@@ -55,9 +58,9 @@ position: relative;
 
 #description {
   float: left;
-  width: grid-width(4);     // returns 520px;
+  width: grid-width(6);     // returns 520px;
 }
 #twitter {
-  float: left;
+  float: right;
   width: grid-width(3);     // returns 520px;
 }

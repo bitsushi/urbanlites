@@ -1,13 +1,24 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1#project_name {
-  position: absolute;
+h1#project_name, h1#project_meta {
+  position: relative;
   z-index: 10;
 }
 #window {
+  position: relative;
   height: 200px;
 }
 div.project {
   overflow: hidden;
+}
+
+ol.bjqs-markers li {
+  opacity: .3;
+  &:hover {
+    opacity: .6;
+  }
+  &.active-marker {
+    opacity: 1;
+  }
 }

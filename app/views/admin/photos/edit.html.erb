@@ -1,6 +1,29 @@
+
+<%= link_to "Edit Thumbnail Image", '#', id: 'edit_thumb' %>
+<%= link_to "Edit Window Image", '#', id: 'edit_window' %>
+
+<%= image_tag @photo.image_url(:large), id: 'cropbox' %>
+
 <%= form_for [:admin, @photo] do |f| %>
-<%= image_tag @photo.image.url, id: 'jcrop_target' %>
-<%= button_to "Edit Thumbnail", id: 'edit_thumbnail' %>
-<%= button_to "Edit FullSize", id: 'edit_fullsize' %>
-<div id="preview">aa</div>
+
+
+<%= f.hidden_field "crop_window" %>
+<%= f.hidden_field "crop_thumb" %>
+
+<% %w[x y w h].each do |attribute| %>
+<%= f.hidden_field "crop_#{attribute}" %>
 <% end %>
+
+<%= f.submit "Crop!" %>
+
+<% end %>
+
+<%= image_tag @photo.image_url(:window) %>
+<%= image_tag @photo.image_url(:thumb) %>
+
+<!--
+New
+<div style="width: 100px; height: 100px; overflow: hidden">
+  <%= image_tag @photo.image.url(:large), id: 'preview' %>
+</div>
+-->

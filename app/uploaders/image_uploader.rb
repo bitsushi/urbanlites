@@ -3,8 +3,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
@@ -20,10 +20,34 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fit => [800, 800]
-  version :thumb do
-    process :resize_to_fill => [200,200]
+  version :large do
+    resize_to_limit(1200, 1200)
   end
+
+  version :thumb do
+    process :crop #if model.crop_thumb.present?
+    resize_to_fill(100,100)
+  end
+
+  version :window do
+    process :crop #if model.crop_window.present?
+    resize_to_fill(800,400)
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(1200, 1200)
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+        img.crop!(x,y,w,h)
+      end
+    end
+  end
+
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

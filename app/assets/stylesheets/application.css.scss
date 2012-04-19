@@ -1,7 +1,27 @@
 @import "bourbon";
+@import "boilerplate";
+@import "jquery.Jcrop";
 
-$gw-column: 100px;          // Column Width
-$gw-gutter: 40px;           // Gutter Width
+$gw-column: 60px; // Column Width
+$gw-gutter: 40px; // Gutter Width
+
+$blue: #2E3B78;
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+h5,h6 {
+  font-size: 1.1em;
+}
+h6 {
+  color: $blue;
+}
+
+header {
+  padding: 40px inherit;
+  border-bottom: 1px solid $blue;
+}
 
 #admin_bar {
 	background: white;
@@ -9,20 +29,53 @@ $gw-gutter: 40px;           // Gutter Width
 	text-align: center;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+footer {
+  margin-top: 30px;
+  font-size: .9em;
+  padding: 10px inherit 100px;
+  border-top: 1px solid $blue;
+  background: #181C29;
+  clear: both;
+  ul#social_buttons {
+    float: left;
+    width: grid-width(3);
+    &, li {
+      margin: 0;
+      padding: 0;
+      float: left;
+      display: block;
+    }
+  }
+  #address {
+    width: grid-width(8);
+    float: right;
+    text-align: right;
+  }
 }
 
 body {
   background: #000;
-  color: #EEE;
-  font-size: 16px;
-  font-family: Helvetica;
+  color: #FFF;
+  font-size: 14px;
 }
 
 a {
   color: #4576F5;
+}
+
+#ident {
+  float: left;
+  width: grid-width(3);
+}
+
+#contact_details {
+  float: right;
+  width: grid-width(4);
+  text-align: right;
+  #telephone_number {
+    font-weight: bold;
+    font-size: 1.7em;
+  }
 }
 
 .button {
@@ -30,23 +83,36 @@ a {
 }
 
 nav {
+  clear: both;
   ul,li {
     list-style: none;
-    display: inline;
+  }
+  li {
+    float: left;
+    display: block;
+    width: grid-width(2);
+    a, a:active, a:visited {
+      padding: 10px 0;
+
+      display: block;
+      text-align: center;
+      width: 100%;
+      color: #FFF;
+      font-weight: bold;
+    }
+    a:hover {
+      background: rgba(255,255,255,0.2);
+    }
   }
 }
+
 a {
   text-decoration: none;
 }
 .container {
-  width: grid-width(7);     // returns 520px;
+  @extend .clearfix;
+  width: grid-width(9);     // returns 520px;
   margin: 0 auto;
-}
-#telephone_number {
-  float: right;
-}
-header {
-  margin-bottom: 20px;
 }
 
 @import "home";

@@ -4,8 +4,7 @@ gem 'rails', '3.2.3'
 gem 'paper_trail'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'twitter-text'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'whenever', :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,7 +20,8 @@ group :assets do
 end
 
 gem 'friendly_id'
-gem 'mini_magick'
+gem 'rmagick'
+# gem 'mini_magick'
 gem 'carrierwave'
 
 group :production do

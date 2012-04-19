@@ -28,4 +28,10 @@ namespace :fetch do
       end
     end
   end
+
+  task :activities do
+    %w[twitter youtube].each do |task|
+      Rake::Task["fetch:#{task}"].execute
+    end
+  end
 end

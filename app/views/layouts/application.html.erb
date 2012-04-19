@@ -17,26 +17,58 @@
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <% if current_user.present? %><div id="admin_bar"><%= link_to("ADMIN", admin_projects_path) %></div><% end %>
+
   <header>
-    <% if current_user.present? %><div id="admin_bar"><%= link_to("ADMIN", admin_projects_path) %></div><% end %>
     <div class="container">
-      <%= link_to "Urban Lites", root_path %>
-      <div id="telephone_number">Call us on 0161 402 3271</div>
-      <nav>
-        <ul>
-          <li><%= link_to "Projects", projects_path %></li>
-          <li><%= link_to "Services", services_path %></li>
-          <li><%= link_to "Our Ethos", our_ethos_path %></li>
-          <li><%= link_to "Activity", activity_path %></li>
-          <li><%= link_to "Contact", contact_path %></li>
-        </ul>
-      </nav>
+      <div id="ident">
+        <div id="logo"><%= link_to "Urban Lites", root_path %></div>
+        <span id="tag_line">High quality lighting, rigging design and rental services.</span>
+      </div>
+
+      <div id="contact_details">
+        <div id="telephone_number">Call us on 0161 402 3271</div>
+        <span>to see how UrbanLites can light up your event.</span>
+        <span>Alternatively, send us an email to chris@urbanlites.com</span>
+      </div>
     </div>
   </header>
+
+  <nav>
+    <div class="container">
+    <ul>
+      <li><%= link_to "Projects", projects_path %></li>
+      <li><%= link_to "Services", services_path %></li>
+      <li><%= link_to "Our Ethos", our_ethos_path %></li>
+      <li><%= link_to "Activity", activity_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+    </ul>
+    </div>
+  </nav>
+
   <div role="main">
     <div class="container"><%= yield %></div>
   </div>
+
   <footer>
+
+    <div class="container">
+      <ul id="social_buttons">
+        <li><%= link_to "Twitter", 'http://twitter.com/urbanlites' %></li>
+        <li><%= link_to "Facebook", 'http://facebook.com/urbanlites' %></li>
+        <li><%= link_to "YouTube", 'http://youtube.com/urbanlites' %></li>
+        <li><%= link_to "Flickr", 'http://flickr.com/urbanlites' %></li>
+      </ul>
+
+      <div id="address">
+        <span>UrbanLites Ltd, Unit 10, Medlock Court, The City Works, Manchester, M11 2NB</span>
+        <span>Tel: +44 (0)161 402 3271 Email: <%= mail_to "chris@urbanlites.com" %></span>
+      </div>
+
+    </div>
+
+
+
   </footer>
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

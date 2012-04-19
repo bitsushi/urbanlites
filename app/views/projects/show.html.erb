@@ -1,11 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  window.thumbs = <%= raw @project.photos.map{ |p| p.image.thumb.url }.to_json %>
+</script>
 <div id="my-slideshow">
   <%= link_to('Edit', edit_admin_project_path(@project)) if current_user.present? %>
   <h1 id="project_name"><%= @project.name %></h1>
+  <h2 id="project_meta"><%= @project.name %></h2>
+
   <ul class="bjqs">
   <% @project.photos.each do |photo| %>
     <li>
     <div id="window">
-      <%= image_tag photo.image %>
+      <%= image_tag photo.image.window.url %>
     </div>
     </li>
   <% end %>
