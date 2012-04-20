@@ -15,7 +15,6 @@ namespace :fetch do
   end
 
   task :youtube => :environment do
-    YoutubePost.delete_all
     results = JSON.parse(open("http://gdata.youtube.com/feeds/base/users/IndieChatter/uploads?alt=json&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile").read)
     results['feed']['entry'].each do |result|
       begin
@@ -29,7 +28,7 @@ namespace :fetch do
     end
   end
 
-  task :activities do
+  task :activities => :environment do
     %w[twitter youtube].each do |task|
       Rake::Task["fetch:#{task}"].execute
     end

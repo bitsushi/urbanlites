@@ -10,18 +10,23 @@
 </head>
 <body>
 
-<div id="admin_bar"><%= link_to("Preview Site", root_path) %></div>
+  <header>
+    <div class="container">
 
-<ul id="navigation">
-  <li><%= link_to "Projects", admin_projects_path %></li>
-  <li><%= link_to "Services", admin_services_path %></li>
-  <li><%= link_to "Downloads", admin_downloads_path %></li>
-  <%#= link_to "Our Ethos", admin_projects_path %>
-  <li><%= link_to "Activity", admin_posts_path %></li>
-  <%#= link_to "Contact", admin_projects_path %>
-  <li><%= current_user %></li>
-  <li><%= link_to "Logout", logout_path %></li>
-</ul>
+  <ul id="navigation">
+    <li><%= link_to "Projects", admin_projects_path %></li>
+    <li><%= link_to "Services", admin_services_path %></li>
+    <li><%= link_to "Downloads", admin_downloads_path %></li>
+    <%#= link_to "Our Ethos", admin_projects_path %>
+    <li><%= link_to "Activity", admin_posts_path %></li>
+    <%#= link_to "Contact", admin_projects_path %>
+    <li><%= link_to("Preview Site", root_path) %></li>
+
+    <li><%= current_user %></li>
+    <li id="logout"><%= link_to "Logout", logout_path %></li>
+  </ul>
+  </div>
+  </header>
 
   <div role="main">
     <div class="container"><%= yield %></div>

@@ -19,7 +19,7 @@
   <% @project.videos.each do |video| %>
     <li>
     <div id="window">
-      <%= raw video_tag(video.url) %>
+      <%= raw video_tag(video.uid) %>
     </div>
     </li>
   <% end %>

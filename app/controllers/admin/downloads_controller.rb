@@ -30,15 +30,10 @@ class Admin::DownloadsController < Admin::BaseController
   # POST /downloads.json
   def create
     @download = Download.new(params[:download])
-
-    respond_to do |format|
-      if @download.save
-        format.html { redirect_to admin_downloads_url, notice: 'Download was successfully created.' }
-        format.json { render json: @download, status: :created, location: @download }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @download.errors, status: :unprocessable_entity }
-      end
+    if @download.save
+      redirect_to admin_downloads_url, notice: 'Download was successfully created.'
+    else
+      render action: "new"
     end
   end
 

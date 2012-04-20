@@ -15,3 +15,43 @@ jQuery ->
     axis: 'y'
     forceHelperSize: true
     items: 'tr'
+
+
+
+
+
+  # $('#fileupload').fileupload()
+  # dataType: 'json'
+  # done: (e, data) ->
+  #   alert 'a'
+  #   $.each data.result, (index, file) ->
+  #     $('<p/>').text(file.name).appendTo(document.body)
+
+
+  $("#fileupload").fileupload()
+  $.getJSON $("#fileupload").prop("action"), (files) ->
+    fu = $("#fileupload").data("fileupload")
+    template = undefined
+    fu._adjustMaxNumberOfFiles -files.length
+    template = fu._renderDownload(files).appendTo($("#fileupload .files"))
+    fu._reflow = fu._transition and template.length and template[0].offsetWidth
+    template.addClass "in"
+    $("#loading").remove()
+
+  $('#photo_uploads input').change ->
+    for file in this.files
+      imageType = /image.*/;
+      return false unless file.type.match(imageType)
+      img = document.createElement("img");
+      # img.classList.add("obj");
+      img.file = file;
+
+      reader = new FileReader()
+      reader.onload = ((aImg) ->
+        (e) ->
+          aImg.src = e.target.result
+      )(img)
+      reader.readAsDataURL file
+
+      $(this).next('.upload_preview').append(img)
+

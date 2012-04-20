@@ -1,56 +1,40 @@
 <%= form_for ['admin',@project] do |f| %>
+
+  <%= render "application/error_messages", :target => @project %>
+
   <fieldset>
     <legend>Details</legend>
-    <div>
+    <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    <div>
+    <div class="field">
       <%= f.label :who %>
       <%= f.text_field :who %>
     </div>
-    <div>
+    <div class="field">
       <%= f.label :where %>
       <%= f.text_field :where %>
     </div>
-    <div>
+    <div class="field">
       <%= f.label :what %>
       <%= f.text_field :what %>
     </div>
-    <div>
+    <div class="field">
       <%= f.label :equipment_used %>
       <%= f.text_area :equipment_used %>
     </div>
   </fieldset>
-  <fieldset>
-    <legend>Photos</legend>
-    <ul>
-    <%= f.fields_for :photos do |p| %>
-      <li id="<%= dom_id p.object %>">
-      <% if p.object.new_record? %>
-        <%= p.label :image %>
-        <%= p.file_field :image %>
 
-      <% else %>
 
-          <%= image_tag p.object.image.thumb.url %>
-          <%= link_to "Delete", admin_photo_path(p.object.id), method: 'delete', confirm: 'Are you sure?', remote: true %>
-          <%= link_to "Edit", edit_admin_photo_path(p.object.id) %>
-      <% end %>
-      </li>
-    <% end %>
-    </ul>
-  </fieldset>
-
-  <fieldset>
-    <legend>Videos</legend>
-    <h4>How to add a new video</h4>
-    <ol>
-      <li><%= link_to "Upload the video", "http://www.youtube.com/my_videos_upload", target: 'blank' %> to YouTube</li>
-      <li>Copy the video URL e.g. http://www.youtube.com/watch?v=rqTE-ig7NhY</li>
-      <li>Paste that URL into the add video box below</li>
-    </ol>
-
+  <fieldset id="media">
+    <legend>Media</legend>
+    <div id="videos">
+      <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
+      <%= f.select :video_ids, options_for_select(
+        Video.all.map{ |v| [v.name, v.id ]},
+        Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
+    </div>
   </fieldset>
 
   <div>

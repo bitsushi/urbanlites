@@ -5,6 +5,8 @@ gem 'paper_trail'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'twitter-text'
 gem 'whenever', :require => false
+gem 'youtube_it'
+gem "awesome_print"
 
 # Gems used only for assets and not required
 # in production environments by default.

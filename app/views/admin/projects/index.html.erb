@@ -9,7 +9,7 @@
     </tr>
   <% end %>
   </table>
-  <%= link_to 'New Project', new_admin_project_path %>
+  <%= link_to 'New Project', new_admin_project_path, class: 'button' %>
 </div>
 
 <div>
@@ -18,6 +18,6 @@
 
 <%= form_tag update_frontpage_items_admin_projects_path, id: 'update_frontpage_items', remote: true do %>
   <%= select_tag 'project', options_for_select(Project.order('window_ordinal ASC, name ASC').all.map{ |p| [p.name, p.id ]}, Project.all.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
-  <%= button_tag 'save', id: 'save_window_ordinals', disabled: true %>
+  <%= button_tag 'save', id: 'save_window_ordinals', disabled: true, class: 'button' %>
 <% end %>
 </div>

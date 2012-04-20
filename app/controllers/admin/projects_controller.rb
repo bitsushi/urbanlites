@@ -40,9 +40,9 @@ class Admin::ProjectsController < Admin::BaseController
   def edit
     @project = Project.find(params[:id])
 
-    1.times do
+    5.times do
       @project.photos.build
-      @project.videos.build
+      # @project.videos.build
     end
   end
 
