@@ -45,6 +45,7 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
   @include bold;
+  text-shadow: 1px 1px 1px #000;
 }
 
 h5,h6 {
@@ -64,6 +65,7 @@ h6 {
 header {
   overflow: hidden;
   border-bottom: 1px solid $blue;
+  text-shadow: 1px 1px 1px #000;
   .container {
     background: image-url('header_bg.jpg') top right no-repeat;
     padding: 38px inherit;
@@ -186,6 +188,7 @@ nav {
       text-align: center;
       width: 100%;
       @include bold;
+      text-shadow: 1px 1px 1px #2E3F81;
     }
     a:hover {
       background: rgba(255,255,255,0.2);
@@ -203,6 +206,40 @@ a {
 //  width: grid-width(5);     // returns 520px;
   margin: 0 auto;
 }
+
+#twitter {
+  @include grid(2);
+  #twitter_bird {
+    background: image-url('twitter_bird.png');
+    width: 120px;
+    display: block;
+    height: 57px;
+    float: right;
+  }
+  .tweet {
+    ul,li {
+      list-style: none;
+    }
+  }
+  .tweet_body {
+  	position:relative;
+  	padding:10px;
+  	color:#FFF;
+  	text-shadow: 1px 1px 1px #1F2A52;
+  	background:$blue; /* default background for browsers without gradient support */
+  	a {
+  	  color: #FFF;
+  	}
+  }
+  .tweet_time {
+    padding: 5px 0;
+    a {
+      text-decoration: none;
+      color: #111;
+    }
+  }
+}
+
 
 
 

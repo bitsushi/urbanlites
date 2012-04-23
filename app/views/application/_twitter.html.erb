@@ -4,6 +4,6 @@
     <div class="tweet_body">‘<%= TwitterPost.first %>‘</div>
     <div id="twitter_bird"></div>
   </div>
-  <span>about <%= time_ago_in_words TwitterPost.first.posted_at %> ago</span>
+  <span class="tweet_time">about <%= time_ago_in_words TwitterPost.first.posted_at %> ago</span>
   <span><%= link_to "Follow us on Twitter", 'http://twitter.com/bitsushi' %></span>
 </div>
