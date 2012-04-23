@@ -44,6 +44,7 @@ a, a:active, a:visited {
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
+  @include bold;
 }
 
 h5,h6 {
@@ -149,7 +150,7 @@ a {
   text-align: right;
   #telephone_number {
     @include bold;
-    font-size: 1.7em;
+    font-size: 2.1em;
   }
   span {
     display: block;
