@@ -2,6 +2,20 @@
 @import "boilerplate";
 @import "jquery.Jcrop";
 
+@mixin font-face($font-family, $url) {
+   @font-face {
+      font-family: '#{$font-family}';
+      src: url('#{$url}.eot?') format('eot'), url('#{$url}.woff') format('woff'), url('#{$url}.svg') format('svg'), url('#{$url}.ttf') format('truetype');
+   }
+}
+
+@include font-face('Formata', '/assets/Formata-Regular');
+@include font-face('FormataMedium', '/assets/Formata-Medium');
+
+@mixin bold {
+  font-family: FormataMedium;
+}
+
 $column-width: 160px !default;
 $gutter-width: 10px !default;
 $columns: 5 !default;
@@ -114,6 +128,7 @@ body {
   color: #FFF;
   font-size: 14px;
   min-width: 940px;
+  font-family: Formata;
 }
 
 a {
@@ -123,13 +138,17 @@ a {
 #ident {
   cursor: pointer;
   @include grid(2);
+  font-size: .85em;
+  img {
+    margin-bottom: 10px;
+  }
 }
 
 #contact_details {
   @include grid(3);
   text-align: right;
   #telephone_number {
-    font-weight: bold;
+    @include bold;
     font-size: 1.7em;
   }
   span {
@@ -160,7 +179,7 @@ nav {
       text-align: center;
       width: 100%;
       color: #FFF;
-      font-weight: bold;
+      @include bold;
     }
     a:hover {
       background: rgba(255,255,255,0.2);
