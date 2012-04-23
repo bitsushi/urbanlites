@@ -2,7 +2,7 @@ jQuery ->
   if $('#map_canvas').length
     myLatlng = new google.maps.LatLng(53.472169,-2.181558);
     myOptions = {
-      zoom: 13
+      zoom: 15
       center: myLatlng
       mapTypeId: google.maps.MapTypeId.ROADMAP
       mapTypeControl: false

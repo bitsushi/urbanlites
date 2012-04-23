@@ -2,6 +2,14 @@ class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  def previous
+    Project.find_by_id(id - 1, :select => 'name,slug')
+  end
+
+  def next
+    Project.find_by_id(id + 1, :select => 'name,slug')
+  end
+
   scope :window, where('window_ordinal > 0').order('window_ordinal ASC')
   default_scope order('ordinal ASC')
 

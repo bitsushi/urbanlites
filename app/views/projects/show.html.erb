@@ -1,10 +1,19 @@
+<div id="previous_project">
+  <%= link_to("← #{@project.previous}", @project.previous) if @project.previous %>
+  &nbsp;
+</div>
+<div id="next_project">
+  &nbsp;
+  <%= link_to("#{@project.next} →", @project.next) if @project.next %>
+</div>
+
 <script type="text/javascript" charset="utf-8">
   window.thumbs = <%= raw @project.photos.map{ |p| p.image.thumb.url }.to_json %>
 </script>
+
 <div id="my-slideshow">
   <%= link_to('Edit', edit_admin_project_path(@project)) if current_user.present? %>
   <h1 id="project_name"><%= @project.name %></h1>
-  <h2 id="project_meta"><%= @project.name %></h2>
 
   <ul class="bjqs">
   <% @project.photos.each do |photo| %>
@@ -27,30 +36,21 @@
   </ul>
 </div>
 
-<div>
+<div id="project_detail">
 
-<p>
-  <b>Who:</b>
-  <%= @project.who %>
-</p>
+<h2><%= @project.name %></h2>
+<span id="in_more_detail">In more detail</span>
 
-<p>
-  <b>Where:</b>
-  <%= @project.where %>
-</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<p>
-  <b>What:</b>
-  <%= @project.what %>
-</p>
+</div>
 
-<p>
-  <b>When:</b>
-  <%= @project.when %>
-</p>
-
-<p>
-  <b>Equipment used:</b>
-  <%= @project.equipment_used %>
-</p>
+<div id="project_quotes">
+  <ul>
+    <li>
+      <blockquote>‘Lorem ipsum dolor sit amet, consecteturadipiscing elit. Nulla id urna ac quamullamcorper adipiscing’</blockquote>
+      <span class="author">Joe Bloggs, BCSC</span>
+    </li>
+  </ul>
 </div>
