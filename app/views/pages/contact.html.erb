@@ -1,17 +1,22 @@
-<div id="map_canvas">
+<div id="map">
+  <div id="map_canvas"></div>
+  <div id="map_address">
 
-<div id="address">
-  <span class="company">UrbanLites Ltd</spa>
-  <span>Unit 10, Medlock Court</span>
-  <span>The City Works</span>
-  <span>Manchester</span>
-  <span>M11 2NB</span>
-  <span>+44 (0)161 402 3271</span>
-  <span><%= mail_to "chris@urbanlites.com", "Email Us", encode: "hex" %></span>
-</div>
-
+    <h4 id="how_to_contact_us">How to Contact Us</h4>
+    <span class="company">UrbanLites Ltd</spa>
+    <span>Unit 10</span>
+    <span>Medlock Court</span>
+    <span>The City Works</span>
+    <span>Manchester</span>
+    <span>M11 2NB</span>
+    <span class="tel">Tel. +44 (0)161 402 3271</span>
+    <span>Email us at:<br/><%= mail_to "chris@urbanlites.com", "chris@urbanlites.com", encode: "hex", class: 'email_us' %></span>
+  </div>
 </div>
 
 <div id="downloads">
-<%= link_to "Downloads", downloads_path %>
+  <%= link_to "Click here to access our downloads page...", downloads_path, id: "downloads_button", class: 'hide_text' %>
+  <%#= link_to "Downloads", downloads_path %>
 </div>
+
+<%= render 'application/twitter' %>

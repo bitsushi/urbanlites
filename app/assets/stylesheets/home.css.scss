@@ -38,7 +38,7 @@ ul.bjqs-controls li a.bjqs-prev {
     position: relative;
 
     .quote {
-      font-style: italic;
+      @include italic;
       .author {
         color: #cad9f0;
       }

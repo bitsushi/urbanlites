@@ -10,15 +10,48 @@
 //  float: left;
 //}
 
-#map_canvas {
+#map {
   position: relative;
   display: block;
-//  width: grid-width(5);
   height: 400px;
   @include grid(5);
+  margin-bottom: 20px;
+  #map_canvas {
+    width: 100%;
+    height: 100%;
+  }
+  #map_address {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.8);
+    width: 180px;
+  }
+}
+
+#how_to_contact_us {
+  color: $blue;
+  margin-bottom: 1em;
+}
+
+.tel {
+  margin-top: 1em;
+}
+
+.email_us {
+  color: #FFF;
 }
 
 #downloads {
-  @include grid(1);
+  @include grid(3);
 //  width: grid-width(8);
+}
+
+#downloads_button {
+  width: 434px;
+  height: 157px;
+  display: block;
+  background: image-url('downloads_button.png');
 }

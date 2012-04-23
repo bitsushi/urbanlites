@@ -11,10 +11,10 @@
 
 @include font-face('Formata', '/assets/Formata-Regular');
 @include font-face('FormataMedium', '/assets/Formata-Medium');
+@include font-face('FormataItalic', '/assets/Formata-Italic');
 
-@mixin bold {
-  font-family: FormataMedium;
-}
+@mixin bold { font-family: FormataMedium; }
+@mixin italic { font-family: FormataItalic; }
 
 $column-width: 160px !default;
 $gutter-width: 10px !default;
@@ -97,10 +97,9 @@ footer {
     }
 
     li {
-      overflow:hidden;
+      @extend .hide_text;
       background-repeat: no-repeat;
       background-image: image-url('sprites.png');
-      text-indent: -999px;
       margin-right: 10px;
       &.facebook {width:24px; height:24px; background-position: -2px -28px};
       &.flickr {width:23px; height:24px; background-position: -28px -28px};
@@ -161,6 +160,12 @@ a {
   @include button;
 }
 
+.hide_text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 nav {
   background: image-url('nav_bg.gif') center repeat-x;
   clear: both;
@@ -175,11 +180,11 @@ nav {
     display: block;
     @include grid(1);
     a, a:active, a:visited {
+      color: #FFF !important;
       padding: 7px 0;
       display: block;
       text-align: center;
       width: 100%;
-      color: #FFF;
       @include bold;
     }
     a:hover {
