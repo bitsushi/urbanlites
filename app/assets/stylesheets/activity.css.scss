@@ -5,3 +5,29 @@
 h3.activity_filter {
   color: #DDD;
 }
+
+ul,li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul#social_columns > li {
+  @include grid(2);
+
+  .title {
+    color: $blue;
+    font-size: .9em;
+  }
+  p {
+    margin: .2em;
+  }
+
+  & li {
+    border-bottom: 1px solid $blue;
+    padding: 8px 0;
+  }
+  & li:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,8 +1,16 @@
-<ul>
-<% @posts.each do |post| %>
-  <li class="<%= post.type %>">
-    <%= post %>
-    <%= time_ago_in_words post.posted_at %>
+<ul id="social_columns">
+  <li class="twitter">
+    <ul>
+    <% @posts.each do |tweet| %>
+      <li class="tweet">
+        <span class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</span>
+        <p><%= tweet %></p>
+
+      </li>
+    <% end %>
+    </ul>
   </li>
-<% end %>
+  <li class="facebook"></li>
+  <li class="youtube"></li>
+  <li class="flickr"></li>
 </ul>
