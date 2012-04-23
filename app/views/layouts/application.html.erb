@@ -10,7 +10,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application", "//maps.googleapis.com/maps/api/js?sensor=false" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= javascript_include_tag("//maps.googleapis.com/maps/api/js?sensor=false") if action_name == "contact" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,8 +23,10 @@
 
   <header>
     <div class="container">
-      <div id="ident">
-        <div id="logo"><%= image_tag "urban_lites_logo.png" %></div>
+      <div id="ident" data-url="<%= root_url %>">
+        <div id="logo">
+          <%= image_tag "urban_lites_logo.png", width: 247, height: 46, alt: 'Urban Lites' %>
+        </div>
         <span id="tag_line">High quality lighting, rigging design and rental services.</span>
       </div>
 
@@ -46,19 +50,22 @@
     </div>
   </nav>
 
-  <div role="main">
-    <div class="container"><%= yield %></div>
+  <div role="main" id="main">
+    <div class="container">
+    <%= yield %></div>
   </div>
 
   <footer>
 
     <div class="container">
-      <ul id="social_buttons">
-        <li><%= link_to "Twitter", 'http://twitter.com/urbanlites' %></li>
-        <li><%= link_to "Facebook", 'http://facebook.com/urbanlites' %></li>
-        <li><%= link_to "YouTube", 'http://youtube.com/urbanlites' %></li>
-        <li><%= link_to "Flickr", 'http://flickr.com/urbanlites' %></li>
+      <div id="social_buttons">
+      <ul>
+        <li class="twitter"><%= link_to "Twitter", 'http://twitter.com/urbanlites' %></li>
+        <li class="facebook"><%= link_to "Facebook", 'http://facebook.com/urbanlites' %></li>
+        <li class="youtube"><%= link_to "YouTube", 'http://youtube.com/urbanlites' %></li>
+        <li class="flickr"><%= link_to "Flickr", 'http://flickr.com/urbanlites' %></li>
       </ul>
+      </div>
 
       <div id="address">
         <span>UrbanLites Ltd, Unit 10, Medlock Court, The City Works, Manchester, M11 2NB</span>

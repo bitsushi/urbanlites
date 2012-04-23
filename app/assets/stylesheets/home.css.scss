@@ -1,24 +1,84 @@
+#window_container {
+  @include grid(5);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
 #my-slideshow {
   //  overflow: auto;
   position: relative;
 }
 
+ul.bjqs-controls li a.bjqs-prev {
+//  background: red;
+//  left: -20px;
+}
+
 #window {
   border: 1px solid $blue;
-  height: 600px;
-  background: #111;
+  background: image-url('window_example.jpg') #111;
   position: relative;
-  overflow: hidden;
-  h1 {
+//  overflow: hidden;
+  height: 420px;
+
+  h1, h2 {
     position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2em;
+    a {
+      color: #FFF;
+    }
+  }
+  h2 {
+    margin-top: 1em;
+    color: $blue;
   }
   .description {
-    padding: 10px;
+
+    position: relative;
+
+    .quote {
+      font-style: italic;
+      .author {
+        color: #cad9f0;
+      }
+      .company {
+        color: $blue;
+      }
+    }
+
+
+    dl, dd, dt { margin: 0; padding: 0;}
+    dt { color: $blue;}
+    dl{ display: block; position: absolute; bottom: 60px;}
+
+//    padding: 10px;
     float: right;
-    width: 200px;
-    height: 100%;
-    background: red;
+    width: 180px;
+    height: 420px;
+//    background-color: rbga(0,0,0,0.9);
+    @include linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.5), #000);
+    .inner {
+      padding: 10px;
+    }
+
+    .see_more {
+      background: red;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background: #1a253e;
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        color: #cad9f0;
+      }
+    }
   }
+
 }
 
 .tweet {
@@ -31,22 +91,22 @@
 	position:relative;
 	padding:10px;
 	color:#FFF;
-	background:#394D9D; /* default background for browsers without gradient support */
+	background:$blue; /* default background for browsers without gradient support */
 	a {
 	  color: #FFF;
 	}
-  &:after {
-    content:"";
-    position:absolute;
-    bottom:-15px; /* value = - border-top-width - border-bottom-width */
-    left:300px; /* controls horizontal position */
-    border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
-    border-style:solid;
-    border-color:#f3961c transparent;
-    /* reduce the damage in FF3.0 */
-    display:block;
-    width:0;
-  }
+//  &:after {
+//    content:"";
+//    position:absolute;
+//    bottom:-15px; /* value = - border-top-width - border-bottom-width */
+//    left:300px; /* controls horizontal position */
+//    border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+//    border-style:solid;
+//    border-color:#f3961c transparent;
+//    /* reduce the damage in FF3.0 */
+//    display:block;
+//    width:0;
+//  }
 }
 .tweet_time {
   padding: 5px;
@@ -57,10 +117,18 @@
 }
 
 #description {
-  float: left;
-  width: grid-width(6);     // returns 520px;
+  @include grid(3);
+//  width: grid-width(6);     // returns 520px;
 }
 #twitter {
+  @include grid(2);
+//  width: grid-width(3);     // returns 520px;
+}
+
+#twitter_bird {
+  background: image-url('twitter_bird.png');
+  width: 120px;
+  display: block;
+  height: 57px;
   float: right;
-  width: grid-width(3);     // returns 520px;
 }

@@ -1,20 +1,44 @@
+<div id="window_container">
 <div id="my-slideshow">
 <ul class="bjqs">
   <% @projects.each do |project| %>
   <li>
   <div id="window">
     <h1><%= link_to project.name, project %></h1>
+    <h2>Management Event 2012</h2>
     <div class="description">
-      <%= project.equipment_used %>
-      <h3>When?</h3>
-      <p><%= project.when %></p>
-      <h3>What?</h3>
-      <p><%= project.what %></p>
+      <div class="inner">
+        <span class="quote">
+      <q>‘Lorem ipsum dolorsit amet, consectetur adipiscing elit. Nulla id urna’</q>
+      <span class="author">Joe Bloggs</span>
+      <span class="company">Whitbread Hotels & Restaurants</span>
+      </span>
+
+      <dl>
+        <dt>Who</dt>
+        <dd><%= project.who %></dd>
+        <dt>When</dt>
+        <dd><%= project.when %></dd>
+        <dt>What</dt>
+        <dd><%= project.what %></dd>
+      </dl>
+
+      </div>
+
+      <div class="see_more">
+        <%= link_to "Want to see more?", project %>
+      </div>
+
     </div>
+
+
   </div>
+
+
   </li>
   <% end %>
 </ul>
+</div>
 </div>
 
 <div id="description">
@@ -27,7 +51,9 @@
 <div id="twitter">
   <h5>Our latest tweet...</h5>
   <div class="tweet">
-    <div class="tweet_body"><%= TwitterPost.first %></div>
+    <div class="tweet_body">‘<%= TwitterPost.first %>‘</div>
+    <div id="twitter_bird"></div>
   </div>
-  <%= link_to "Follow us on Twitter", 'http://twitter.com/bitsushi' %>
+  <span>about <%= time_ago_in_words TwitterPost.first.posted_at %> ago</span>
+  <span><%= link_to "Follow us on Twitter", 'http://twitter.com/bitsushi' %></span>
 </div>

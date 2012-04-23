@@ -1,19 +1,24 @@
-#address {
-  span {
-    display: block;
-  }
-  width: grid-width(2);
-  float: left;
-}
+//#address {
+//  position: absolute;
+//  z-index: 999;
+//  right: 0;
+//  @include grid(1);
+//  span {
+//    display: block;
+//  }
+////  width: grid-width(2);
+//  float: left;
+//}
 
 #map_canvas {
+  position: relative;
   display: block;
-  width: grid-width(5);
+//  width: grid-width(5);
   height: 400px;
-  float: left;
+  @include grid(5);
 }
 
 #downloads {
-  clear: both;
-  width: grid-width(8);
+  @include grid(1);
+//  width: grid-width(8);
 }

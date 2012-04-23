@@ -8,7 +8,11 @@ jQuery ->
   #   template: "<div class='tweet_body'>{text}</div><div class='tweet_time'>{time}</div>"
   $('#my-slideshow').bjqs
     width: '100%'
+    height: 430
     # height : 600
     showMarkers: false
     showControls: true
     centerMarkers: false
+
+  $('#ident').click ->
+    window.location = $(this).data('url')

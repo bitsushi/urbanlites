@@ -6,7 +6,6 @@
 
 # Ignore bundler config
 /.bundle
-secret*.rb
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
