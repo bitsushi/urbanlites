@@ -11,8 +11,11 @@ body#c-pages-a-our_ethos {
     padding: 10px;
     @include grid(4);
     background: rgba(0,0,0,0.4);
+    margin-top: 13%;
+    width: 70%;
   }
-  .window {
+
+  .inner_container {
     display: table-cell;
     vertical-align:middle;
   }

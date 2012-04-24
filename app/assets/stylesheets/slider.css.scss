@@ -58,27 +58,38 @@ a.bjqs-next{
  ol.bjqs-markers{
   position:absolute;
 //  bottom:-50px;
-bottom: 5px;
-right: 5px;
+bottom: 20px;
+right: 32px;
 }
 
  ol.bjqs-markers li{
   float:left;
   margin:0 3px;
+
+  width: 26px;
+  height: 26px;
+  opacity: 0.4;
+  background:#4a63ae;
+  text-align: center;
+  line-height: 26px;
+  a { color: #000; }
+  font-size: 1.3em;
+  cursor: pointer;
+
 }
 
- ol.bjqs-markers li a{
-  display:block;
-  height:10px;
-  width:10px;
-  border:4px solid #fff;
-  overflow:hidden;
-  text-indent:-9999px;
-  background:#000;
-  border-radius:10px;
-  box-shadow:0 0 50px rgba(0,0,0,0.5);
-}
+// ol.bjqs-markers li a{
+//  display:block;
+//  height:10px;
+//  width:10px;
+//  border:4px solid #fff;
+//  overflow:hidden;
+//  text-indent:-9999px;
+//  background:#000;
+//  border-radius:10px;
+//  box-shadow:0 0 50px rgba(0,0,0,0.5);
+//}
 
-ol.bjqs-markers li.active-marker a{
-  background:#fd0100;
+ol.bjqs-markers li.active-marker{
+  opacity: 1;
 }

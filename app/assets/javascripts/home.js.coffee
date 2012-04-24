@@ -10,7 +10,7 @@ jQuery ->
     width: '100%'
     height: 430
     # height : 600
-    showMarkers: false
+    showMarkers: true
     showControls: true
     centerMarkers: false
 
