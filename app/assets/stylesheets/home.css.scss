@@ -1,27 +1,46 @@
+.container {
+  padding: 0 10px;
+//  background: yellow;
+}
 #window_container {
   @include grid(5);
+  margin: 0;
   margin-bottom: 20px;
+  margin-left: -12px;
+  width: 928px;
   overflow: hidden;
   .window {
     display: block;
     border: 1px solid $blue;
     position: relative;
     height: 420px;
-    width: 100%;
+    width: 880px;
+    margin: 0 auto;
   }
 }
 
+#my-slideshow {
+  //  overflow: auto;
+  position: relative;
+}
 
 body#c-pages-a-home {
 
-  #my-slideshow {
-    //  overflow: auto;
-    position: relative;
-  }
 
-  ul.bjqs-controls li a.bjqs-prev {
-  //  background: red;
-  //  left: -20px;
+
+  ul.bjqs-controls {
+    li a.bjqs-prev, li a.bjqs-next {
+      //  background: red;
+      //  left: -20px;
+      background: image-url('arrows.png') no-repeat left center;
+      width: 24px;
+      height: 100%;
+      @extend .hide_text;
+      padding: 0;
+    }
+    li a.bjqs-next {
+      background-position: -24px center;
+    }
   }
 
   .window {
