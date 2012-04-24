@@ -1,4 +1,5 @@
 jQuery ->
+  $('a[title]').qtip();
 
   $('body#c-projects-a-index .project').click ->
     window.location = $(this).data('url')

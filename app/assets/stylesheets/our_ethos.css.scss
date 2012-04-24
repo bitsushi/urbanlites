@@ -12,26 +12,8 @@ body#c-pages-a-our_ethos {
     @include grid(4);
     background: rgba(0,0,0,0.4);
   }
-  #window {
+  .window {
     display: table-cell;
     vertical-align:middle;
-  }
-}
-
-ol#our_ethos {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  clear: both;
-  li {
-    border: 1px solid black;
-    display: block;
-    width: 120px;
-    float: left;
-    margin-right: 10px;
-    .description {
-      background: rgba(0,0,0,0.7);
-    }
   }
 }

@@ -1,26 +1,41 @@
 body#c-downloads-a-index {
 .date_uploaded {
   color: $blue;
-}
+  }
 
 h3 a {
   color: #FFF;
 }
 
+ul#downloads {
+  margin-left: 10px;
+}
+
 li.download {
+  background: image-url('download.png');
   @include grid(1);
-  width: 200px;
+  width: 215px;
   cursor: pointer;
-  margin-bottom: 10px;
+  height: 160px;
+  margin: 0;
+  margin-left: 10px;
+  margin-bottom: 20px;
 
   .inner {
-    border: 1px solid $blue;
+//    border: 1px solid $blue;
     padding: 10px;
-    height: 140px;
+    line-height: 130%;
+//    height: 140px;
+  }
+  &:hover {
+    a {
+      color: #6F95E3;
+    }
   }
 }
 
-h1 {
-  @include grid(4);
-}
+  h1 {
+    @include grid(4);
+    margin-bottom: 10px;
+  }
 }

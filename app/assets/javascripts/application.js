@@ -23,6 +23,8 @@
 
 //= require jquery.Jcrop
 
+//= require jquery.qtip
+
 //= require jquery.bsmselect
 //= require jquery.bsmselect.sortable
 

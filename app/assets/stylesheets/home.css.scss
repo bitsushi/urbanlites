@@ -2,10 +2,12 @@
   @include grid(5);
   margin-bottom: 20px;
   overflow: hidden;
-  #window {
+  .window {
+    display: block;
     border: 1px solid $blue;
     position: relative;
     height: 420px;
+    width: 100%;
   }
 }
 
@@ -22,7 +24,7 @@ body#c-pages-a-home {
   //  left: -20px;
   }
 
-  #window {
+  .window {
 
     background: image-url('window_example.jpg') #111;
 
