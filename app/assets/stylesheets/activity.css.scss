@@ -13,7 +13,25 @@ ul,li {
 }
 
 ul#social_columns > li {
-  @include grid(2);
+
+  h2 {
+    display:block;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-image: image-url('bigsocial.png');
+    width:48px; height:48px;
+    @extend .hide_text;
+  }
+
+  &.youtube {
+    @include grid(3);
+    h2 { background-position: -2px -2px; }
+  }
+
+  &.twitter {
+    @include grid(2);
+    h2 { background-position: -2px -52px; }
+  }
 
   .title {
     color: $blue;

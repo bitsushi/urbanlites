@@ -1,16 +1,29 @@
 <ul id="social_columns">
   <li class="twitter">
+    <h2>Twitter</h2>
     <ul>
     <% @posts.each do |tweet| %>
       <li class="tweet">
         <span class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</span>
         <p><%= tweet %></p>
-
       </li>
     <% end %>
     </ul>
   </li>
+
   <li class="facebook"></li>
-  <li class="youtube"></li>
+
+  <li class="youtube">
+    <h2>Youtube</h2>
+    <ul>
+    <% Video.limit(3).each do |video| %>
+      <li class="tweet">
+        <span class="title">youtube, <%= time_ago_in_words video.created_at %> ago</span>
+        <p><%= raw video_tag(video.uid, '100%', 300) %></p>
+      </li>
+    <% end %>
+    </ul>
+  </li>
+
   <li class="flickr"></li>
 </ul>
