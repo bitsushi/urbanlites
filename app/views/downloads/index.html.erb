@@ -2,12 +2,17 @@
 
 <ul>
 <% @downloads.each do |download| %>
-  <li>
-    <h3><%= link_to download.name, download.file.url %></h3>
-    <div><%= download.description %></div>
-    <span><%= link_to('Edit', edit_admin_download_path(download))  if current_user.present? %></span>
+<% 10.times do %>
+  <li class="download">
+    <div class="inner">
+      <h3><%= link_to download.name, download.file.url %></h3>
+      <span class="date_uploaded"><%= l(download.updated_at, format: :short) %></span>
+      <div><%= download.description %></div>
+      <span><%= link_to('Edit', edit_admin_download_path(download), class: 'button')  if current_user.present? %></span>
+    </div>
   </li>
+<% end %>
 <% end %>
 </ul>
 
-<%= link_to('New Download', new_admin_download_path) if current_user.present? %>
+<%= link_to('New Download', new_admin_download_path, class: 'button') if current_user.present? %>

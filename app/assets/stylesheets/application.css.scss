@@ -160,6 +160,7 @@ a {
 
 .button {
   @include button;
+  color: #FFF !important;
 }
 
 .hide_text {
@@ -245,6 +246,7 @@ a {
 
 @import "home";
 @import "projects";
+@import "downloads";
 @import "activity";
 @import "contact";
 @import "services";
