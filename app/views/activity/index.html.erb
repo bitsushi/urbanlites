@@ -16,10 +16,10 @@
   <li class="youtube">
     <h2>Youtube</h2>
     <ul>
-    <% Video.limit(3).each do |video| %>
+    <% YoutubePost.limit(3).each do |video| %>
       <li class="tweet">
-        <span class="title">youtube, <%= time_ago_in_words video.created_at %> ago</span>
-        <p><%= raw video_tag(video.uid, '100%', 300) %></p>
+        <span class="title">youtube, <%= time_ago_in_words video.posted_at %> ago</span>
+        <p><%= raw video_tag(video.service_id, '100%', 300) %></p>
       </li>
     <% end %>
     </ul>
