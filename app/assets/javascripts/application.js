@@ -25,6 +25,8 @@
 
 //= require jquery.qtip
 
+//= require jquery.swipe-events
+
 //= require jquery.bsmselect
 //= require jquery.bsmselect.sortable
 

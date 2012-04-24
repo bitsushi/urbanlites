@@ -1,6 +1,10 @@
 jQuery ->
   $('a[title]').qtip();
 
+  $('#window_container').swipeEvents()
+    .bind("swipeLeft",  -> $('a.bjqs-prev').trigger('click') )
+    .bind("swipeRight",  -> $('a.bjqs-next').trigger('click') )
+
   $('body#c-projects-a-index .project').click ->
     window.location = $(this).data('url')
 
