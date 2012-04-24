@@ -21,6 +21,7 @@ Urbanlites::Application.routes.draw do
     resources :photos
     resources :services, only: [:index, :edit, :update]
     resources :downloads
+    resources :ethoses
     resources :posts
   end
 

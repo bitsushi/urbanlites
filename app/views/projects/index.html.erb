@@ -1,21 +1,24 @@
-<% @projects.each do |project| %>
-<div id="<%= dom_id project %>" class="project">
-  <div class="thumb" style="float: <%= cycle('left','right') %>">
-  <%= image_tag(project.photos.first.image.thumb.url) if project.photos.first %>
+<h1>Projects</h1>
+
+<div id="projects">
+<% @projects.each_with_index do |project,index| %>
+<% 5.times do %>
+<div id="<%= dom_id project %>" class="project" data-url="<%= project_path(project) %>">
+  <div class="inner">
+
+    <div class="thumb"><%= image_tag(project.photos.first.image.thumb.url) if project.photos.first %></div>
+
+    <div class="description">
+
+      <h3 class="name"><%= link_to project.name, project %></h3>
+      <span class="description"><%= project.equipment_used %></span>
+      <%= link_to "Read more...", project, class: 'read_more' %>
+    </div>
+
   </div>
-
-  <h3><%= link_to project.name, project %></h3>
-  <!--<span><%= link_to('Edit', edit_admin_project_path(project)) if current_user %></span>-->
-  <span><%#= link_to('Destroy', project, confirm: 'Are you sure?', method: :delete) if current_user %></span>
-
-  <span><%= project.who %></span>
-  <span><%= project.where %></span>
-  <span><%= project.what %></span>
-  <span><%= project.when %></span>
-  <span><%= project.equipment_used %></span>
 </div>
 <% end %>
+<% end %>
+</div>
 
-<br />
-
-<%= link_to('New Project', new_admin_project_path) if current_user.present? %>
+<%#= link_to('New Project', new_admin_project_path) if current_user.present? %>

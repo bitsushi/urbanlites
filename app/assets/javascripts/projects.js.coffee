@@ -1,5 +1,8 @@
 jQuery ->
 
+  $('body#c-projects-a-index .project').click ->
+    window.location = $(this).data('url')
+
   $('#add_video').click ->
     embed_code = $('#video_url').val().replace(/^[^v]+v.(.{11}).*/,"$1")
     $('#video_url').val('').focus()

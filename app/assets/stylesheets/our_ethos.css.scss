@@ -1,6 +1,20 @@
 body#c-pages-a-our_ethos {
   h1 {
+    margin: 0;
     font-size: 3em;
+  }
+  p {
+    clear: both;
+  }
+  .inner {
+    display:table;
+    padding: 10px;
+    @include grid(4);
+    background: rgba(0,0,0,0.4);
+  }
+  #window {
+    display: table-cell;
+    vertical-align:middle;
   }
 }
 

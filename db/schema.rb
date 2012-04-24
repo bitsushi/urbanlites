@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419100549) do
+ActiveRecord::Schema.define(:version => 20120424134739) do
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(:version => 20120419100549) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "ethoses", :force => true do |t|
+    t.string   "headline"
+    t.text     "description"
+    t.integer  "ordinal"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "ethoses", ["ordinal"], :name => "index_ethoses_on_ordinal"
 
   create_table "photos", :force => true do |t|
     t.string   "name"
