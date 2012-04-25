@@ -14,9 +14,11 @@ body#c-projects-a-index {
   }
   h1 {
     @include grid(5);
+    margin-bottom: .5em;
   }
   .inner {
     padding: 10px;
+    overflow: hidden;
   }
   .thumb {
     width: 120px;
@@ -27,14 +29,17 @@ body#c-projects-a-index {
   }
   h3.name a {
     color: #FFF;
+    padding-bottom: .3em;
+    display: block;
   }
   div.description {
-        position: relative;
+    position: relative;
+    width: 250px;
+    float: left;
   }
   span.description {
     color: $blue;
     font-size: .85em;
-
   }
   a.read_more {
 //    position: absolute;
