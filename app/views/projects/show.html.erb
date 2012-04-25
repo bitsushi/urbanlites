@@ -11,29 +11,22 @@
   window.thumbs = <%= raw @project.photos.map{ |p| p.image.thumb.url }.to_json %>
 </script>
 
-<div id="my-slideshow">
-  <%= link_to('Edit', edit_admin_project_path(@project)) if current_user.present? %>
-  <h1 id="project_name"><%= @project.name %></h1>
-
-  <ul class="bjqs">
-  <% @project.photos.each do |photo| %>
-    <li>
-    <div id="window">
-      <%= image_tag photo.image.window.url %>
-    </div>
-    </li>
-  <% end %>
-
-<% 3.times do %>
-  <% @project.videos.each do |video| %>
-    <li>
-    <div id="window">
-      <%= raw video_tag(video.uid) %>
-    </div>
-    </li>
-  <% end %>
-<% end %>
-  </ul>
+<div id="window_container">
+  <div id="my-slideshow">
+    <ul class="bjqs">
+      <% Ethos.all.each do |ethos| %>
+      <li>
+        <div class="window" style="background: url(<%= image_path 'our_ethos/ethosbg.jpg' %>)">
+          <div class="inner_container">
+          <div class="inner">
+          <h1><%= @project.name %></h1>
+          </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div id="project_detail">

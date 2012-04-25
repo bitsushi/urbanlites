@@ -142,6 +142,9 @@ footer {
     span {
       display: block;
     }
+    a {
+      color: #FFF;
+    }
   }
 }
 
@@ -236,6 +239,7 @@ a {
     width: 120px;
     display: block;
     height: 57px;
+    margin-right: 10px;
     float: right;
   }
   .tweet {

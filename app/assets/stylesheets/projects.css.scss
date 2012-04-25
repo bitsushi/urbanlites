@@ -52,10 +52,26 @@ body#c-projects-a-index {
 
 body#c-projects-a-show {
 
+  #window_container {
+    margin-top: 10px;
+    h1 {
+      padding: 10px;
+    }
+  }
+
+  .bjqs-markers {
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+  }
+
   h1#project_name, h1#project_meta {
     position: relative;
     z-index: 10;
   }
+
   #window {
     position: relative;
   //  height: 200px;
@@ -64,11 +80,13 @@ body#c-projects-a-show {
 
 
   ol.bjqs-markers li {
-    opacity: .3;
-    &:hover {
+    height: 100px;
+    width: 100px;
+    background: $blue;
+    &:hover img {
       opacity: .6;
     }
-    &.active-marker {
+    &.active-marker img {
       opacity: 1;
     }
   }
