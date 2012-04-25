@@ -5,8 +5,8 @@
 <% 10.times do %>
   <li class="download" data-url="<%= download.file.url %>">
     <div class="inner">
-      <h3><%= link_to download.name, download.file.url %></h3>
-      <span class="date_uploaded"><%= l(download.updated_at, format: :short) %></span>
+      <h3>Emergency Lighting Regulations<%#= link_to download.name, download.file.url %></h3>
+      <span class="date_uploaded"><%= l(download.updated_at, format: :micro) %></span>
       <!--<div><%= download.description %></div>
       <span><%= link_to('Edit', edit_admin_download_path(download), class: 'button')  if current_user.present? %></span>-->
     </div>
