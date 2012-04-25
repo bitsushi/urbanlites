@@ -16,6 +16,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="c-<%= controller_name %>-a-<%= action_name %>">
+
+  <div class="page_wrapper">
+
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -55,8 +58,11 @@
     <%= yield %></div>
   </div>
 
-  <footer>
+  <div class="push"></div>
+  </div>
 
+  <footer>
+<div class="inner">
     <div class="container">
       <div id="social_buttons">
       <ul>
@@ -73,7 +79,7 @@
       </div>
 
     </div>
-
+</div>
 
 
   </footer>
