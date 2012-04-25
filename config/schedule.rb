@@ -21,6 +21,10 @@
 
 set :output, "#{path}/log/cron.log"
 
-every 10.minutes do
-  rake "fetch:activities"
+every 5.minutes do
+  rake "fetch:twitter"
+end
+
+every 20.minutes do
+  rake "fetch:youtube"
 end

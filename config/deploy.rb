@@ -51,3 +51,6 @@ namespace :deploy do
   end
   before "deploy", "deploy:check_revision"
 end
+
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
