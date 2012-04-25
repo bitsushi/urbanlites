@@ -5,5 +5,5 @@ jQuery ->
     ->
       $(this).find('div.description').fadeIn()
     ->
-      $(this).find('div.description').fadeOut()
+      $(this).find('div.description').stop().fadeOut()
   )

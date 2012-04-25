@@ -1,8 +1,10 @@
 <ul id="services">
 <% @services.each do |service| %>
   <li>
+    <div class="inner">
     <div class="title"><%= service.name %></div>
     <div class="description"><%= service.description %></div>
+    </div>
   </li>
 <% end %>
 </ul>
