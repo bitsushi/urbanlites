@@ -1,4 +1,12 @@
 class Admin::ServicesController < Admin::BaseController
+
+  def sort
+    params[:service].each_with_index do |id, index|
+      Service.update_all({ordinal: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   # GET /services
   # GET /services.json
   def index

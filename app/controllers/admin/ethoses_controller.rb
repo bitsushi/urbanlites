@@ -1,5 +1,12 @@
 class Admin::EthosesController < Admin::BaseController
 
+  def sort
+    params[:ethos].each_with_index do |id, index|
+      Ethos.update_all({ordinal: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   # GET /ethoses
   # GET /ethoses.json
   def index

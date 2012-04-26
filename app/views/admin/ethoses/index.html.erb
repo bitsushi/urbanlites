@@ -1,11 +1,11 @@
 <div>
   <h1>Our Ethos</h1>
-<table class="sortable">
+<table class="sortable" data-update-url="<%= sort_admin_ethoses_url %>">
 <% @ethoses.each do |ethos| %>
-  <tr>
+<%= content_tag_for :tr, ethos do %>
     <td>+</td>
     <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
-  </tr>
+<% end %>
 <% end %>
 </table>
 </div>

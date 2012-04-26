@@ -1,12 +1,13 @@
 <div>
   <h1>Services</h1>
-<table class="sortable">
+<table class="sortable" data-update-url="<%= sort_admin_services_url %>">
 <% @services.each do |service| %>
-  <tr>
+<%= content_tag_for :tr, service do %>
+
     <td>+</td>
 
   <td><%= link_to service, edit_admin_service_path(service) %></td>
-  </tr>
+<% end %>
 <% end %>
 </table>
 </div>

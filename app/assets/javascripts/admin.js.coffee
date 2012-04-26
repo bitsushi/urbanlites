@@ -15,6 +15,8 @@ jQuery ->
     axis: 'y'
     forceHelperSize: true
     items: 'tr'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
 
 
 
