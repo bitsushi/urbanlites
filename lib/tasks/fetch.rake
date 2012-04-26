@@ -7,7 +7,7 @@ namespace :fetch do
     results = JSON.parse(open("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=bitsushi&count=10").read)
     results.each do |result|
       begin
-        Tweet.create(content: result['text'], uid: result['id'], posted_at: result['created_at'])
+        Tweet.create(body: result['text'], uid: result['id'], posted_at: result['created_at'])
       rescue
         p "already added"
       end

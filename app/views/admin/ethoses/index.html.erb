@@ -1,9 +1,10 @@
 <div>
   <h1>Our Ethos</h1>
-<table>
+<table class="sortable">
 <% @ethoses.each do |ethos| %>
   <tr>
-  <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
+    <td>+</td>
+    <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
   </tr>
 <% end %>
 </table>

@@ -1,8 +1,10 @@
 <div>
   <h1>Services</h1>
-<table>
+<table class="sortable">
 <% @services.each do |service| %>
   <tr>
+    <td>+</td>
+
   <td><%= link_to service, edit_admin_service_path(service) %></td>
   </tr>
 <% end %>
