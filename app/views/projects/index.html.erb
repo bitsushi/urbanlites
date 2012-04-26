@@ -1,6 +1,7 @@
 <h1>Projects</h1>
 
 <div id="projects">
+
 <% @projects.each_with_index do |project,index| %>
 <div id="<%= dom_id project %>" class="project" data-url="<%= project_path(project) %>">
   <div class="inner">

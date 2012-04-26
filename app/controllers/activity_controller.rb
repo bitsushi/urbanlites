@@ -1,5 +1,6 @@
 class ActivityController < ApplicationController
   def index
-    @posts = TwitterPost.limit(10)
+    @tweets = Tweet.limit(10)
+    @videos = Video.limit(3)
   end
 end

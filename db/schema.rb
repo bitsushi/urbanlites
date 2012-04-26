@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426113357) do
+ActiveRecord::Schema.define(:version => 20120426194818) do
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
@@ -95,6 +95,17 @@ ActiveRecord::Schema.define(:version => 20120426113357) do
   end
 
   add_index "services", ["ordinal"], :name => "index_services_on_ordinal"
+
+  create_table "tweets", :force => true do |t|
+    t.string   "body"
+    t.string   "media"
+    t.string   "uid",       :limit => 40
+    t.string   "url"
+    t.datetime "posted_at"
+  end
+
+  add_index "tweets", ["posted_at"], :name => "index_tweets_on_posted_at"
+  add_index "tweets", ["uid"], :name => "index_tweets_on_uid", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"

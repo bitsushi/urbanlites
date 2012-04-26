@@ -7,7 +7,7 @@ namespace :fetch do
     results = JSON.parse(open("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=bitsushi&count=10").read)
     results.each do |result|
       begin
-        TwitterPost.create(content: result['text'], service_id: result['id'], posted_at: result['created_at'])
+        Tweet.create(content: result['text'], uid: result['id'], posted_at: result['created_at'])
       rescue
         p "already added"
       end
@@ -20,7 +20,12 @@ namespace :fetch do
       begin
         if result['link'][0]['href'].present?
           p result['link'][0]['href']
-          YoutubePost.create(content: result['title']['$t'], service_id: result['link'][0]['href'].gsub(/^[^v]+v.(.{11}).*/,"#{$1}"), posted_at: result['published']['$t'], url: result['link'][0]['href'])
+          Video.create(
+            name: result['title']['$t'],
+            uid: result['link'][0]['href'].gsub(/^[^v]+v.(.{11}).*/,"#{$1}"),
+            published_at: result['published']['$t']
+            # url: result['link'][0]['href']
+          )
         end
       rescue
         p "already added"

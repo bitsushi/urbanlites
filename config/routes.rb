@@ -18,8 +18,9 @@ Urbanlites::Application.routes.draw do
         post :update_frontpage_items
       end
     end
+    resources :frontpage
     resources :photos
-    resources :services, only: [:index, :edit, :update]
+    resources :services
     resources :downloads
     resources :ethoses
     resources :posts

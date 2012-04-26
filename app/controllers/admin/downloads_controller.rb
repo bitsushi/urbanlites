@@ -3,22 +3,12 @@ class Admin::DownloadsController < Admin::BaseController
   # GET /downloads.json
   def index
     @downloads = Download.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @downloads }
-    end
   end
 
   # GET /downloads/new
   # GET /downloads/new.json
   def new
     @download = Download.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @download }
-    end
   end
 
   # GET /downloads/1/edit
@@ -45,10 +35,8 @@ class Admin::DownloadsController < Admin::BaseController
     respond_to do |format|
       if @download.update_attributes(params[:download])
         format.html { redirect_to admin_downloads_url, notice: 'Download was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @download.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +49,6 @@ class Admin::DownloadsController < Admin::BaseController
 
     respond_to do |format|
       format.html { redirect_to admin_downloads_url }
-      format.json { head :no_content }
     end
   end
 end

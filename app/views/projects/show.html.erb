@@ -14,12 +14,13 @@
 <div id="window_container">
   <div id="my-slideshow">
     <ul class="bjqs">
-      <% Ethos.all.each do |ethos| %>
+      <% @project.videos.each do |video| %>
       <li>
-        <div class="window" style="background: url(<%= image_path 'our_ethos/ethosbg.jpg' %>)">
+        <div class="window">
           <div class="inner_container">
           <div class="inner">
           <h1><%= @project.name %></h1>
+          <iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY" frameborder="0" allowfullscreen></iframe>
           </div>
           </div>
         </div>

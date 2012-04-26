@@ -1,19 +1,2 @@
-<%= form_for ['admin',@service] do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %><br/>
-    <%= image_tag(@service.image.url, width: 80) if @service.image.url %>
-
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+<h1>Edit Service</h1>
+<%= render 'form' %>

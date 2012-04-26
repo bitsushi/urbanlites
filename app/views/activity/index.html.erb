@@ -2,7 +2,7 @@
   <li class="twitter">
     <h2>Twitter</h2>
     <ul>
-    <% @posts.each do |tweet| %>
+    <% @tweets.each do |tweet| %>
       <li class="tweet">
         <span class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</span>
         <p><%= tweet %></p>
@@ -16,10 +16,10 @@
   <li class="youtube">
     <h2>Youtube</h2>
     <ul>
-    <% YoutubePost.limit(3).each do |video| %>
+    <% @videos.each do |video| %>
       <li class="youtube_video">
-        <span class="title">youtube, <%= time_ago_in_words video.posted_at %> ago</span>
-        <div class="video"><%= raw video_tag(video.service_id, '100%', 300) %></div>
+        <span class="title">youtube, <%= time_ago_in_words video.published_at %> ago</span>
+        <div class="video"><%= raw video_tag(video.uid, '100%', 300) %></div>
       </li>
     <% end %>
     </ul>

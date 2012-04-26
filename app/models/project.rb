@@ -12,7 +12,6 @@ class Project < ActiveRecord::Base
   end
 
   scope :window, where('window_ordinal > 0').order('window_ordinal ASC')
-  default_scope order('ordinal ASC')
 
   validates_uniqueness_of :name, :slug
   validates_presence_of :name, :who, :where, :what

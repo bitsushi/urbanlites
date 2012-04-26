@@ -54,6 +54,11 @@ body#c-projects-a-index {
 
 body#c-projects-a-show {
 
+  h1 {
+    position: absolute;
+    z-index: 999;
+  }
+
   #window_container {
     margin-top: 10px;
     h1 {
