@@ -2,7 +2,7 @@
 <div id="my-slideshow">
 <ul class="bjqs">
   <% @projects.each do |project| %>
-  <li>
+  <li data-url="<%= project_path(project) %>">
   <div class="window">
     <h1><%= link_to project.name, project %></h1>
     <h2>Management Event 2012</h2>

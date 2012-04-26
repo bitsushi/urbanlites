@@ -6,6 +6,7 @@ body#c-projects-a-index {
     &:nth-child(even) {
       float: right;
     }
+    background: image-url('pngs/black_bg.png');
     background: rgba(0,0,0,0.4);
     cursor: pointer;
   }
@@ -85,9 +86,13 @@ body#c-projects-a-show {
     width: 100px;
     background: $blue;
     &:hover img {
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    	filter: alpha(opacity=60);
       opacity: .6;
     }
     &.active-marker img {
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    	filter: alpha(opacity=100);
       opacity: 1;
     }
   }

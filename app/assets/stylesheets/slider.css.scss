@@ -68,7 +68,9 @@ right: 32px;
 
   width: 26px;
   height: 26px;
-  opacity: 0.4;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+  opacity: .4;
   background:#4a63ae;
   text-align: center;
   line-height: 26px;
@@ -91,5 +93,7 @@ right: 32px;
 //}
 
 ol.bjqs-markers li.active-marker{
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
   opacity: 1;
 }

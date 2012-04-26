@@ -13,6 +13,7 @@ body#c-pages-a-our_ethos {
     display:table;
     padding: 10px;
     @include grid(4);
+    background: image-url('pngs/black_bg.png');
     background: rgba(0,0,0,0.4);
     margin-top: 13%;
     width: 70%;

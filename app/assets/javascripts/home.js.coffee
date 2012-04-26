@@ -16,3 +16,6 @@ jQuery ->
 
   $('#ident').click ->
     window.location = $(this).data('url')
+
+  $('#c-pages-a-home #window_container li.bjqs-slide').click ->
+    window.location = $(this).data('url')

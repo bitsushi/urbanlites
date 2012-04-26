@@ -15,7 +15,7 @@ ul#downloads {
 li.download {
   background: image-url('download.png');
   @include grid(1);
-  width: 210px;
+  width: 215px;
   cursor: pointer;
   height: 160px;
   margin: 0;
@@ -26,7 +26,7 @@ li.download {
 //    border: 1px solid $blue;
     padding: 10px;
     line-height: 128%;
-    width: 170px;
+    width: 152px;
 //    height: 140px;
   }
   &:hover {
