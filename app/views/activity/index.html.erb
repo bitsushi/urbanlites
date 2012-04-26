@@ -19,7 +19,7 @@
     <% YoutubePost.limit(3).each do |video| %>
       <li class="tweet">
         <span class="title">youtube, <%= time_ago_in_words video.posted_at %> ago</span>
-        <p><%= raw video_tag(video.service_id, '100%', 300) %></p>
+        <div class="video"><%= raw video_tag(video.service_id, '100%', 300) %></div>
       </li>
     <% end %>
     </ul>

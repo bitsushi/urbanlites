@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424134739) do
+ActiveRecord::Schema.define(:version => 20120426113357) do
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
@@ -70,6 +70,19 @@ ActiveRecord::Schema.define(:version => 20120424134739) do
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["when"], :name => "index_projects_on_when"
   add_index "projects", ["window_ordinal"], :name => "index_projects_on_window_ordinal"
+
+  create_table "quotes", :force => true do |t|
+    t.integer  "project_id"
+    t.text     "body"
+    t.string   "author"
+    t.string   "organisation"
+    t.integer  "ordinal"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "quotes", ["ordinal"], :name => "index_quotes_on_ordinal"
+  add_index "quotes", ["project_id"], :name => "index_quotes_on_project_id"
 
   create_table "services", :force => true do |t|
     t.string   "name"

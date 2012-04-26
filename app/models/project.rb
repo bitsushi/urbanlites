@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
+  has_many :quotes
 
   def previous
     Project.find_by_id(id - 1, :select => 'name,slug')

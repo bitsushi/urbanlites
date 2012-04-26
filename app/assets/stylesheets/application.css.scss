@@ -79,6 +79,16 @@ header {
   @extend .clearfix;
   border-bottom: 1px solid $blue;
   text-shadow: 1px 1px 1px #000;
+  h2#logo {
+    background: image-url('urban_lites_logo.png');
+    width: 247px;
+    height: 46px;
+    @extend .hide_text;
+    padding: 0;
+    margin-bottom: 10px;
+    display: block;
+  }
+
   .container {
     background: image-url('header_bg.jpg') top right no-repeat;
     padding: 38px 0;
@@ -206,7 +216,10 @@ a {
 }
 
 nav {
-  background: image-url('nav_bg.gif') center repeat-x;
+  background-image: image-url('nav_bg.gif');
+  background-position: center repeat-x;
+  @include linear-gradient(#566CB0 48%, #4C64AC 48%);
+
   clear: both;
 //  overflow: hidden;
     @extend .clearfix;

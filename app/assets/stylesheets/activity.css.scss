@@ -14,12 +14,19 @@ ul,li {
 
 ul#social_columns > li {
 
+.video {
+  width: 100%;
+  height: 300px;
+  background: black image-url('loading.gif') center center no-repeat;
+  iframe { display: none;}
+}
+
   h2 {
     display:block;
-    @extend .clearfix;
     background-repeat: no-repeat;
     background-image: image-url('bigsocial.png');
-    width:48px; height:48px;
+    width:48px;
+    height:48px;
     @extend .hide_text;
   }
 
