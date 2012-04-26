@@ -54,6 +54,10 @@ body#c-projects-a-index {
 
 body#c-projects-a-show {
 
+  .quote {
+    blockquote, span { margin: 0;}
+  }
+
   h1 {
     position: absolute;
     z-index: 999;
