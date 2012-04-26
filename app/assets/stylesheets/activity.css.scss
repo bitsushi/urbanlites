@@ -16,7 +16,7 @@ ul#social_columns > li {
 
   h2 {
     display:block;
-    overflow:hidden;
+    @extend .clearfix;
     background-repeat: no-repeat;
     background-image: image-url('bigsocial.png');
     width:48px; height:48px;

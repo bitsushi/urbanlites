@@ -18,7 +18,8 @@ body#c-projects-a-index {
   }
   .inner {
     padding: 10px;
-    overflow: hidden;
+//    overflow: hidden;
+    @extend .clearfix;
   }
   .thumb {
     width: 120px;

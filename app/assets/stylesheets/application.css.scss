@@ -1,6 +1,13 @@
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
 @import "bourbon";
 @import "boilerplate";
 @import "jquery.Jcrop";
+
+
 
 @mixin font-face($font-family, $url) {
    @font-face {
@@ -13,8 +20,8 @@
 @include font-face('FormataMedium', '/assets/Formata-Medium');
 @include font-face('FormataItalic', '/assets/Formata-Italic');
 
-@mixin bold { font-family: FormataMedium; }
-@mixin italic { font-family: FormataItalic; }
+@mixin bold { font-family: FormataMedium; font-weight: bold; }
+@mixin italic { font-family: FormataItalic; font-style: italic; }
 
 $column-width: 160px !default;
 $gutter-width: 10px !default;
@@ -61,19 +68,20 @@ h6 {
 }
 
 #main {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   padding-top: 20px;
-//  background: image-url('content_bg.jpg') top repeat-x;
+  background: image-url('pngs/main_bg.png') repeat-x;
   @include linear-gradient(#0D101D, #000);
+  background-color: #000;
 }
 
 header {
-  overflow: hidden;
+  @extend .clearfix;
   border-bottom: 1px solid $blue;
   text-shadow: 1px 1px 1px #000;
   .container {
     background: image-url('header_bg.jpg') top right no-repeat;
-    padding: 38px inherit;
+    padding: 38px 0;
   }
 }
 
@@ -98,11 +106,14 @@ footer, .push {
 }
 
 footer {
-  overflow: hidden;
+    @extend .clearfix;
   .inner {
     border-top: 1px solid $blue;
-    background: #222738;
-    @include linear-gradient(#222738, #121212);
+//    background: #222738;
+
+    background: image-url('pngs/footer_bg.png') repeat-x;
+    @include linear-gradient(#222738, #000);
+    background-color: #000;
     padding-top: 10px;
     height: 100%;
   }
@@ -123,10 +134,11 @@ footer {
       background-repeat: no-repeat;
       background-image: image-url('sprites.png');
       margin-right: 10px;
-      &.facebook {width:24px; height:24px; background-position: -2px -28px};
-      &.flickr {width:23px; height:24px; background-position: -28px -28px};
-      &.twitter {width:24px; height:24px; background-position: -2px -2px};
-      &.youtube {width:23px; height:24px; background-position: -28px -2px};
+      width:24px; height:24px;
+      &.facebook { background-position: -2px -28px};
+      &.flickr {background-position: -28px -28px};
+      &.twitter {background-position: -2px -2px};
+      &.youtube {background-position: -28px -2px};
 
       a {
         display: block;
@@ -196,7 +208,8 @@ a {
 nav {
   background: image-url('nav_bg.gif') center repeat-x;
   clear: both;
-  overflow: hidden;
+//  overflow: hidden;
+    @extend .clearfix;
 //  border-top: 1px solid black;
   border-bottom: 1px solid black;
   ul,li {
@@ -206,6 +219,10 @@ nav {
     float: left;
     display: block;
     @include grid(1);
+    a {
+      position: relative;
+      z-index: 99999;
+    }
     a, a:active, a:visited {
       color: #FFF !important;
       padding: 7px 0;
@@ -216,6 +233,7 @@ nav {
       text-shadow: 1px 1px 1px #2E3F81;
     }
     a:hover {
+      background: image-url('pngs/nav_bg.png');
       background: rgba(255,255,255,0.2);
     }
   }
@@ -225,7 +243,8 @@ a {
   text-decoration: none;
 }
 .container {
-  overflow: hidden;
+//  overflow: hidden;
+    @extend .clearfix;
 //  background: image-url('grid.png') top center repeat-y;
   width: 908px;
 //  width: grid-width(5);     // returns 520px;
@@ -280,3 +299,5 @@ a {
 @import "fileupload/jquery.fileupload-ui";
 @import "jquery.bsmselect";
 @import "jquery.qtip";
+
+a:active, a:selected, a:visited { border: none !important; outline: none !important; }

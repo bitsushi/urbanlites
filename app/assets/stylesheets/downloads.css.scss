@@ -15,7 +15,7 @@ ul#downloads {
 li.download {
   background: image-url('download.png');
   @include grid(1);
-  width: 215px;
+  width: 210px;
   cursor: pointer;
   height: 160px;
   margin: 0;
@@ -30,8 +30,11 @@ li.download {
 //    height: 140px;
   }
   &:hover {
-    a {
-      color: #6F95E3;
+    h3 {
+      color: #6F95E3 !important;
+    }
+    .date_uploaded {
+      color: #FFF;
     }
   }
 }

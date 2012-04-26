@@ -29,7 +29,7 @@ fieldset {
 
 header {
   background: #2D9940;
-  overflow: hidden;
+  @extend .clearfix;
   margin-bottom: 10px;
   padding: 15px;
   a {

@@ -14,14 +14,15 @@
   .inner {
     border: 1px solid $blue;
     height: 400px;
-    overflow: hidden;
+//    overflow: hidden;
+    @extend .clearfix;
   }
   position: relative;
   display: block;
 
   @include grid(5);
   margin-bottom: 20px;
-  overflow: hidden;
+    @extend .clearfix;
 
 
   #map_canvas {
@@ -35,7 +36,7 @@
     right: 1px;
     height: 380px;
     padding: 10px;
-    background: #000;
+    background: image-url('pngs/black_bg.png');
     background: rgba(0,0,0,0.8);
     width: 180px;
   }

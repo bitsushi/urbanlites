@@ -10,8 +10,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-
+  <!--[if IE]>
+  <style type="text/css" media="screen">
+    * {
+      font-family: Tahoma !important;
+    }
+  </style>
+  <![endif]-->
+  <%= javascript_include_tag "modernizr" %>
   <%= javascript_include_tag("//maps.googleapis.com/maps/api/js?sensor=false") if action_name == "contact" %>
   <%= csrf_meta_tags %>
 </head>
@@ -83,6 +89,7 @@
 
 
   </footer>
+  <%= javascript_include_tag "application" %>
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -8,7 +8,8 @@
   margin-bottom: 20px;
   margin-left: -12px;
   width: 928px;
-  overflow: hidden;
+//  overflow: hidden;
+    @extend .clearfix;
   .window {
     display: block;
     border: 1px solid $blue;
@@ -24,6 +25,7 @@ ul.bjqs-controls {
     width: 24px;
     height: 100%;
     @extend .hide_text;
+    overflow: hidden;
     padding: 0;
   }
   li a.bjqs-next {
@@ -82,7 +84,8 @@ body#c-pages-a-home {
       float: right;
       width: 180px;
       height: 420px;
-  //    background-color: rbga(0,0,0,0.9);
+
+      background: image-url('pngs/black_bg.png');
       @include linear-gradient( rgba(0,0,0,0.6), rgba(0,0,0,0.5), #000);
       .inner {
         padding: 10px;
