@@ -20,6 +20,10 @@ class Project < ActiveRecord::Base
   has_many :photos
   has_many :videos
 
+  accepts_nested_attributes_for :quotes,
+    :allow_destroy => true,
+    :reject_if => proc { |attributes| attributes['body'].blank? }
+
   accepts_nested_attributes_for :photos,
     :allow_destroy => true,
     :reject_if => proc { |attributes| attributes['image'].blank? }

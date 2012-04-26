@@ -2,7 +2,6 @@
 
 <div id="projects">
 <% @projects.each_with_index do |project,index| %>
-<% 5.times do %>
 <div id="<%= dom_id project %>" class="project" data-url="<%= project_path(project) %>">
   <div class="inner">
 
@@ -11,13 +10,12 @@
     <div class="description">
 
       <h3 class="name"><%= link_to project.name, project %></h3>
-      <span class="description"><%= truncate(project.equipment_used, :length => 150) %></span>
+      <span class="description"><%= truncate(project.description, :length => 150) %></span>
       <%= link_to "Read more...", project, class: 'read_more' %>
     </div>
 
   </div>
 </div>
-<% end %>
 <% end %>
 </div>
 

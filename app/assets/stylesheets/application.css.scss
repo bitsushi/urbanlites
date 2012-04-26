@@ -76,6 +76,8 @@ h6 {
 }
 
 header {
+  background: image-url('header_bg.jpg') top right no-repeat;
+
   @extend .clearfix;
   border-bottom: 1px solid $blue;
   text-shadow: 1px 1px 1px #000;
@@ -90,8 +92,7 @@ header {
   }
 
   .container {
-    background: image-url('header_bg.jpg') top right no-repeat;
-    padding: 38px 0;
+    padding: 35px 0 20px;
   }
 }
 
@@ -198,9 +199,12 @@ a {
   #telephone_number {
     @include bold;
     font-size: 2.1em;
+    padding: 0;
+    margin: 0;
   }
   span {
     display: block;
+    color: #C5D2F3;
   }
 }
 

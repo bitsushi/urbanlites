@@ -30,6 +30,10 @@ class Admin::ProjectsController < Admin::BaseController
       @project.photos.build
     end
 
+    3.times do
+      @project.quotes.build
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project }
@@ -39,6 +43,10 @@ class Admin::ProjectsController < Admin::BaseController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+
+    2.times do
+      @project.quotes.build
+    end
 
     5.times do
       @project.photos.build

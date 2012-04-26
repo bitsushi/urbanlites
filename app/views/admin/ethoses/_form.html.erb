@@ -12,6 +12,11 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
     </div>
+    <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %><br/>
+      <%= image_tag(@ethos.image.url, width: 200) if @ethos.image.present? %>
+    </div>
   </fieldset>
 
   <div>

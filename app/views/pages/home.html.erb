@@ -7,18 +7,21 @@
     <h1><%= link_to project.name, project %></h1>
     <h2>Management Event 2012</h2>
     <div class="description">
+
       <div class="inner">
+        <% if (quote = project.quotes.first(:order => "RANDOM()")) %>
         <span class="quote">
-      <q>‘Lorem ipsum dolorsit amet, consectetur adipiscing elit. Nulla id urna’</q>
-      <span class="author">Joe Bloggs</span>
-      <span class="company">Whitbread Hotels & Restaurants</span>
-      </span>
+        <q><%= simple_format "‘#{quote.body}’" %></q>
+        <span class="author"><%= quote.author %></span>
+        <span class="company"><%= quote.organisation %></span>
+        </span>
+        <% end %>
 
       <dl>
         <dt>Who</dt>
         <dd><%= project.who %></dd>
         <dt>When</dt>
-        <dd><%= project.when %></dd>
+        <dd><%= l(project.when, format: :short) %></dd>
         <dt>What</dt>
         <dd><%= project.what %></dd>
       </dl>

@@ -21,7 +21,7 @@
 
 	max-width: 280px;
 	min-width: 50px;
-	
+
 	font-size: 10.5px;
 	line-height: 12px;
 }
@@ -73,7 +73,7 @@
 			border-width: 1px;
 			border-style: solid;
 		}
-		
+
 		* html .ui-tooltip-titlebar .ui-state-default{ top: 16px; } /* IE fix */
 
 		.ui-tooltip-titlebar .ui-icon,
@@ -108,16 +108,16 @@
 
 /* Applied on hover of tooltips i.e. added/removed on mouseenter/mouseleave respectively */
 .ui-tooltip-hover{
-	
+
 }
 
 
 /*! Default tooltip style */
 .ui-tooltip-default .ui-tooltip-titlebar,
 .ui-tooltip-default .ui-tooltip-content{
-	border-color: #F1D031;
-	background-color: #FFFFA3;
-	color: #555;
+	border-color: #222;
+	background-color: #111;
+	color: #EEE;
 }
 
 	.ui-tooltip-default .ui-tooltip-titlebar{
@@ -129,7 +129,7 @@
 		background: #F1F1F1;
 		color: #777;
 	}
-	
+
 	.ui-tooltip-default .ui-tooltip-titlebar .ui-state-hover{
 		border-color: #AAA;
 		color: #111;

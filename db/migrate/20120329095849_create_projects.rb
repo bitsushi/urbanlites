@@ -5,9 +5,9 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.string :who
       t.string :where
-      t.string :what
       t.date :when
-      t.text :equipment_used
+      t.string :what
+      t.text :description
       t.integer :ordinal, default: 999
       t.integer :window_ordinal, default: 0
       t.timestamps

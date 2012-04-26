@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120426113357) do
     t.string   "headline"
     t.text     "description"
     t.integer  "ordinal"
+    t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -57,9 +58,9 @@ ActiveRecord::Schema.define(:version => 20120426113357) do
     t.string   "name"
     t.string   "who"
     t.string   "where"
-    t.string   "what"
     t.date     "when"
-    t.text     "equipment_used"
+    t.string   "what"
+    t.text     "description"
     t.integer  "ordinal",        :default => 999
     t.integer  "window_ordinal", :default => 0
     t.datetime "created_at",                      :null => false
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120426113357) do
     t.string   "name"
     t.text     "description"
     t.integer  "ordinal"
+    t.string   "image"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

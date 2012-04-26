@@ -21,11 +21,10 @@
       <%= f.text_field :what %>
     </div>
     <div class="field">
-      <%= f.label :equipment_used %>
-      <%= f.text_area :equipment_used %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
     </div>
   </fieldset>
-
 
   <fieldset id="media">
     <legend>Media</legend>
@@ -36,6 +35,29 @@
         Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
     </div>
   </fieldset>
+
+  <fieldset id="quotes">
+    <legend>Quotes</legend>
+    <%= f.fields_for :quotes do |q| %>
+      <fieldset class="quote">
+      <div class="field">
+      <%= q.label :body %>
+      <%= q.text_area :body, placeholder: "Urban Lights were great" %>
+      </div>
+      <div class="field">
+      <%= q.label :author %>
+      <%= q.text_field :author, placeholder: "Bugs Bunny" %>
+      </div>
+      <div class="field">
+      <%= q.label :organisation %>
+      <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
+      </div>
+      </fieldset>
+    <% end %>
+  </fieldset>
+
+
+
 
   <div>
     <%= f.submit %>

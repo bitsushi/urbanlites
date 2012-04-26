@@ -4,7 +4,7 @@ class CreateEthos < ActiveRecord::Migration
       t.string :headline
       t.text :description
       t.integer :ordinal
-
+      t.string :image
       t.timestamps
     end
 

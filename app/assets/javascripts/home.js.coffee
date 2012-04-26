@@ -13,6 +13,7 @@ jQuery ->
     showMarkers: true
     showControls: true
     centerMarkers: false
+    animation: 'fade'
 
   $('#ident').click ->
     window.location = $(this).data('url')

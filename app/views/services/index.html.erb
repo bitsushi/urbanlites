@@ -1,6 +1,6 @@
 <ul id="services">
 <% @services.each do |service| %>
-  <li>
+  <li style="background-image: url(<%= service.image.url %>)">
     <div class="inner">
     <div class="title"><%= service.name %></div>
     <div class="description"><%= service.description %></div>
