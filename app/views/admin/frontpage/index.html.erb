@@ -1,9 +1,9 @@
 <h1>Frontpage</h1>
 <div>
-  <span class="hint">Select projects you want to be displayed from the dropdown, drag them into the order you want them to appear and click the save button.</span>
+  <span class="hint">Select projects you want to be displayed in the frontpage window from the dropdown below. Then drag them into the order you want them to be shown, it will save automatically.</span>
 
 <%= form_tag update_frontpage_items_admin_projects_path, id: 'update_frontpage_items', remote: true do %>
-  <%= select_tag 'project', options_for_select(Project.order('window_ordinal ASC, name ASC').all.map{ |p| [p.name, p.id ]}, Project.all.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
-  <%= button_tag 'save', id: 'save_window_ordinals', disabled: true, class: 'button' %>
+<%= select_tag 'project', options_for_select(Project.order('window_ordinal ASC, name ASC').all.map{ |p| [p.name, p.id ]}, Project.all.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
+ <%#= button_tag 'save', id: 'save_window_ordinals', disabled: true, class: 'button' %>
 <% end %>
 </div>

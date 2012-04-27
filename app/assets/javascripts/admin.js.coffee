@@ -7,8 +7,9 @@ jQuery ->
     console.log data
     # console.log($('select').extractLabel)
 
-  $('form#update_frontpage_items').submit ->
-    $('#save_window_ordinals').attr('disabled',true)
+  $('form#update_frontpage_items select#multi').change ->
+    $('form#update_frontpage_items').submit()
+    # $('#save_window_ordinals').attr('disabled',true)
     # return false
 
   $('table.sortable').sortable

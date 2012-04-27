@@ -28,6 +28,22 @@
 
   <fieldset id="media">
     <legend>Media</legend>
+
+    <div id="photos">
+      <%= f.fields_for :photos do |p| %>
+      <div class="field">
+        <% if p.object.new_record? %>
+        <%= p.label :image %>
+        <%= p.file_field :image %>
+        <% else %>
+        <%= image_tag(p.object.image.url, width: 100) %>
+        <%= p.label :_destroy, 'Delete' %>
+        <%= p.check_box :_destroy %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
     <div id="videos">
       <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
       <%= f.select :video_ids, options_for_select(
@@ -52,6 +68,7 @@
       <%= q.label :organisation %>
       <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
       </div>
+      <%= q.check_box :_destroy %>
       </fieldset>
     <% end %>
   </fieldset>

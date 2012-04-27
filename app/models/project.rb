@@ -3,6 +3,14 @@ class Project < ActiveRecord::Base
   friendly_id :name, use: :slugged
   has_many :quotes
 
+  def thumbnail
+    photos.first.image_url(:thumb) unless photos.empty?
+  end
+
+  def frontpage_image
+    photos.first.image_url(:window) unless photos.empty?
+  end
+
   def previous
     Project.find_by_id(id - 1, :select => 'name,slug')
   end

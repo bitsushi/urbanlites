@@ -19,7 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :window do
     process :crop #if model.crop_window.present?
-    resize_to_fill(800,400)
+    resize_to_fill(880,420)
   end
 
   def crop

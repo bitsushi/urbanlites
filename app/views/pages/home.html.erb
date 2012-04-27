@@ -1,9 +1,10 @@
+<% title "Urban Lites, Manchester Based Event Lighting Company" %>
 <div id="window_container">
 <div id="my-slideshow">
 <ul class="bjqs">
   <% @projects.each do |project| %>
   <li data-url="<%= project_path(project) %>">
-  <div class="window">
+  <div class="window" style="background-image: url(<%= project.frontpage_image %>)">
     <h1><%= link_to project.name, project %></h1>
     <h2>Management Event 2012</h2>
     <div class="description">

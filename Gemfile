@@ -7,6 +7,7 @@ gem 'twitter-text'
 gem 'whenever', :require => false
 gem 'youtube_it'
 gem "awesome_print"
+gem 'fb_graph'
 
 # Gems used only for assets and not required
 # in production environments by default.

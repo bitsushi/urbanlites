@@ -22,8 +22,9 @@ namespace :fetch do
           p result['link'][0]['href']
           Video.create(
             name: result['title']['$t'],
-            uid: result['link'][0]['href'].gsub(/^[^v]+v.(.{11}).*/,"#{$1}"),
+            uid: result['id']['$t'].split('/').pop(),
             published_at: result['published']['$t']
+            #result['link'][0]['href'].gsub(/^[^v]+v.(.{11}).*/,"#{$1}"),
             # url: result['link'][0]['href']
           )
         end
@@ -31,6 +32,10 @@ namespace :fetch do
         p "already added"
       end
     end
+  end
+
+  task :facebook => :environment do
+    # https://www.facebook.com/feeds/page.php?format=atom10&id=187072201335959
   end
 
   task :activities => :environment do

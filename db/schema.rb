@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426194818) do
+ActiveRecord::Schema.define(:version => 20120427100845) do
 
   create_table "downloads", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20120426194818) do
 
   add_index "ethoses", ["ordinal"], :name => "index_ethoses_on_ordinal"
 
+  create_table "facebook_posts", :force => true do |t|
+    t.string   "uid"
+    t.string   "url"
+    t.datetime "posted_at"
+    t.text     "content"
+  end
+
+  add_index "facebook_posts", ["uid"], :name => "index_facebook_posts_on_uid", :unique => true
+
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
@@ -40,18 +49,6 @@ ActiveRecord::Schema.define(:version => 20120426194818) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "posts", :force => true do |t|
-    t.string   "type",       :limit => 50
-    t.string   "service_id", :limit => 50
-    t.text     "content"
-    t.string   "url",        :limit => 100
-    t.datetime "posted_at"
-    t.boolean  "visible",                   :default => true
-  end
-
-  add_index "posts", ["posted_at"], :name => "index_posts_on_posted_at"
-  add_index "posts", ["type", "service_id"], :name => "index_posts_on_type_and_service_id", :unique => true
 
   create_table "projects", :force => true do |t|
     t.string   "slug"

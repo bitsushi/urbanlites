@@ -2,6 +2,11 @@
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
 
+#window {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 
 @import "bourbon";
 @import "boilerplate";

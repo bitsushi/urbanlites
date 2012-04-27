@@ -1,3 +1,4 @@
+<% title "Projects" %>
 <h1>Projects</h1>
 
 <div id="projects">
@@ -6,7 +7,7 @@
 <div id="<%= dom_id project %>" class="project" data-url="<%= project_path(project) %>">
   <div class="inner">
 
-    <div class="thumb"><%= image_tag(project.photos.first.image.thumb.url) if project.photos.first %></div>
+    <div class="thumb" style="background-image: url(<%= project.thumbnail %>)"></div>
 
     <div class="description">
 

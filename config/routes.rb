@@ -9,10 +9,11 @@ Urbanlites::Application.routes.draw do
   # users
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
-  get 'admin' => 'sessions#new'
+  # get 'admin' => 'Admin:ProjectsController#index'
   get 'logout' => 'sessions#destroy'
 
   namespace :admin do
+    root to: 'projects#index'
     resources :projects do
       collection do
         post :update_frontpage_items

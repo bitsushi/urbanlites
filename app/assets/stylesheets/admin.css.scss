@@ -13,6 +13,31 @@ body {
   margin-bottom: 20px;
 }
 
+table {
+  margin: 20px 0;
+  td {
+    padding: 4px;
+  }
+}
+
+select.bsmSelect {
+  margin: 20px 0;
+}
+ol#bsmListbsmContainer0 {
+  border-top: 1px dashed #CCC;
+  padding-top: 10px;
+}
+li.bsmListItem {
+  padding: 4px;
+  margin-left: 20px;
+  cursor: move;
+  border-bottom: 1px solid #EEE;
+}
+span.bsmListItemLabel {
+  width: 200px;
+  display: block;
+  float: left;
+}
 .field {
   margin-bottom: 10px;
 }

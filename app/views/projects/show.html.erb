@@ -14,13 +14,13 @@
 <div id="window_container">
   <div id="my-slideshow">
     <ul class="bjqs">
-      <% @project.videos.each do |video| %>
+      <% @project.photos.each do |photo| %>
       <li>
-        <div class="window">
+        <div class="window" style="background-image: url(<%= photo.image.url %>)">
           <div class="inner_container">
           <div class="inner">
           <h1><%= @project.name %></h1>
-          <iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY" frameborder="0" allowfullscreen></iframe>
+          <!--<iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY" frameborder="0" allowfullscreen></iframe>-->
           </div>
           </div>
         </div>

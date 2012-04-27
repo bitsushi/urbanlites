@@ -1,9 +1,22 @@
 <div>
   <h1>Projects</h1>
+
+  <span class="hint">All of the projects listed on the site, click the project's name to edit it</span>
+
   <table class="sortable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Updated at</th>
+        <th># Quotes</th>
+        <th></th>
+      </tr>
+    </thead>
   <% @projects.each do |project| %>
     <tr>
       <td><%= link_to project, edit_admin_project_path(project) %></td>
+      <td><%= l(project.updated_at, format: :short) %></td>
+      <td><%= project.quotes.size %></td>
       <td><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?" %></td>
     </tr>
   <% end %>
