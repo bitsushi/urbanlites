@@ -1,29 +1,23 @@
+<%#= link_to "Edit Thumbnail Image", '#', id: 'edit_thumb' %>
+<%#= link_to "Edit Window Image", '#', id: 'edit_window' %>
 
-<%= link_to "Edit Thumbnail Image", '#', id: 'edit_thumb' %>
-<%= link_to "Edit Window Image", '#', id: 'edit_window' %>
-
-<%= image_tag @photo.image_url(:large), id: 'cropbox' %>
+<%= link_to "Return to Project", "#{edit_admin_project_path(@photo.project)}#photos", class: 'button' %>
+<%= link_to "Delete Photo", admin_photo_path(@photo), method: "delete", confirm: "Are you sure?", class: 'delete button' %>
 
 <%= form_for [:admin, @photo] do |f| %>
 
+<% %w[window thumb].each do |type| %>
+  <fieldset>
+    <h1>Edit <%= type %> Image Crop</h1>
+    <%= link_to "Show current", @photo.image_url(type.to_sym), target: '_blank' %>
+    <%= image_tag @photo.image_url(:large), id: "#{type}_cropbox" %>
 
-<%= f.hidden_field "crop_window" %>
-<%= f.hidden_field "crop_thumb" %>
-
-<% %w[x y w h].each do |attribute| %>
-<%= f.hidden_field "crop_#{attribute}" %>
+    <% %w[x y w h].each do |attribute| %>
+      <%= f.hidden_field "#{type}_crop_#{attribute}" %>
+    <% end %>
+  </fieldset>
 <% end %>
 
-<%= f.submit "Crop!" %>
+<%= f.submit "Save Changes" %>
 
 <% end %>
-
-<%= image_tag @photo.image_url(:window) %>
-<%= image_tag @photo.image_url(:thumb) %>
-
-<!--
-New
-<div style="width: 100px; height: 100px; overflow: hidden">
-  <%= image_tag @photo.image.url(:large), id: 'preview' %>
-</div>
--->

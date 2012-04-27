@@ -13,26 +13,39 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :crop #if model.crop_thumb.present?
+    process :crop_thumb
     resize_to_fill(100,100)
   end
 
   version :window do
-    process :crop #if model.crop_window.present?
+    process :crop_window
     resize_to_fill(880,420)
   end
 
-  def crop
-    if model.crop_x.present?
-      resize_to_limit(1200, 1200)
-      manipulate! do |img|
-        x = model.crop_x.to_i
-        y = model.crop_y.to_i
-        w = model.crop_w.to_i
-        h = model.crop_h.to_i
-        img.crop!(x,y,w,h)
-      end
+  def crop_thumb
+    if model.thumb_crop_x.present?
+    resize_to_limit(1200, 1200)
+    manipulate! do |img|
+      x = model.thumb_crop_x.to_i
+      y = model.thumb_crop_y.to_i
+      w = model.thumb_crop_w.to_i
+      h = model.thumb_crop_h.to_i
+      img.crop!(x,y,w,h)
     end
+    end
+  end
+
+  def crop_window
+    if model.window_crop_x.present?
+    resize_to_limit(1200, 1200)
+    manipulate! do |img|
+      x = model.window_crop_x.to_i
+      y = model.window_crop_y.to_i
+      w = model.window_crop_w.to_i
+      h = model.window_crop_h.to_i
+      img.crop!(x,y,w,h)
+    end
+  end
   end
 
 end

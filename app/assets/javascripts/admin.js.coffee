@@ -19,7 +19,11 @@ jQuery ->
     update: ->
       $.post($(this).data('update-url'), $(this).sortable('serialize'))
 
-
+  $('ul.sortable').sortable
+    forceHelperSize: true
+    items: 'li'
+    update: ->
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
 
 
 

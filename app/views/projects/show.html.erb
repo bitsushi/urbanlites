@@ -16,11 +16,11 @@
     <ul class="bjqs">
       <% @project.photos.each do |photo| %>
       <li>
-        <div class="window" style="background-image: url(<%= photo.image.url %>)">
+        <div class="window" style="background-image: url(<%= photo.image_url(:window) %>)">
           <div class="inner_container">
           <div class="inner">
           <h1><%= @project.name %></h1>
-          <!--<iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY" frameborder="0" allowfullscreen></iframe>-->
+          <!--<iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY?wmode=opaque" frameborder="0" allowfullscreen></iframe>-->
           </div>
           </div>
         </div>

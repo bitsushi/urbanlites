@@ -1,7 +1,14 @@
 class Photo < ActiveRecord::Base
   belongs_to :project
   mount_uploader :image, ImageUploader
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :crop_thumb, :crop_window
+
+  default_scope order('ordinal ASC')
+
+  %w[window thumb].each do |type|
+    %w[x y w h].each do |attribute|
+      attr_accessor "#{type}_crop_#{attribute}".to_sym
+    end
+  end
   after_update :crop_image
 
   include Rails.application.routes.url_helpers
@@ -18,8 +25,8 @@ class Photo < ActiveRecord::Base
   end
 
   def crop_image
-    image.recreate_versions! if crop_thumb.present?
-    image.recreate_versions! if crop_window.present?
+    image.recreate_versions!# if crop_thumb.present?
+    #image.recreate_versions! if crop_window.present?
   end
 
 end

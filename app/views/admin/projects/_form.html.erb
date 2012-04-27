@@ -30,26 +30,31 @@
     <legend>Media</legend>
 
     <div id="photos">
-      <%= f.fields_for :photos do |p| %>
-      <div class="field">
-        <% if p.object.new_record? %>
-        <%= p.label :image %>
-        <%= p.file_field :image %>
-        <% else %>
-        <%= image_tag(p.object.image.url, width: 100) %>
-        <%= p.label :_destroy, 'Delete' %>
-        <%= p.check_box :_destroy %>
+      <span class="hint">Drag to reorder. The first item will be the default window image and thumbnail.</span><br/>
+      <ul class="sortable" data-update-url="<%= sort_admin_photos_url %>">
+      <% @project.photos.each do |photo| %>
+        <% unless photo.new_record? %>
+          <%= content_tag_for :li, photo do %>
+            <%= link_to "#{image_tag(photo.image_url(:thumb))}".html_safe, edit_admin_photo_path(photo) %>
+          <% end %>
         <% end %>
-      </div>
       <% end %>
+    </ul>
+
     </div>
 
-    <div id="videos">
+    <%# if p.object.new_record? %>
+    <%#= p.label :image %>
+    <%#= p.file_field :image %>
+    <%# end %>
+
+
+<!--    <div id="videos">
       <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
       <%= f.select :video_ids, options_for_select(
         Video.all.map{ |v| [v.name, v.id ]},
         Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
-    </div>
+    </div>-->
   </fieldset>
 
   <fieldset id="quotes">
@@ -68,6 +73,7 @@
       <%= q.label :organisation %>
       <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
       </div>
+      <%= q.label :_destroy, 'Delete Quote' %>
       <%= q.check_box :_destroy %>
       </fieldset>
     <% end %>

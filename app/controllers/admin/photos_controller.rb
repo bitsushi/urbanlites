@@ -1,5 +1,12 @@
 class Admin::PhotosController < Admin::BaseController
 
+  def sort
+    params[:photo].each_with_index do |id, index|
+      Photo.update_all({ordinal: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   def index
     @photos = Photo.all
     render :json => @photos.collect { |p| p.to_jq_upload }.to_json
@@ -9,7 +16,7 @@ class Admin::PhotosController < Admin::BaseController
     @photo = Photo.find(params[:id])
 
     if @photo.update_attributes(params[:photo])
-      redirect_to edit_admin_photo_url(@photo), notice: 'Photo was successfully updated.'
+      redirect_to "#{edit_admin_project_path(@photo.project)}#photos", notice: 'Photo was successfully updated.'
     else
       render action: "edit"
     end
@@ -40,7 +47,15 @@ class Admin::PhotosController < Admin::BaseController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    render :json => true
+    respond_to do |format|
+      format.html {
+        redirect_to "#{edit_admin_project_path(@photo.project)}#photos"
+      }
+      format.json {
+        render :json => true
+      }
+    end
+    #
   end
 
 end

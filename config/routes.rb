@@ -20,7 +20,7 @@ Urbanlites::Application.routes.draw do
       end
     end
     resources :frontpage
-    resources :photos
+    resources :photos do collection { post :sort } end
     resources :services do collection { post :sort } end
     resources :downloads
     resources :ethoses do collection { post :sort } end

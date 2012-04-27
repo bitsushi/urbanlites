@@ -14,30 +14,34 @@ jQuery ->
 
 class ImageCropper
   constructor: ->
-    $('#edit_thumb').click =>
-      $('#photo_crop_thumb').val(1)
-      $('#photo_crop_window').val(null)
-      $('#cropbox').Jcrop
-        aspectRatio: 1
-        onSelect: @update
-        onUpdate: @update
-        # setSelect: [50,50,150,150]
+    $('#thumb_cropbox').Jcrop
+      aspectRatio: 1
+      onSelect: @updateThumb
+      onUpdate: @updateThumb
+      # setSelect: [50,50,150,150]
 
-    $('#edit_window').click =>
-      $('#photo_crop_window').val(1)
-      $('#photo_crop_thumb').val(null)
-      $('#cropbox').Jcrop
-        aspectRatio: 800/400
-        onSelect: @update
-        onUpdate: @update
+    $('#window_cropbox').Jcrop
+      aspectRatio: 880/420
+      onSelect: @updateWindow
+      onUpdate: @updateWindow
 
-    return false
+    #   return false
+    #
 
-  update: (coords) =>
-    $('#photo_crop_x').val(coords.x)
-    $('#photo_crop_y').val(coords.y)
-    $('#photo_crop_w').val(coords.w)
-    $('#photo_crop_h').val(coords.h)
+  updateThumb: (coords) =>
+    type = 'thumb'
+    $("#photo_#{type}_crop_x").val(coords.x)
+    $("#photo_#{type}_crop_y").val(coords.y)
+    $("#photo_#{type}_crop_w").val(coords.w)
+    $("#photo_#{type}_crop_h").val(coords.h)
+    # @updatePreview(coords)
+
+  updateWindow: (coords) =>
+    type = 'window'
+    $("#photo_#{type}_crop_x").val(coords.x)
+    $("#photo_#{type}_crop_y").val(coords.y)
+    $("#photo_#{type}_crop_w").val(coords.w)
+    $("#photo_#{type}_crop_h").val(coords.h)
     # @updatePreview(coords)
 
 # updatePreview: (coords) =>
