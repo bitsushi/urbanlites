@@ -6,11 +6,18 @@ namespace :fetch do
   task :twitter => :environment do
     results = JSON.parse(open("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=bitsushi&count=10").read)
     results.each do |result|
-      begin
-        Tweet.create(body: result['text'], uid: result['id'], posted_at: result['created_at'])
-      rescue
-        p "already added"
-      end
+      # begin
+
+        begin
+          media = result['entities']['media'][0]['media_url']
+        rescue
+          media = nil
+        end
+
+        Tweet.create(body: result['text'], uid: result['id'], posted_at: result['created_at'], media: media)
+      # rescue
+      #   p "already added"
+      # end
     end
   end
 

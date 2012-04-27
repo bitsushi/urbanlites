@@ -6,7 +6,8 @@
     <% @tweets.each do |tweet| %>
       <li class="tweet">
         <span class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</span>
-        <p><%= tweet %></p>
+        <p><%= auto_link(tweet).html_safe %></p>
+        <%= image_tag(tweet.media, class: 'twitter_media') if tweet.media.present? %>
       </li>
     <% end %>
     </ul>
