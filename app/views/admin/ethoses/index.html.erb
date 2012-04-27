@@ -5,6 +5,7 @@
 <%= content_tag_for :tr, ethos do %>
     <td>+</td>
     <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
+    <td><%= link_to 'Delete', admin_ethos_path(ethos), method: 'delete', confirm: 'Are you sure you want to delete this ethos?' %></td>
 <% end %>
 <% end %>
 </table>
