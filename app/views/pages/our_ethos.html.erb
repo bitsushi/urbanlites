@@ -1,31 +1,29 @@
 <% title "Our Ethos" %>
-<div id="window_container">
-  <div id="my-slideshow">
-    <ul class="bjqs">
-      <% Ethos.all.each do |ethos| %>
-      <li>
-        <div class="window" style="background: url(<%= ethos.image.url if ethos.image.present? %>)">
-          <div class="inner_container">
+
+<div id="sushislider">
+  <a id="previous" href="#">Previous</a>
+  <a id="next" href="#">Next</a>
+  <div class="wrapper">
+    <div id="inner_wrapper">
+    <ul>
+      <% Ethos.all.each_with_index do |ethos,index| %>
+      <li class="item" style="background: url(<%= ethos.image.url if ethos.image.present? %>)" data-index="<%= index %>">
+        <div class="inner_container">
           <div class="inner">
-          <h1><%= ethos.headline %></h1>
-          <%= ethos.description %>
-          </div>
+            <h1><%= ethos.headline %></h1>
+            <%= simple_format ethos.description %>
           </div>
         </div>
       </li>
       <% end %>
     </ul>
+
+    <ol>
+      <% Ethos.all.each_with_index do |ethos,index| %>
+        <li class="thumb"><%= index + 1 %></li>
+      <% end %>
+    </ol>
+
+    </div>
   </div>
 </div>
-
-<!--
-<ol id="our_ethos">
-  <li>Equipment kept to highest standard</li>
-  <li>We try harder and go further than our competitors</li>
-  <li>Our attention to detail sets us apart</li>
-  <li>From concept to creation, we're with you all the way</li>
-  <li>To be fast and flexible</li>
-  <li>No job is considered too small nor too large</li>
-  <li>To be as eco-friendly as possible</li>
-</ol>
--->

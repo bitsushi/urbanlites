@@ -1,28 +1,50 @@
 body#c-pages-a-our_ethos {
-  h1 {
-    margin: 0;
-    font-size: 3em;
-  }
+
   p {
     clear: both;
   }
 
-  .window {
+  #sushislider {
 
-  .inner {
-    display:table;
-    padding: 10px 10px 10px 20px;
-    @include grid(4);
-    background: image-url('pngs/black_bg.png');
-    background: rgba(0,0,0,0.4);
-    margin: 0;
-    margin-top: 110px;
-    width: 600px;
+    h1 {
+      margin: 0;
+      font-size: 3em;
+      padding: 0;
+    }
+
+    .inner {
+      display:table;
+      padding: 10px 10px 10px 20px;
+      @include grid(4);
+      background: image-url('pngs/black_bg.png');
+      background: rgba(0,0,0,0.4);
+      margin: 0;
+      margin-top: 110px;
+      width: 600px;
+    }
+
+    .inner_container {
+      display: table-cell;
+      vertical-align:middle;
+    }
+
+    ol {
+      background: none;
+      li {
+        background: $blue;
+        opacity: 0.5;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        cursor: pointer;
+        color: black;
+        font-size: 20px;
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
   }
 
-  .inner_container {
-    display: table-cell;
-    vertical-align:middle;
-  }
-}
 }

@@ -1,3 +1,4 @@
+<div id="project_buttons">
 <div id="previous_project">
   <%= link_to("← #{@project.previous}", @project.previous) if @project.previous %>
   &nbsp;
@@ -6,40 +7,50 @@
   &nbsp;
   <%= link_to("#{@project.next} →", @project.next) if @project.next %>
 </div>
+</div>
 
 <script type="text/javascript" charset="utf-8">
   window.thumbs = <%= raw @project.photos.map{ |p| p.image.thumb.url }.to_json %>
 </script>
 
-<div id="window_container">
-  <div id="my-slideshow">
-    <ul class="bjqs">
-      <div id="player"></div>
+<div id="sushislider">
+  <a id="previous" href="#">Previous</a>
+  <a id="next" href="#">Next</a>
+  <div class="wrapper">
+    <div id="inner_wrapper">
+      <h1><%= @project.name %></h1>
+      <div id="player_container"><div id="player"></div></div>
+      <ul>
+        <% @project.photos.each_with_index do |photo, index| %>
+          <li class="item" style="background-image: url(<%= photo.image_url(:window) %>)" data-index="<%= index %>"></li>
+        <% end %>
+      </ul>
 
-      <% @project.photos.each do |photo| %>
-      <li>
-        <div class="window" style="background-image: url(<%= photo.image_url(:window) %>)">
-          <div class="inner_container">
-          <div class="inner">
-          <h1><%= @project.name %></h1>
-          <!--<iframe width="880" height="420" src="http://www.youtube.com/embed/WD8HF-AL2yY?wmode=opaque" frameborder="0" allowfullscreen></iframe>-->
-          </div>
-          </div>
-        </div>
-      </li>
-      <% end %>
-    </ul>
+      <ol>
+        <% @project.photos.each do |photo| %>
+          <li class="thumb"><%= image_tag photo.image_url(:thumb) %></li>
+        <% end %>
+      </ol>
+    </div>
   </div>
 </div>
 
 <div id="project_detail">
-
 <h2><%= @project.name %></h2>
 <span id="in_more_detail">In more detail</span>
 <%= simple_format @project.description %>
 </div>
 
 <div id="project_quotes">
+
+  <div id="videos">
+    <ul>
+      <% Video.limit(2).each do |video| %>
+        <li class="video"><%= raw video_tag(video.uid, '100%', 220) %></li>
+      <% end %>
+    </ul>
+  </div>
+
   <ul>
     <% @project.quotes.each do |quote| %>
     <li class="quote">

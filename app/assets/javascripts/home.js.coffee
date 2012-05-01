@@ -6,6 +6,7 @@ jQuery ->
   #   count: 1
   #   loading_text: "loading tweets..."
   #   template: "<div class='tweet_body'>{text}</div><div class='tweet_time'>{time}</div>"
+
   $('#my-slideshow').bjqs
     width: '100%'
     height: 430
@@ -18,5 +19,9 @@ jQuery ->
   $('#ident').click ->
     window.location = $(this).data('url')
 
-  $('#c-pages-a-home #window_container li.bjqs-slide').click ->
-    window.location = $(this).data('url')
+  # $('#c-pages-a-home #window_container li.bjqs-slide').click ->
+  #   window.location = $(this).data('url')
+
+  $('#sushislider li.item').click ->
+    if url = $(this).data('url')
+      window.location = url

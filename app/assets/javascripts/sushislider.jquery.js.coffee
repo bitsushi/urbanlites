@@ -21,6 +21,8 @@ setActive = ->
 
 next = ->
   incoming = $('#sushislider ul li.item:eq(1)')
+
+
   if incoming.data('youtube-id')
     $('#player_container').show()
   else
@@ -28,6 +30,8 @@ next = ->
 
   $('#sushislider ul li.item:first').fadeOut().appendTo('#sushislider ul')
   incoming.fadeIn()
+  startTimer()
+
   # $('#sushislider ul li.item:first').fadeOut().next('li').fadeIn().end().appendTo('#sushislider ul')
   # if $("#sushislider ul li.item:first").data('youtube-id')
   #   window.player.cueVideoById( $("#sushislider .item:eq(#{window.current})").data('youtube-id') )
@@ -40,12 +44,33 @@ prev = ->
   $('#player').appendTo(incoming)
   $('#sushislider ul li.item:first').fadeOut()
   incoming.fadeIn().prependTo('#sushislider ul')
+  startTimer()
 
+startTimer = ->
+  clearInterval window.interval
+  window.interval = setInterval (-> next()), 3000
+
+  index = $('#sushislider li.item:first').data('index')
+  $('#sushislider ol li').removeClass('active')
+  $("#sushislider ol li:eq(#{index})").addClass('active')
 
 jQuery ->
 
   $('#sushislider ul li.item:gt(0)').hide()
-  # setInterval (-> next()), 1000
+
+  $('#sushislider').swipeEvents()
+    .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
+    .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
+
+  startTimer()
+
+
+  $('#sushislider').hover(->
+    clearInterval window.interval
+  ,->
+    startTimer()
+  )
+
 
   $('#sushislider #next').click (e) ->
     e.preventDefault()
@@ -53,7 +78,7 @@ jQuery ->
 
   $('#sushislider #previous').click (e) ->
     e.preventDefault()
-    next()
+    prev()
 
   # # window.current = -1
   # # setTimeout (-> setActive() ), 1000

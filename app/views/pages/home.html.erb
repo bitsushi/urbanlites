@@ -5,64 +5,44 @@
   <a id="previous" href="#">Previous</a>
   <a id="next" href="#">Next</a>
   <div class="wrapper">
+    <div id="inner_wrapper">
     <div id="player_container"><div id="player"></div></div>
-
-    <!--<iframe id="player" type="text/html" src="http://www.youtube.com/embed/u1zgFlCw8Aw?enablejsapi=1&origin=http://urbanlites.dev/" frameborder="0">-->
-     <!-- <div id="player"></div> -->
     <ul>
       <% @projects.each do |project| %>
-        <li class="item" style="background-image: url(<%= project.frontpage_image %>)"></li>
+        <li class="item" style="background-image: url(<%= project.frontpage_image %>)" data-url="<%= project_path(project) %>">
+          <h1><%= link_to project.name, project %></h1>
+          <!--<h2>Management Event 2012</h2>-->
+          <div class="description">
+
+            <div class="inner">
+              <% if (quote = project.quotes.first(:order => "RANDOM()")) %>
+              <span class="quote">
+              <q><%= simple_format "‘#{quote.body}’" %></q>
+              <span class="author"><%= quote.author %></span>
+              <span class="company"><%= quote.organisation %></span>
+              </span>
+              <% end %>
+
+            <dl>
+              <dt>Who</dt>
+              <dd><%= project.who %></dd>
+              <dt>When</dt>
+              <dd><%= l(project.when, format: :short) %></dd>
+              <dt>What</dt>
+              <dd><%= project.what %></dd>
+            </dl>
+
+            </div>
+
+            <div class="see_more">
+              <%= link_to "Want to see more?", projects_path %>
+            </div>
+        </li>
       <% end %>
       <li class="item" data-youtube-id="5WWrQ9Rgk_4"></li>
     </ul>
-  </div>
-</div>
-
-
-<div id="window_container">
-<div id="my-slideshow">
-<ul class="bjqs">
-  <% @projects.each do |project| %>
-  <li data-url="<%= project_path(project) %>">
-  <div class="window" style="background-image: url(<%= project.frontpage_image %>)">
-    <h1><%= link_to project.name, project %></h1>
-    <!--<h2>Management Event 2012</h2>-->
-    <div class="description">
-
-      <div class="inner">
-        <% if (quote = project.quotes.first(:order => "RANDOM()")) %>
-        <span class="quote">
-        <q><%= simple_format "‘#{quote.body}’" %></q>
-        <span class="author"><%= quote.author %></span>
-        <span class="company"><%= quote.organisation %></span>
-        </span>
-        <% end %>
-
-      <dl>
-        <dt>Who</dt>
-        <dd><%= project.who %></dd>
-        <dt>When</dt>
-        <dd><%= l(project.when, format: :short) %></dd>
-        <dt>What</dt>
-        <dd><%= project.what %></dd>
-      </dl>
-
-      </div>
-
-      <div class="see_more">
-        <%= link_to "Want to see more?", projects_path %>
-      </div>
-
     </div>
-
-
   </div>
-
-
-  </li>
-  <% end %>
-</ul>
-</div>
 </div>
 
 <div id="description">

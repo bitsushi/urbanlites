@@ -1,100 +1,19 @@
-#sushislider {
-  background: red;
-  width: 100%;
-  height: 420px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-  #previous, #next {
-    position: absolute;
-  }
-  #next {
-    right: 0;
-  }
-  .wrapper {
-    width: 880px;
-    margin: 0 auto;
-  }
-  #player_container {
-    display: none;
-  }
-  iframe {
-    width: 100%;
-    height: 100%;
-  }
-  ul {
-    display: block;
-    height: 420px;
-    width: 880px;
-    overflow: hidden;
-    position: relative;
-    background: black;
-    li {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 880px;
-      display: block;
-      height: 420px;
-    }
-  }
-}
-
 .container {
   padding: 0 10px;
 //  background: yellow;
 }
-#window_container {
-  @include grid(5);
-  margin: 0;
-  margin-bottom: 20px;
-  margin-left: -12px;
-  width: 928px;
-//  overflow: hidden;
-    @extend .clearfix;
-  .window {
-    display: block;
-    border: 1px solid $blue;
-    position: relative;
-    height: 420px;
-    width: 880px;
-    margin: 0 auto;
-  }
-}
-ul.bjqs-controls {
-  li a.bjqs-prev, li a.bjqs-next {
-    background: image-url('arrows.png') no-repeat left center;
-    width: 24px;
-    height: 100%;
-    @extend .hide_text;
-    overflow: hidden;
-    padding: 0;
-  }
-  li a.bjqs-next {
-    background-position: -24px center;
-  }
-}
 
-#my-slideshow {
-  //  overflow: auto;
-  position: relative;
-}
 
 body#c-pages-a-home {
 
-  ol.bjqs-markers {
-    display: none;
-  }
-  .window {
-
-    background: image-url('window_example.jpg') #111;
-
+  #sushislider {
 
     h1, h2 {
       position: absolute;
       top: 20px;
       left: 20px;
       font-size: 2em;
+      padding: 0;
       a {
         color: #FFF;
       }

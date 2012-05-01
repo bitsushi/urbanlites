@@ -54,6 +54,11 @@ body#c-projects-a-index {
 
 body#c-projects-a-show {
 
+  #project_buttons {
+    margin-bottom: 10px;
+    @extend .clearfix;
+  }
+
   .quote {
     blockquote, span { margin: 0;}
   }
@@ -128,6 +133,9 @@ body#c-projects-a-show {
     }
     span.author {
       color: $blue;
+    }
+    li.video {
+      margin-bottom: 10px;
     }
   }
 
