@@ -3,7 +3,7 @@ module ApplicationHelper
   include Twitter::Autolink
 
   def video_tag id, width = 560, height = 190
-    "<iframe width='#{width}' height='#{height}' src='http://www.youtube.com/embed/#{id}' frameborder='0' allowfullscreen></iframe>"
+    "<iframe width='#{width}' height='#{height}' src='http://www.youtube.com/embed/#{id}?enablejsapi=1' frameborder='0' allowfullscreen></iframe>"
   end
 
   def tweetize txt

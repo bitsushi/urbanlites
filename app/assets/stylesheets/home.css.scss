@@ -1,3 +1,45 @@
+#sushislider {
+  background: red;
+  width: 100%;
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  #previous, #next {
+    position: absolute;
+  }
+  #next {
+    right: 0;
+  }
+  .wrapper {
+    width: 880px;
+    margin: 0 auto;
+  }
+  #player_container {
+    display: none;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+  ul {
+    display: block;
+    height: 420px;
+    width: 880px;
+    overflow: hidden;
+    position: relative;
+    background: black;
+    li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 880px;
+      display: block;
+      height: 420px;
+    }
+  }
+}
+
 .container {
   padding: 0 10px;
 //  background: yellow;
