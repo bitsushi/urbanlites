@@ -14,7 +14,11 @@ namespace :fetch do
           media = nil
         end
 
-        Tweet.create(body: result['text'], uid: result['id'], posted_at: result['created_at'], media: media)
+        begin
+          Tweet.create(body: result['text'], uid: result['id'], posted_at: result['created_at'], media: media)
+        rescue
+          "TWITTER: Already have #{result['id']}"
+        end
       # rescue
       #   p "already added"
       # end
@@ -36,13 +40,21 @@ namespace :fetch do
           )
         end
       rescue
-        p "already added"
+        "YT: Already have #{result['id']}"
       end
     end
   end
 
   task :facebook => :environment do
-    # https://www.facebook.com/feeds/page.php?format=atom10&id=187072201335959
+    # https://www.facebook.com/feeds/page.php?format=json&id=187072201335959
+    results = JSON.parse(open("https://www.facebook.com/feeds/page.php?format=json&id=187072201335959").read)
+    results['entries'].each do |result|
+      begin
+        FacebookPost.create(content: result['content'], uid: result['id'], posted_at: result['published'], url: result['alternate'])
+      rescue
+        "FB: Already have #{result['id']}"
+      end
+    end
   end
 
   task :activities => :environment do

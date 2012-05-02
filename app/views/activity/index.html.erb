@@ -6,7 +6,7 @@
     <ul>
     <% @tweets.each do |tweet| %>
       <li class="tweet">
-        <span class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</span>
+        <a href="<%= tweet.url %>" class="title">twitter, <%= time_ago_in_words tweet.posted_at %> ago</a>
         <p><%= auto_link(tweet).html_safe %></p>
         <%= image_tag(tweet.media, class: 'twitter_media') if tweet.media.present? %>
       </li>
@@ -14,14 +14,24 @@
     </ul>
   </li>
 
-  <li class="facebook"></li>
+  <li class="facebook">
+    <h2>Facebook</h2>
+    <ul>
+      <% @facebook_posts.each do |facebook_post| %>
+        <li class="facebook_post">
+          <a href="<%= facebook_post.url %>" class="title">facebook, <%= time_ago_in_words facebook_post.posted_at %> ago</a>
+          <div class="content"><%= facebook_post.content.html_safe %></div>
+        </li>
+      <% end %>
+    </ul>
+  </li>
 
   <li class="youtube">
     <h2>Youtube</h2>
     <ul>
     <% @videos.each do |video| %>
       <li class="youtube_video">
-        <span class="title">youtube, <%= time_ago_in_words video.published_at %> ago</span>
+        <a href="<%= video.url %>" class="title">youtube, <%= time_ago_in_words video.published_at %> ago</a>
         <div class="video"><%= raw video_tag(video.uid, '100%', 300) %></div>
       </li>
     <% end %>

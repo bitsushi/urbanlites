@@ -9,7 +9,7 @@ function onYouTubePlayerAPIReady() {
     height: '390',
     width: '640',
     videoId: 'u1zgFlCw8Aw',
-    playerVars: { 'controls': 1 },
+    playerVars: { 'controls': 1, 'wmode': 'opaque' },
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange

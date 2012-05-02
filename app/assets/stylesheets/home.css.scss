@@ -10,6 +10,8 @@ body#c-pages-a-home {
 
     h1, h2 {
       position: absolute;
+      opacity:inherit;
+      filter:inherit;
       top: 20px;
       left: 20px;
       font-size: 2em;
@@ -25,6 +27,8 @@ body#c-pages-a-home {
     .description {
 
       position: relative;
+      opacity:inherit;
+      filter:inherit;
 
       .quote {
         @include italic;
@@ -39,7 +43,8 @@ body#c-pages-a-home {
 
       dl, dd, dt { margin: 0; padding: 0;}
       dt { color: $blue;}
-      dl{ display: block; position: absolute; bottom: 60px;}
+      dl{ display: block; position: absolute; bottom: 60px; opacity:inherit;
+      filter:inherit;}
 
   //    padding: 10px;
       float: right;
@@ -55,6 +60,8 @@ body#c-pages-a-home {
       .see_more {
         background: red;
         position: absolute;
+        opacity:inherit;
+        filter:inherit;
         bottom: 0;
         right: 0;
         width: 100%;

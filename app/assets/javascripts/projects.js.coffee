@@ -1,5 +1,5 @@
 jQuery ->
-  $('a[title]').qtip();
+  $('a[title], li[data-title]').qtip();
 
   $('#window_container').swipeEvents()
     .bind("swipeLeft",  -> $('a.bjqs-prev').trigger('click') )

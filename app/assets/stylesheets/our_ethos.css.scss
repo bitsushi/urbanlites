@@ -6,6 +6,10 @@ body#c-pages-a-our_ethos {
 
   #sushislider {
 
+    li.item {
+      cursor: default;
+    }
+
     h1 {
       margin: 0;
       font-size: 3em;
@@ -19,7 +23,7 @@ body#c-pages-a-our_ethos {
       background: image-url('pngs/black_bg.png');
       background: rgba(0,0,0,0.4);
       margin: 0;
-      margin-top: 110px;
+      margin-top: 120px;
       width: 600px;
     }
 
@@ -32,7 +36,7 @@ body#c-pages-a-our_ethos {
       background: none;
       li {
         background: $blue;
-        opacity: 0.5;
+        @include opacity(0.5);
         width: 35px;
         height: 35px;
         line-height: 35px;
@@ -40,8 +44,11 @@ body#c-pages-a-our_ethos {
         cursor: pointer;
         color: black;
         font-size: 20px;
-        &.active {
-          opacity: 1;
+        &.active, &.active:hover {
+          @include opacity(1);
+        }
+        &:hover {
+          @include opacity(.7);
         }
       }
     }

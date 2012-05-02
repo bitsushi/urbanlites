@@ -23,6 +23,7 @@ set :output, "#{path}/log/cron.log"
 
 every 5.minutes do
   rake "fetch:twitter"
+  rake "fetch:facebook"
 end
 
 every 20.minutes do

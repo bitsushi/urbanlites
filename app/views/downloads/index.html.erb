@@ -2,7 +2,7 @@
 
 <ul>
 <% @downloads.each do |download| %>
-  <li class="download" data-url="<%= download.file.url %>">
+  <li class="download" data-url="<%= download.file.url %>" data-title="<%= download.name %>">
     <div class="inner">
       <h3><%= link_to download.name, download.file.url %></h3>
       <span class="date_uploaded"><%= l(download.updated_at, format: :micro) %></span>

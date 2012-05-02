@@ -6,6 +6,10 @@ class Video < ActiveRecord::Base
     name
   end
 
+  def url
+    "http://www.youtube.com/watch?v=#{uid}"
+  end
+
   # def to_s
   #   "<iframe width='374' height='210' src='http://www.youtube.com/embed/#{self.service_id}' frameborder='0' allowfullscreen></iframe>".html_safe
   # end

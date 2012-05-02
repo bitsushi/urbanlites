@@ -1,6 +1,7 @@
 #sushislider {
   h1 {
     padding: 10px;
+    line-height: 1em;
   }
   margin-left: -10px;
   width: 920px;
@@ -20,6 +21,7 @@
     margin: 0;
     padding: 5px;
     li {
+      @include unselectable;
       float: left;
       margin: 5px;
       img { opacity: 0.5; }
@@ -31,7 +33,7 @@
   }
   #previous, #next {
     position: absolute;
-    background: image-url('arrows.png') left center no-repeat;
+    background: image-url('arrows.png') no-repeat center left;
     width: 20px;
     height: 100%;
     @extend .hide_text;
@@ -39,7 +41,7 @@
     padding: 0;
   }
   #next {
-    background-position: right center;
+    background-position: center right;
     right: 0;
   }
   .wrapper {
@@ -66,8 +68,12 @@
     overflow: hidden;
     position: relative;
     background: black;
+    opacity:inherit;
+    filter:inherit;
     li {
       position: absolute;
+      opacity:inherit;
+      filter:inherit;
       left: 0;
       top: 0;
       width: 880px;

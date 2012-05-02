@@ -19,17 +19,15 @@ setActive = ->
   # else
   #   $('#player').hide()
 
-next = ->
-  incoming = $('#sushislider ul li.item:eq(1)')
+next = (num=1) ->
+  # incoming = $("#sushislider ul li.item:eq(#{num})")
 
+  $('#sushislider ul li.item:first').stop().fadeOut()
+  while num-- > 0
+    $('#sushislider ul li.item:first').appendTo('#sushislider ul')
 
-  if incoming.data('youtube-id')
-    $('#player_container').show()
-  else
-    $('#player_container').hide()
-
-  $('#sushislider ul li.item:first').fadeOut().appendTo('#sushislider ul')
-  incoming.fadeIn()
+  if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
+  $('#sushislider ul li.item:first').fadeIn()
   startTimer()
 
   # $('#sushislider ul li.item:first').fadeOut().next('li').fadeIn().end().appendTo('#sushislider ul')
@@ -39,11 +37,17 @@ next = ->
   # else
   #   $('#player').hide()
 
-prev = ->
-  incoming = $('#sushislider ul li.item:last')
-  $('#player').appendTo(incoming)
-  $('#sushislider ul li.item:first').fadeOut()
-  incoming.fadeIn().prependTo('#sushislider ul')
+prev = (num=1) ->
+  # incoming = $('#sushislider ul li.item:last')
+  # $('#player').appendTo( $('#sushislider ul li.item:last') )
+
+  $('#sushislider ul li.item:first').stop().fadeOut()
+  while num-- > 0
+    $('#sushislider ul li.item:last').prependTo('#sushislider ul')
+
+  if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
+
+  $('#sushislider ul li.item:first').fadeIn()
   startTimer()
 
 startTimer = ->
@@ -55,6 +59,11 @@ startTimer = ->
   $("#sushislider ol li:eq(#{index})").addClass('active')
 
 jQuery ->
+
+  $(document).keyup (event) ->
+    switch event.which
+      when 39 then next()
+      when 37 then prev()
 
   $('#sushislider ul li.item:gt(0)').hide()
 
@@ -80,29 +89,11 @@ jQuery ->
     e.preventDefault()
     prev()
 
-  # # window.current = -1
-  # # setTimeout (-> setActive() ), 1000
-  #
-  # # $('#sushislider #next').trigger('click')
-  #
-  # $('#sushislider').each ->
-  #
-  #   window.slider_length = $('#sushislider .item').length
-  #   console.log window.slider_length
-  #
-  #   # $(this).find('.item:first').addClass('inactive')
-  #   # tog $(this).find('.item:first')
-  #   #
-  #   # $(this).find('.item:not(:first)').addClass('active')
-  #   # tog $(this).find('.item:not(:first)')
-  #
-  #   $(this).find('#next').click (e) ->
-  #     e.preventDefault()
-  #     $('#sushislider ul').append( $('#sushislider li:first') )
-  #     # # console.log window.player
-  #     # id = $('#sushislider').find('.item:first').data('youtube-id')
-  #     # console.log id
-  #     #
-  #  $(this).find('#previous').click (e) ->
-  #     e.preventDefault()
-  #     $('#sushislider ul').prepend( $('#sushislider li:last') )
+  $('#sushislider ol li').click (e) ->
+    e.preventDefault()
+    current = parseInt $('#sushislider ul li.item:first').data('index')
+    thisNum = parseInt $(this).index()
+    diff = thisNum - current
+    counter = 0
+    # while counter++ < Math.abs(diff)
+    if diff > 0 then next( diff ) else prev( Math.abs(diff) )

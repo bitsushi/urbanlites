@@ -7,12 +7,31 @@
   background-position: center center;
 }
 
+$break-small: 320px;
+$break-large: 1200px;
 
 @import "bourbon";
 @import "boilerplate";
 
+@mixin opacity($alpha) {
+  // IE 8
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$alpha*100)";
+  // IE 5-7
+	filter: alpha(opacity=$alpha*100);
+	// Real Browsers
+  -webkit-opacity: $alpha;
+  -moz-opacity: $alpha;
+  -khtml-opacity: $alpha;
+  opacity: $alpha;
+}
 
-
+@mixin unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 
 @mixin font-face($font-family, $url) {
    @font-face {
@@ -219,14 +238,16 @@ a {
 }
 
 .hide_text {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+//  text-indent: 100%;
+//  white-space: nowrap;
+//  overflow: hidden;
+text-indent: -999px;
 }
 
 nav {
   background-image: image-url('nav_bg.gif');
-  background-position: center repeat-x;
+  background-position: center;
+  background-repeat: repeat-x;
   @include linear-gradient(#566CB0 48%, #4C64AC 48%);
 
   clear: both;
