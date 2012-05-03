@@ -4,8 +4,11 @@ class CreateDownloads < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :file
+      t.integer :ordinal
 
       t.timestamps
     end
+
+    add_index :downloads, :ordinal
   end
 end

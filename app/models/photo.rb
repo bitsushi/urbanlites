@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, counter_cache: true
   mount_uploader :image, ImageUploader
 
   default_scope order('ordinal ASC')

@@ -17,9 +17,12 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.string   "name"
     t.string   "description"
     t.string   "file"
+    t.integer  "ordinal"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "downloads", ["ordinal"], :name => "index_downloads_on_ordinal"
 
   create_table "ethoses", :force => true do |t|
     t.string   "headline"
@@ -39,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.text     "content"
   end
 
+  add_index "facebook_posts", ["posted_at"], :name => "index_facebook_posts_on_posted_at"
   add_index "facebook_posts", ["uid"], :name => "index_facebook_posts_on_uid", :unique => true
 
   create_table "photos", :force => true do |t|
@@ -60,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.text     "description"
     t.integer  "ordinal",        :default => 999
     t.integer  "window_ordinal", :default => 0
+    t.integer  "photos_count"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
@@ -123,8 +128,10 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.string   "state"
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
+
+  add_index "videos", ["project_id"], :name => "index_videos_on_project_id"
+  add_index "videos", ["published_at"], :name => "index_videos_on_published_at"
+  add_index "videos", ["uid"], :name => "index_videos_on_uid", :unique => true
 
 end

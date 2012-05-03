@@ -16,13 +16,14 @@ Urbanlites::Application.routes.draw do
     root to: 'projects#index'
     resources :projects do
       collection do
+        post :sort
         post :update_frontpage_items
       end
     end
     resources :frontpage
     resources :photos do collection { post :sort } end
     resources :services do collection { post :sort } end
-    resources :downloads
+    resources :downloads do collection { post :sort } end
     resources :ethoses do collection { post :sort } end
     resources :posts
   end

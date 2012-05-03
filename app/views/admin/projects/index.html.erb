@@ -3,9 +3,10 @@
 
   <span class="hint">All of the projects listed on the site, click the project's name to edit it</span>
 
-  <table class="sortable">
+  <table class="sortable" data-update-url="<%= sort_admin_projects_url %>">
     <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Updated at</th>
         <th># Quotes</th>
@@ -14,13 +15,14 @@
       </tr>
     </thead>
   <% @projects.each do |project| %>
-    <tr>
+    <%= content_tag_for :tr, project do %>
+      <td class="move"><%= image_tag "move.png" %></td>
       <td><%= link_to project, edit_admin_project_path(project) %></td>
       <td><%= l(project.updated_at, format: :short) %></td>
       <td><%= project.quotes.size %></td>
       <td><%= project.photos.size %></td>
-      <td><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?" %></td>
-    </tr>
+      <td><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?", class: 'delete' %></td>
+    <% end %>
   <% end %>
   </table>
   <%= link_to 'New Project', new_admin_project_path, class: 'button' %>

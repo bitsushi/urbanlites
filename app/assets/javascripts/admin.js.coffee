@@ -16,6 +16,7 @@ jQuery ->
     axis: 'y'
     forceHelperSize: true
     items: 'tr'
+    handle: 'td.move'
     update: ->
       $.post($(this).data('update-url'), $(this).sortable('serialize'))
 

@@ -32,7 +32,7 @@
     <% @videos.each do |video| %>
       <li class="youtube_video">
         <a href="<%= video.url %>" class="title">youtube, <%= time_ago_in_words video.published_at %> ago</a>
-        <div class="video"><%= raw video_tag(video.uid, '100%', 300) %></div>
+        <div class="video"><%= raw video_tag(video.uid, '100%', '100%') %></div>
       </li>
     <% end %>
     </ul>

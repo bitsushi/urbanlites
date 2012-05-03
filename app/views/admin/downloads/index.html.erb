@@ -1,12 +1,15 @@
 <div>
   <h1>Downloads</h1>
-  <table>
+  <span class="hint">Drag to reorder.</span>
+
+  <table class="sortable" data-update-url="<%= sort_admin_downloads_url %>">
   <% @downloads.each do |download| %>
-    <tr>
+    <%= content_tag_for :tr, download do %>
+      <td class="move"><%= image_tag "move.png" %></td>
       <td><%= link_to download, edit_admin_download_path(download) %></td>
       <td><%= link_to download.file, download.file.url %></td>
-      <td><%= link_to "Delete", admin_download_path(download), method: 'delete', confirm: "Are you sure?" %></td>
-    </tr>
+      <td><%= link_to "Delete", admin_download_path(download), method: 'delete', confirm: "Are you sure?", class: 'delete' %></td>
+    <% end %>
   <% end %>
   </table>
 </div>

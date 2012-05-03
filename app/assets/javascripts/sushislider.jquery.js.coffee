@@ -67,33 +67,36 @@ jQuery ->
 
   $('#sushislider ul li.item:gt(0)').hide()
 
-  $('#sushislider').swipeEvents()
-    .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
-    .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
+  if $('#sushislider ul li.item').size() <= 1
+    $('#sushislider ol, #sushislider #next, #sushislider #previous').hide()
+  else
+    $('#sushislider').swipeEvents()
+      .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
+      .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
 
-  startTimer()
-
-
-  $('#sushislider').hover(->
-    clearInterval window.interval
-  ,->
     startTimer()
-  )
 
 
-  $('#sushislider #next').click (e) ->
-    e.preventDefault()
-    next()
+    $('#sushislider').hover(->
+      clearInterval window.interval
+    ,->
+      startTimer()
+    )
 
-  $('#sushislider #previous').click (e) ->
-    e.preventDefault()
-    prev()
 
-  $('#sushislider ol li').click (e) ->
-    e.preventDefault()
-    current = parseInt $('#sushislider ul li.item:first').data('index')
-    thisNum = parseInt $(this).index()
-    diff = thisNum - current
-    counter = 0
-    # while counter++ < Math.abs(diff)
-    if diff > 0 then next( diff ) else prev( Math.abs(diff) )
+    $('#sushislider #next').click (e) ->
+      e.preventDefault()
+      next()
+
+    $('#sushislider #previous').click (e) ->
+      e.preventDefault()
+      prev()
+
+    $('#sushislider ol li').click (e) ->
+      e.preventDefault()
+      current = parseInt $('#sushislider ul li.item:first').data('index')
+      thisNum = parseInt $(this).index()
+      diff = thisNum - current
+      counter = 0
+      # while counter++ < Math.abs(diff)
+      if diff > 0 then next( diff ) else prev( Math.abs(diff) )

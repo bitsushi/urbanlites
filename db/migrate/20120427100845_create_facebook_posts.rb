@@ -8,5 +8,6 @@ class CreateFacebookPosts < ActiveRecord::Migration
     end
 
     add_index :facebook_posts, :uid, unique: true
+    add_index :facebook_posts, :posted_at
   end
 end

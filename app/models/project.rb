@@ -3,6 +3,10 @@ class Project < ActiveRecord::Base
   friendly_id :name, use: :slugged
   has_many :quotes
 
+  default_scope order('ordinal ASC, id DESC')
+
+  scope :frontpage_eligible, where('photos_count > 0')
+
   def thumbnail
     photos.first.image_url(:thumb) unless photos.empty?
   end

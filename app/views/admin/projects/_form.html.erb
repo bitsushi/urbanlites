@@ -39,13 +39,18 @@
           <% end %>
         <% end %>
       <% end %>
-    </ul>
-
+      </ul>
     </div>
 
+    <%= f.fields_for :photos do |p| %>
+    <div class="field">
+    <%= p.label :image %>
+    <%= p.file_field :image %>
+    </div>
+    <% end %>
+
     <%# if p.object.new_record? %>
-    <%#= p.label :image %>
-    <%#= p.file_field :image %>
+
     <%# end %>
 
 

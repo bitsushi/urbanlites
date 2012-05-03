@@ -1,16 +1,5 @@
 <%= form_for ['admin',@download] do |f| %>
-  <% if @download.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@download.errors.count, "error") %> prohibited this download from being saved:</h2>
-
-      <ul>
-      <% @download.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render "application/error_messages", :target => @download %>
 
   <fieldset>
   <div class="field">
@@ -23,7 +12,8 @@
   </div>
   <div class="field">
     <%= f.label :file %>
-    <%= link_to(@download.file, @download.file.url) if @download.file %>
+    <%= f.hidden_field :file_cache %>
+    <%= link_to(@download.file, @download.file.url, target: '_blank') if @download.file %>
     <%= f.file_field :file %>
   </div>
   </fieldset>

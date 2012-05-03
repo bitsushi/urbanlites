@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
-  li.item {
+  li.item[data-url] {
     cursor: pointer;
   }
   ol {

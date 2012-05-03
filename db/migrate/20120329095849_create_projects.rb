@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :description
       t.integer :ordinal, default: 999
       t.integer :window_ordinal, default: 0
+      t.integer :photos_count
       t.timestamps
     end
 

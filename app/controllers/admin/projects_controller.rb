@@ -1,5 +1,12 @@
 class Admin::ProjectsController < Admin::BaseController
 
+  def sort
+    params[:project].each_with_index do |id, index|
+      Project.update_all({ordinal: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   def update_frontpage_items
     Project.update_all("window_ordinal = 0")
     params[:project].each_with_index do |project_number, index|

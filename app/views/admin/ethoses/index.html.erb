@@ -1,11 +1,14 @@
 <div>
   <h1>Our Ethos</h1>
+
+  <span class="hint">Each slide on the Ethos page. Drag to reorder.</span>
+
 <table class="sortable" data-update-url="<%= sort_admin_ethoses_url %>">
 <% @ethoses.each do |ethos| %>
 <%= content_tag_for :tr, ethos do %>
-    <td>+</td>
-    <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
-    <td><%= link_to 'Delete', admin_ethos_path(ethos), method: 'delete', confirm: 'Are you sure you want to delete this ethos?' %></td>
+  <td class="move"><%= image_tag "move.png" %></td>
+  <td><%= link_to ethos, edit_admin_ethos_path(ethos) %></td>
+  <td><%= link_to 'Delete', admin_ethos_path(ethos), method: 'delete', confirm: 'Are you sure you want to delete this ethos?', class: 'delete' %></td>
 <% end %>
 <% end %>
 </table>

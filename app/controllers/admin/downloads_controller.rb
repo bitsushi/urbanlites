@@ -1,4 +1,12 @@
 class Admin::DownloadsController < Admin::BaseController
+
+  def sort
+    params[:download].each_with_index do |id, index|
+      Download.update_all({ordinal: index+1}, {id: id})
+    end
+    render nothing: true
+  end
+
   # GET /downloads
   # GET /downloads.json
   def index

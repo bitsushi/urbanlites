@@ -57,8 +57,8 @@ namespace :fetch do
     end
   end
 
-  task :activities => :environment do
-    %w[twitter youtube].each do |task|
+  task :all => :environment do
+    %w[twitter youtube facebook].each do |task|
       Rake::Task["fetch:#{task}"].execute
     end
   end

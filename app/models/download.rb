@@ -3,6 +3,8 @@ class Download < ActiveRecord::Base
 
   validates_presence_of :name, :file
 
+  default_scope order('ordinal ASC, id DESC')
+
   def to_s
     name
   end
