@@ -18,8 +18,9 @@
     }
   </style>
   <![endif]-->
-  <%= javascript_include_tag "modernizr" %>
   <%= javascript_include_tag("//maps.googleapis.com/maps/api/js?sensor=false") if action_name == "contact" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body id="c-<%= controller_name %>-a-<%= action_name %>">
@@ -88,7 +89,6 @@
 
 
   </footer>
-  <%= javascript_include_tag "application" %>
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

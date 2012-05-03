@@ -17,19 +17,16 @@
             <div class="inner">
               <% if (quote = project.quotes.first(:order => "RANDOM()")) %>
               <span class="quote">
-              <q><%= simple_format "‘#{quote.body}’" %></q>
+              <q><%= simple_format "‘#{truncate quote.body, length: 170}’" %></q>
               <span class="author"><%= quote.author %></span>
               <span class="company"><%= quote.organisation %></span>
               </span>
               <% end %>
 
             <dl>
-              <dt>Who</dt>
-              <dd><%= project.who %></dd>
-              <dt>When</dt>
-              <dd><%= l(project.when, format: :short) %></dd>
-              <dt>What</dt>
-              <dd><%= project.what %></dd>
+              <% if project.who %><dt>Who</dt><dd><%= project.who %></dd><% end %>
+              <% if project.when %><dt>When</dt><dd><%= l(project.when, format: :short) %></dd><% end %>
+              <% if project.what %><dt>What</dt><dd><%= project.what %></dd><% end %>
             </dl>
 
             </div>

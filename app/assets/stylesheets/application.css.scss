@@ -2,6 +2,10 @@
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
 
+p {
+  margin: 1em 0;
+}
+
 #window {
   background-repeat: no-repeat;
   background-position: center center;
@@ -208,7 +212,7 @@ a {
   color: #4576F5;
 }
 
-blockquote p {
+q p, blockquote p {
   margin-bottom: 0;
 }
 
