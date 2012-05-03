@@ -13,8 +13,9 @@
   <div class="field">
     <%= f.label :file %>
     <%= f.hidden_field :file_cache %>
-    <%= link_to(@download.file, @download.file.url, target: '_blank') if @download.file %>
     <%= f.file_field :file %>
+    <%= link_to(@download.file, @download.file.url, target: '_blank') if @download.file %>
+
   </div>
   </fieldset>
 

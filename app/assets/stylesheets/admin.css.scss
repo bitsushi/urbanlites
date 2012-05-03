@@ -44,6 +44,16 @@ td.move {
   cursor: move;
 }
 
+input, textarea {
+  width: 100%;
+  font-size: 1.1em;
+  padding: 5px;
+  background: #FFFEE3;
+}
+label {
+  color: #888;
+}
+
 ul.sortable {
   &, li {
     float: left;

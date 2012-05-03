@@ -54,6 +54,10 @@ body#c-projects-a-index {
 
 body#c-projects-a-show {
 
+  li.video {
+    height: 220px;
+  }
+
   #project_buttons {
     margin-bottom: 10px;
     @extend .clearfix;
@@ -61,6 +65,8 @@ body#c-projects-a-show {
 
   .quote {
     blockquote, span { margin: 0;}
+    font-size: 90%;
+    color: #E0E0E0;
   }
 
   h1 {
@@ -120,8 +126,18 @@ body#c-projects-a-show {
   }
 
   #project_quotes {
-    @include italic;
     @include grid(2);
+    ul,li {
+      margin: 0 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  #quotes {
+    border-top: 1px solid $blue;
+    color: #EEE;
+    @include italic;
     ul,li {
       margin: 0;
       padding: 0;

@@ -17,6 +17,7 @@ Urbanlites::Application.routes.draw do
     resources :projects do
       collection do
         post :sort
+        post :sort_videos
         post :update_frontpage_items
       end
     end

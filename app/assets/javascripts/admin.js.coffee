@@ -7,6 +7,10 @@ jQuery ->
     console.log data
     # console.log($('select').extractLabel)
 
+  $('#videos select#multi').change ->
+    $.post $('#videos').data('update-url'), $(this).serialize()
+    # $('form#update_frontpage_items').submit()
+
   $('form#update_frontpage_items select#multi').change ->
     $('form#update_frontpage_items').submit()
     # $('#save_window_ordinals').attr('disabled',true)

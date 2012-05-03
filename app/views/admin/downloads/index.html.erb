@@ -7,7 +7,7 @@
     <%= content_tag_for :tr, download do %>
       <td class="move"><%= image_tag "move.png" %></td>
       <td><%= link_to download, edit_admin_download_path(download) %></td>
-      <td><%= link_to download.file, download.file.url %></td>
+      <td><%= link_to 'Download file', download.file.url %></td>
       <td><%= link_to "Delete", admin_download_path(download), method: 'delete', confirm: "Are you sure?", class: 'delete' %></td>
     <% end %>
   <% end %>

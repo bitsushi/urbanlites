@@ -7,7 +7,9 @@
 <div id="<%= dom_id project %>" class="project" data-url="<%= project_path(project) %>">
   <div class="inner">
 
-    <div class="thumb" style="background-image: url(<%= project.thumbnail %>)"></div>
+    <% if project.thumbnail %>
+      <div class="thumb" style="background-image: url(<%= project.thumbnail %>)"></div>
+    <% end %>
 
     <div class="description">
 

@@ -13,6 +13,7 @@
   window.thumbs = <%= raw @project.photos.map{ |p| p.image.thumb.url }.to_json %>
 </script>
 
+<% unless @project.photos.empty? %>
 <div id="sushislider">
   <a id="previous" href="#">Previous</a>
   <a id="next" href="#">Next</a>
@@ -34,29 +35,36 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <div id="project_detail">
 <h2><%= @project.name %></h2>
 <span id="in_more_detail">In more detail</span>
 <%= simple_format @project.description %>
+
+<% unless @project.quotes.empty? %>
+<ul id="quotes">
+  <% @project.quotes.each do |quote| %>
+  <li class="quote">
+    <blockquote><%= simple_format "‘#{quote.body}’" %></blockquote>
+    <span class="author"><%= quote.author %>, <%= quote.organisation %></span>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+
 </div>
+
 
 <div id="project_quotes">
 
   <div id="videos">
     <ul>
-      <% Video.limit(2).each do |video| %>
+      <% @project.videos.each do |video| %>
         <li class="video"><%= raw video_tag(video.uid, '100%', 220) %></li>
       <% end %>
     </ul>
   </div>
 
-  <ul>
-    <% @project.quotes.each do |quote| %>
-    <li class="quote">
-      <blockquote><%= simple_format "‘#{quote.body}’" %></blockquote>
-      <span class="author"><%= quote.author %>, <%= quote.organisation %></span>
-    </li>
-    <% end %>
-  </ul>
+
 </div>

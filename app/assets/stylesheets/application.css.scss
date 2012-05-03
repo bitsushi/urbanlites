@@ -208,6 +208,10 @@ a {
   color: #4576F5;
 }
 
+blockquote p {
+  margin-bottom: 0;
+}
+
 #ident {
   cursor: pointer;
   @include grid(2);

@@ -29,8 +29,10 @@
   <fieldset id="media">
     <legend>Media</legend>
 
-    <div id="photos">
-      <span class="hint">Drag to reorder. The first item will be the default window image and thumbnail.</span><br/>
+    <fieldset id="photos">
+      <legend>Photos</legend>
+      <div><span class="hint">Drag to reorder. The first item will be the default window image and thumbnail.</span></div>
+
       <ul class="sortable" data-update-url="<%= sort_admin_photos_url %>">
       <% @project.photos.each do |photo| %>
         <% unless photo.new_record? %>
@@ -40,46 +42,49 @@
         <% end %>
       <% end %>
       </ul>
-    </div>
+
+
 
     <%= f.fields_for :photos do |p| %>
-    <div class="field">
-    <%= p.label :image %>
-    <%= p.file_field :image %>
-    </div>
+      <div class="field">
+        <%= p.label :image %>
+        <%= p.file_field :image %>
+      </div>
     <% end %>
 
-    <%# if p.object.new_record? %>
-
-    <%# end %>
+  </fieldset>
 
 
-<!--    <div id="videos">
-      <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
-      <%= f.select :video_ids, options_for_select(
-        Video.all.map{ |v| [v.name, v.id ]},
-        Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
-    </div>-->
+    <fieldset id="videos">
+      <legend>Videos</legend>
+      <div data-update-url="<%= sort_videos_admin_projects_url %>">
+        <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
+        <%= f.select :video_ids, options_for_select(
+          Video.all.map{ |v| [v.name, v.id ]},
+          Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
+      </div>
+    </fieldset>
   </fieldset>
 
   <fieldset id="quotes">
     <legend>Quotes</legend>
     <%= f.fields_for :quotes do |q| %>
       <fieldset class="quote">
-      <div class="field">
-      <%= q.label :body %>
-      <%= q.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>
-      </div>
-      <div class="field">
-      <%= q.label :author %>
-      <%= q.text_field :author, placeholder: "Bugs Bunny" %>
-      </div>
-      <div class="field">
-      <%= q.label :organisation %>
-      <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
-      </div>
-      <%= q.label :_destroy, 'Delete Quote' %>
-      <%= q.check_box :_destroy %>
+        <legend>Quote</legend>
+        <div class="field">
+        <%= q.label :body %>
+        <%= q.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>
+        </div>
+        <div class="field">
+        <%= q.label :author %>
+        <%= q.text_field :author, placeholder: "Bugs Bunny" %>
+        </div>
+        <div class="field">
+        <%= q.label :organisation %>
+        <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
+        </div>
+        <%= q.label :_destroy, 'Delete Quote' %>
+        <%= q.check_box :_destroy %>
       </fieldset>
     <% end %>
   </fieldset>
