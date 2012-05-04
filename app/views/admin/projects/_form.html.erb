@@ -69,7 +69,7 @@
 
         <%= f.select :video_ids, options_for_select(
           Video.all.map{ |v| [v.name, v.id ]},
-          Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
+          Video.all.map{|v| v.id if v.project_id == @project.id && v.project_id.present? }), {}, multiple: true, id: 'multi' %>
       </div>
     </fieldset>
   </fieldset>

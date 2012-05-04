@@ -29,6 +29,7 @@ description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
 
 User.delete_all
 User.create!(email: 'john@bitsushi.com', password: 'pass', password_confirmation: 'pass')
+User.create!(email: 'paul@rapportevents.com', password: 'r4pp0rt', password_confirmation: 'r4pp0rt')
 
 Ethos.delete_all
 Ethos.create(headline: 'Equipment kept to highest standard', description: 'Our equipment will always be meticulously maintained and prepared, so it looks professional, is in perfect working condition and does your event justice.')
