@@ -85,6 +85,7 @@ jQuery ->
       .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
       .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
 
+    $("#sushislider ol li:first").addClass('active')
     changeDetails()
     # $('#sushislider').fadeIn('slow')
 
