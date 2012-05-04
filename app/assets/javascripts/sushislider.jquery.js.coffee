@@ -1,5 +1,14 @@
 # http://snook.ca/archives/javascript/simplest-jquery-slideshow
 
+changeDetails = ->
+  $('#sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
+  $('#sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
+  $('#sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
+  $('#sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
+  $('#sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
+  $('#sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )
+  $('#sushislider h1').html( $('#sushislider ul li.item:first').data('name') )
+
 setActive = ->
 
   $('#sushislider ul').append( $('#sushislider li:first') )
@@ -25,17 +34,11 @@ next = (num=1) ->
   $('#sushislider ul li.item:first').stop().fadeOut()
   while num-- > 0
     $('#sushislider ul li.item:first').appendTo('#sushislider ul')
+  changeDetails()
 
   # if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
   $('#sushislider ul li.item:first').fadeIn()
 
-  $('#sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
-  $('#sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
-  $('#sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
-  $('#sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
-  $('#sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
-  $('#sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )
-  $('#sushislider h1').html( $('#sushislider ul li.item:first').data('name') )
   startTimer()
 
   # $('#sushislider ul li.item:first').fadeOut().next('li').fadeIn().end().appendTo('#sushislider ul')
@@ -54,7 +57,7 @@ prev = (num=1) ->
     $('#sushislider ul li.item:last').prependTo('#sushislider ul')
 
   if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
-
+  changeDetails()
   $('#sushislider ul li.item:first').fadeIn()
   startTimer()
 

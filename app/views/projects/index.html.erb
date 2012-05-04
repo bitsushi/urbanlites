@@ -14,7 +14,7 @@
     <div class="description">
 
       <h3 class="name"><%= link_to project.name, project %></h3>
-      <span class="description"><%= truncate(project.description, :length => 150) %></span>
+      <span class="description"><%= truncate(project.description, :length => 120) %></span>
       <%= link_to "Read more...", project, class: 'read_more' %>
     </div>
 
