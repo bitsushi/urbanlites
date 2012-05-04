@@ -32,11 +32,7 @@ class Admin::ProjectsController < Admin::BaseController
   def new
     @project = Project.new
 
-    1.times do
-      @project.photos.build
-    end
-
-    5.times do
+    2.times do
       @project.quotes.build
     end
 
@@ -57,7 +53,7 @@ class Admin::ProjectsController < Admin::BaseController
       @project.quotes.build
     end
 
-    5.times do
+    3.times do
       @project.photos.build
       # @project.videos.build
     end
@@ -70,8 +66,17 @@ class Admin::ProjectsController < Admin::BaseController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to admin_projects_url, notice: 'Project was successfully created.' }
       else
+
+        2.times do
+          @project.quotes.build
+        end
+
+        3.times do
+          @project.photos.build
+        end
+
         format.html { render action: "new" }
       end
     end
@@ -84,8 +89,17 @@ class Admin::ProjectsController < Admin::BaseController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to admin_projects_path, notice: 'Project was successfully updated.' }
+        format.html { redirect_to admin_projects_url, notice: 'Project was successfully updated.' }
       else
+
+        2.times do
+          @project.quotes.build
+        end
+
+        3.times do
+          @project.photos.build
+        end
+
         format.html { render action: "edit" }
       end
     end
@@ -98,7 +112,7 @@ class Admin::ProjectsController < Admin::BaseController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to admin_projects_url }
     end
   end
 end
