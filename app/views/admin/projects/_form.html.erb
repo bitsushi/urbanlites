@@ -6,19 +6,19 @@
     <legend>Details</legend>
     <div class="field">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, style: 'width: 300px' %>
     </div>
     <div class="field">
       <%= f.label :who %>
-      <%= f.text_field :who %>
+      <%= f.text_field :who, style: 'width: 300px' %>
     </div>
     <div class="field">
       <%= f.label :where %>
-      <%= f.text_field :where %>
+      <%= f.text_field :where, style: 'width: 300px' %>
     </div>
     <div class="field">
       <%= f.label :what %>
-      <%= f.text_field :what %>
+      <%= f.text_field :what, style: 'width: 300px' %>
     </div>
     <div class="field">
       <%= f.label :description %>
@@ -45,12 +45,13 @@
 
     <fieldset>
       <legend>Upload new photos</legend>
+      <span class="hint">Use the boxes below to pick the photos you want to upload, then click the submit button at the bottom of the page</span><br/><br/>
 
     <%= f.fields_for :photos do |p| %>
       <% if p.object.new_record? %>
       <div class="field">
         <%= p.label :image %>
-        <%= p.file_field :image %>
+        <%= p.file_field :image, style: 'width: 300px' %>
       </div>
       <% end %>
     <% end %>
@@ -61,8 +62,11 @@
 
     <fieldset id="videos">
       <legend>Videos</legend>
+
       <div data-update-url="<%= sort_videos_admin_projects_url %>">
-        <%= link_to "Manage Youtube Videos", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank' %>
+        <%= link_to "Click to open YouTube", "http://www.youtube.com/my_videos?feature=mhee", target: 'blank', style: 'float: right' %>
+        <br/><p><span class="hint">Choose the videos for this project page from your youtube channel using the combobox below</span></p>
+
         <%= f.select :video_ids, options_for_select(
           Video.all.map{ |v| [v.name, v.id ]},
           Video.all.map{|v| v.id if v.project_id == @project.id }), {}, multiple: true, id: 'multi' %>
@@ -72,6 +76,9 @@
 
   <fieldset id="quotes">
     <legend>Quotes</legend>
+
+    <span class="hint">Fill out the boxes below for any quotes that you want to show on the project page</span>
+
     <%= f.fields_for :quotes do |q| %>
       <fieldset class="quote" id="<%= dom_id q.object %>">
         <legend>Quote</legend>
@@ -85,15 +92,15 @@
         </div>
         <div class="field">
         <%= q.label :author %>
-        <%= q.text_field :author, placeholder: "Bugs Bunny" %>
+        <%= q.text_field :author, placeholder: "Richard Branson", style: 'width: 300px' %>
         </div>
         <div class="field">
         <%= q.label :position %>
-        <%= q.text_field :position, placeholder: "Director" %>
+        <%= q.text_field :position, placeholder: "CEO", style: 'width: 300px' %>
         </div>
         <div class="field">
         <%= q.label :organisation %>
-        <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
+        <%= q.text_field :organisation, placeholder: "Virgin", style: 'width: 300px' %>
         </div>
         <%#= q.label :_destroy, 'Delete Quote' %>
         <%= q.hidden_field :_destroy, class: 'delete_checkbox' %>
