@@ -40,6 +40,10 @@ class Admin::ProjectsController < Admin::BaseController
       @project.quotes.build
     end
 
+    3.times do
+      @project.photos.build
+    end
+
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -53,7 +57,7 @@ class Admin::ProjectsController < Admin::BaseController
       @project.quotes.build
     end
 
-    5.times do
+    3.times do
       @project.photos.build
       # @project.videos.build
     end

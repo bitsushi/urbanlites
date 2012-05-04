@@ -25,3 +25,5 @@ jQuery ->
   $('#sushislider li.item').click ->
     if url = $(this).data('url')
       window.location = url
+
+  $('body#c-activity-a-index li:last-child').css('border', 0);

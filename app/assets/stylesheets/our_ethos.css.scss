@@ -34,6 +34,7 @@ body#c-pages-a-our_ethos {
 
     ol {
       background: none;
+      height: 50px;
       li {
         background: $blue;
         @include opacity(0.5);

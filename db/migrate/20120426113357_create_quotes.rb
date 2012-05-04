@@ -4,6 +4,7 @@ class CreateQuotes < ActiveRecord::Migration
       t.references :project
       t.text :body
       t.string :author
+      t.string :position
       t.string :organisation
       t.integer :ordinal
       t.timestamps

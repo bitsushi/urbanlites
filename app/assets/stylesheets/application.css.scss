@@ -98,13 +98,10 @@ h6 {
 #main {
   padding-bottom: 20px;
   padding-top: 20px;
-  background: image-url('pngs/main_bg.png') repeat-x;
-  @include linear-gradient(#0D101D, #000);
-  background-color: #000;
 }
 
 header {
-  background: image-url('header_bg.jpg') top right no-repeat;
+  background: #000 image-url('header_bg.jpg') top right no-repeat;
 
   @extend .clearfix;
   border-bottom: 1px solid $blue;
@@ -206,6 +203,16 @@ body {
   font-size: 14px;
   min-width: 940px;
   font-family: Formata;
+
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background: #000 image-url('pngs/main_bg.png') repeat-x;
+  @include linear-gradient(#0D101D, #000);
+  background-color: #000;
+
 }
 
 a {

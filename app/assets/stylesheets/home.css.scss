@@ -8,6 +8,11 @@ body#c-pages-a-home {
 
   #sushislider {
 
+    &, * {
+      opacity:inherit;
+      filter:inherit;
+    }
+
     h1, h2 {
       position: absolute;
       opacity:inherit;
@@ -41,10 +46,13 @@ body#c-pages-a-home {
       }
 
 
-      dl, dd, dt { margin: 0; padding: 0;}
+      dl, dd, dt { margin: 0; padding: 0;
+        opacity:inherit;
+        filter:inherit;
+//        background-color: black;
+        }
       dt { color: $blue;}
-      dl{ display: block; position: absolute; bottom: 60px; opacity:inherit;
-      filter:inherit;}
+      dl{ display: block; position: absolute; bottom: 60px; }
 
   //    padding: 10px;
       float: right;

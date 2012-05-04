@@ -14,6 +14,7 @@ Urbanlites::Application.routes.draw do
 
   namespace :admin do
     root to: 'projects#index'
+    resources :quotes
     resources :projects do
       collection do
         post :sort

@@ -46,10 +46,12 @@
 
 
     <%= f.fields_for :photos do |p| %>
+      <% if p.object.new_record? %>
       <div class="field">
         <%= p.label :image %>
         <%= p.file_field :image %>
       </div>
+      <% end %>
     <% end %>
 
   </fieldset>
@@ -69,8 +71,11 @@
   <fieldset id="quotes">
     <legend>Quotes</legend>
     <%= f.fields_for :quotes do |q| %>
-      <fieldset class="quote">
+      <fieldset class="quote" id="<%= dom_id q.object %>">
         <legend>Quote</legend>
+        <% unless q.object.new_record? %>
+        <%= link_to "delete", admin_quote_path(q.object), remote: true, method: 'delete', confirm: 'Are you sure?' %>
+        <% end %>
         <div class="field">
         <%= q.label :body %>
         <%= q.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>
@@ -83,7 +88,7 @@
         <%= q.label :organisation %>
         <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
         </div>
-        <%= q.label :_destroy, 'Delete Quote' %>
+        <%#= q.label :_destroy, 'Delete Quote' %>
         <%= q.check_box :_destroy %>
       </fieldset>
     <% end %>
