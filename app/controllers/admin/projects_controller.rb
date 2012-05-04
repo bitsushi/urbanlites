@@ -105,6 +105,7 @@ class Admin::ProjectsController < Admin::BaseController
     end
   end
 
+
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
