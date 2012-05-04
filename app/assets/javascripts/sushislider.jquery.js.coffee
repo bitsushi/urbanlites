@@ -71,8 +71,6 @@ startTimer = ->
 
 jQuery ->
 
-  $('#sushislider').hide()
-
   $(document).keyup (event) ->
     switch event.which
       when 39 then next()
@@ -87,9 +85,8 @@ jQuery ->
       .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
       .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
 
-    prev()
-    next()
-    $('#sushislider').fadeIn('slow')
+    changeDetails()
+    # $('#sushislider').fadeIn('slow')
 
 
 

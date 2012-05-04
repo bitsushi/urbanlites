@@ -9,7 +9,8 @@
 <% %w[window thumb].each do |type| %>
   <fieldset>
     <h1>Edit <%= type %> Image Crop</h1>
-    <%= link_to "Show current", @photo.image_url(type.to_sym), target: '_blank' %>
+    <p><span class="hint">Drag a box over the image below to make a new crop then click Save Changes at the bottom of the page</span></p>
+    <%= link_to "Show current crop", @photo.image_url(type.to_sym), target: '_blank' %>
     <%= image_tag @photo.image_url(:large), id: "#{type}_cropbox" %>
 
     <% %w[x y w h].each do |attribute| %>

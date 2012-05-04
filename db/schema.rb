@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.date     "when"
     t.string   "what"
     t.text     "description"
-    t.integer  "ordinal",        :default => 999
+    t.integer  "ordinal"
     t.integer  "window_ordinal", :default => 0
     t.integer  "photos_count"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "projects", ["ordinal"], :name => "index_projects_on_ordinal"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20120427100845) do
     t.integer  "project_id"
     t.text     "body"
     t.string   "author"
+    t.string   "position"
     t.string   "organisation"
     t.integer  "ordinal"
     t.datetime "created_at",   :null => false

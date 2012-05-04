@@ -31,7 +31,7 @@
 
     <fieldset id="photos">
       <legend>Photos</legend>
-      <div><span class="hint">Drag to reorder. The first item will be the default window image and thumbnail.</span></div>
+      <div><span class="hint">Click on the image to edit or delete it. Drag the image to reorder it on the project page. The first image will be the project's thumbnail.</span></div>
 
       <ul class="sortable" data-update-url="<%= sort_admin_photos_url %>">
       <% @project.photos.each do |photo| %>
@@ -43,7 +43,8 @@
       <% end %>
       </ul>
 
-
+    <fieldset>
+      <legend>Upload new photos</legend>
 
     <%= f.fields_for :photos do |p| %>
       <% if p.object.new_record? %>
@@ -53,6 +54,7 @@
       </div>
       <% end %>
     <% end %>
+  </fieldset>
 
   </fieldset>
 
@@ -74,7 +76,8 @@
       <fieldset class="quote" id="<%= dom_id q.object %>">
         <legend>Quote</legend>
         <% unless q.object.new_record? %>
-        <%= link_to "delete", admin_quote_path(q.object), remote: true, method: 'delete', confirm: 'Are you sure?' %>
+        <%= link_to "remove", '#', class: 'delete' %>
+        <%#= admin_quote_path(q.object), remote: true, method: 'delete', confirm: 'Are you sure?', %>
         <% end %>
         <div class="field">
         <%= q.label :body %>
@@ -85,11 +88,15 @@
         <%= q.text_field :author, placeholder: "Bugs Bunny" %>
         </div>
         <div class="field">
+        <%= q.label :position %>
+        <%= q.text_field :position, placeholder: "Director" %>
+        </div>
+        <div class="field">
         <%= q.label :organisation %>
         <%= q.text_field :organisation, placeholder: "ACME Corporation" %>
         </div>
         <%#= q.label :_destroy, 'Delete Quote' %>
-        <%= q.check_box :_destroy %>
+        <%= q.hidden_field :_destroy, class: 'delete_checkbox' %>
       </fieldset>
     <% end %>
   </fieldset>

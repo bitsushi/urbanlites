@@ -33,6 +33,12 @@ table {
   }
 }
 
+fieldset.quote {
+  .delete {
+    float: right;
+  }
+}
+
 #photos li {
   border: 2px solid white;
 }
@@ -42,6 +48,9 @@ table {
 
 td.move {
   cursor: move;
+}
+div.field, fieldset {
+  clear: both;
 }
 
 input, textarea {

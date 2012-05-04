@@ -2,6 +2,11 @@ jQuery ->
   $("#multi").bsmSelect
     plugins: [ $.bsmSelect.plugins.sortable() ]
 
+  $('fieldset.quote a.delete').click (e) ->
+    e.preventDefault()
+    $(this).parent('fieldset').hide()
+    $(this).parent('fieldset').find('.delete_checkbox').val(true)
+
   $('select').change (e,data) ->
     $('#save_window_ordinals').attr('disabled',null)
     console.log data

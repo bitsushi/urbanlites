@@ -36,7 +36,7 @@ class Admin::ProjectsController < Admin::BaseController
       @project.photos.build
     end
 
-    3.times do
+    5.times do
       @project.quotes.build
     end
 
@@ -57,7 +57,7 @@ class Admin::ProjectsController < Admin::BaseController
       @project.quotes.build
     end
 
-    3.times do
+    5.times do
       @project.photos.build
       # @project.videos.build
     end
