@@ -25,16 +25,27 @@ body#c-pages-a-home {
         color: #FFF;
       }
     }
+
+    h1 {
+      line-height: 1em;
+      position: absolute;
+      margin-left: 10px;
+      z-index: 999;
+    }
+
     h2 {
       margin-top: 1em;
       color: $blue;
     }
     .description {
 
-      position: relative;
-      opacity:inherit;
-      filter:inherit;
-
+      right: 0;
+      position: absolute;
+      top: 1px;
+      right: 20px;
+//      opacity:inherit;
+//      filter:inherit;
+      z-index: 99999;
       .quote {
         @include italic;
         .author {

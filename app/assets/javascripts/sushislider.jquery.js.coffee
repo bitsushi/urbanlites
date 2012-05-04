@@ -26,8 +26,16 @@ next = (num=1) ->
   while num-- > 0
     $('#sushislider ul li.item:first').appendTo('#sushislider ul')
 
-  if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
+  # if $('#sushislider ul li.item:first').data('youtube-id') then $('#player_container').show() else $('#player_container').hide()
   $('#sushislider ul li.item:first').fadeIn()
+
+  $('#sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
+  $('#sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
+  $('#sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
+  $('#sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
+  $('#sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
+  $('#sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )
+  $('#sushislider h1').html( $('#sushislider ul li.item:first').data('name') )
   startTimer()
 
   # $('#sushislider ul li.item:first').fadeOut().next('li').fadeIn().end().appendTo('#sushislider ul')
@@ -60,6 +68,8 @@ startTimer = ->
 
 jQuery ->
 
+  $('#sushislider').hide()
+
   $(document).keyup (event) ->
     switch event.which
       when 39 then next()
@@ -74,7 +84,10 @@ jQuery ->
       .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
       .bind("swipeRight",  -> $('#sushislider #previous').trigger('click') )
 
-    startTimer()
+    prev()
+    next()
+    $('#sushislider').fadeIn('slow')
+
 
 
     $('#sushislider').hover(->

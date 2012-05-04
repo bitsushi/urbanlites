@@ -7,39 +7,43 @@
   <div class="wrapper">
     <div id="inner_wrapper">
     <div id="player_container"><div id="player"></div></div>
+    <% project = Project.first %>
+
+    <h1>hello</h1>
     <ul>
       <% @projects.each do |project| %>
-        <li class="item" style="background-image: url(<%= project.frontpage_image %>)" data-url="<%= project_path(project) %>">
-          <h1><%= link_to project.name, project %></h1>
+        <% quote = project.quotes.first(:order => "RANDOM()") %>
+
+        <li class="item" style="background-image: url(<%= project.frontpage_image %>)" data-url="<%= project_path(project) %>" data-who="<%= project.who %>" data-name="<%= project.name %>" data-what="<%= project.what %>" data-where="<%= project.where %>" data-quote="<%= simple_format "‘#{truncate quote.body, length: 170}’" if quote %>" data-quote-author="<%= quote.author if quote %>" data-quote-organisation="<%= quote.organisation if quote %>" >
+
           <!--<h2>Management Event 2012</h2>-->
-          <div class="description">
-
-            <div class="inner">
-              <% if (quote = project.quotes.first(:order => "RANDOM()")) %>
-              <span class="quote">
-              <q><%= simple_format "‘#{truncate quote.body, length: 170}’" %></q>
-              <span class="author"><%= quote.author %></span>
-              <span class="company"><%= quote.organisation %></span>
-              </span>
-              <% end %>
-
-            <dl>
-              <% if project.who %><dt>Who</dt><dd><%= project.who %></dd><% end %>
-              <% if project.when %><dt>When</dt><dd><%= l(project.when, format: :short) %></dd><% end %>
-              <% if project.what %><dt>What</dt><dd><%= project.what %></dd><% end %>
-            </dl>
-
-            </div>
-
-            <div class="see_more">
-              <%= link_to "Want to see more?", projects_path %>
-            </div>
         </li>
       <% end %>
+
       <!--<li class="item video" data-youtube-id="5WWrQ9Rgk_4">
         <h1><%= link_to 'project.name', 'project' %></h1>
       </li>-->
     </ul>
+
+    <div class="description">
+      <div class="inner">
+        <span class="quote">
+        <q></q>
+        <span class="author"></span>
+        <span class="company"></span>
+        </span>
+        <dl>
+          <dt>Who</dt><dd id="project_who"></dd>
+          <dt>When</dt><dd id="project_where"></dd>
+          <dt>What</dt><dd id="project_what"></dd>
+        </dl>
+      </div>
+      <div class="see_more">
+        <%= link_to "Want to see more?", projects_path %>
+      </div>
+    </div>
+
+
     </div>
   </div>
 </div>
