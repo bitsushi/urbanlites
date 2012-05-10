@@ -47,13 +47,8 @@
       <legend>Upload new photos</legend>
       <span class="hint">Use the boxes below to pick the photos you want to upload, then click the submit button at the bottom of the page</span><br/><br/>
 
-    <%= f.fields_for :photos do |p| %>
-      <% if p.object.new_record? %>
-      <div class="field">
-        <%= p.label :image %>
-        <%= p.file_field :image, style: 'width: 300px' %>
-      </div>
-      <% end %>
+    <%= f.fields_for :photos do |builder| %>
+      <%= render 'photo_fields', f: builder %>
     <% end %>
   </fieldset>
 
@@ -79,32 +74,8 @@
 
     <span class="hint">Fill out the boxes below for any quotes that you want to show on the project page</span>
 
-    <%= f.fields_for :quotes do |q| %>
-      <fieldset class="quote" id="<%= dom_id q.object %>">
-        <legend>Quote</legend>
-        <% unless q.object.new_record? %>
-        <%= link_to "remove", '#', class: 'delete' %>
-        <%#= admin_quote_path(q.object), remote: true, method: 'delete', confirm: 'Are you sure?', %>
-        <% end %>
-        <div class="field">
-        <%= q.label :body %>
-        <%= q.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>
-        </div>
-        <div class="field">
-        <%= q.label :author %>
-        <%= q.text_field :author, placeholder: "Richard Branson", style: 'width: 300px' %>
-        </div>
-        <div class="field">
-        <%= q.label :position %>
-        <%= q.text_field :position, placeholder: "CEO", style: 'width: 300px' %>
-        </div>
-        <div class="field">
-        <%= q.label :organisation %>
-        <%= q.text_field :organisation, placeholder: "Virgin", style: 'width: 300px' %>
-        </div>
-        <%#= q.label :_destroy, 'Delete Quote' %>
-        <%= q.hidden_field :_destroy, class: 'delete_checkbox' %>
-      </fieldset>
+    <%= f.fields_for :quotes do |builder| %>
+      <%= render 'quote_fields', f: builder %>
     <% end %>
   </fieldset>
 
