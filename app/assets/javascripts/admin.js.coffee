@@ -1,15 +1,27 @@
 jQuery ->
+
+  $('form').on 'click', '.remove_fields', (event) ->
+      $(this).prev('input[type=hidden]').val('1')
+      $(this).closest('fieldset').hide()
+      event.preventDefault()
+
+  $('form').on 'click', '.add_fields', (event) ->
+    time = new Date().getTime()
+    regexp = new RegExp($(this).data('id'), 'g')
+    $(this).before($(this).data('fields').replace(regexp, time))
+    event.preventDefault()
+
   $("#multi").bsmSelect
     plugins: [ $.bsmSelect.plugins.sortable() ]
 
-  $('fieldset.quote a.delete').click (e) ->
-    e.preventDefault()
-    $(this).parent('fieldset').hide()
-    $(this).parent('fieldset').find('.delete_checkbox').val(true)
+  # $('fieldset.quote a.delete').click (e) ->
+  #   e.preventDefault()
+  #   $(this).parent('fieldset').hide()
+  #   $(this).parent('fieldset').find('.delete_checkbox').val(true)
 
   $('select').change (e,data) ->
     $('#save_window_ordinals').attr('disabled',null)
-    console.log data
+    # console.log data
     # console.log($('select').extractLabel)
 
   $('#videos select#multi').change ->

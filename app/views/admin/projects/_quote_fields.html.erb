@@ -1,9 +1,9 @@
 <fieldset class="quote" id="<%= dom_id f.object %>">
   <legend>Quote</legend>
-  <% unless f.object.new_record? %>
-  <%= link_to "remove", '#', class: 'delete' %>
+  <%# unless f.object.new_record? %>
+  <%= link_to "remove", '#', class: 'delete remove_fields' %>
   <%#= admin_quote_path(f.object), remote: true, method: 'delete', confirm: 'Are you sure?', %>
-  <% end %>
+  <%# end %>
   <div class="field">
   <%= f.label :body %>
   <%= f.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>

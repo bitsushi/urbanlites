@@ -50,6 +50,7 @@
     <%= f.fields_for :photos do |builder| %>
       <%= render 'photo_fields', f: builder %>
     <% end %>
+    <%= link_to_add_fields "Add Another Photo", f, :photos %>
   </fieldset>
 
   </fieldset>
@@ -77,6 +78,7 @@
     <%= f.fields_for :quotes do |builder| %>
       <%= render 'quote_fields', f: builder %>
     <% end %>
+    <%= link_to_add_fields "Add Another Quote", f, :quotes %>
   </fieldset>
 
 

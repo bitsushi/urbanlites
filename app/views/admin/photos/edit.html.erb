@@ -3,14 +3,14 @@
 
 <%= link_to "Return to Project", "#{edit_admin_project_path(@photo.project)}#photos", class: 'button' %>
 <%= link_to "Delete Photo", admin_photo_path(@photo), method: "delete", confirm: "Are you sure?", class: 'delete button' %>
-
+<br/><br/>
 <%= form_for [:admin, @photo] do |f| %>
 
 <% %w[window thumb].each do |type| %>
   <fieldset>
     <h1>Edit <%= type %> Image Crop</h1>
     <p><span class="hint">Drag a box over the image below to make a new crop then click Save Changes at the bottom of the page</span></p>
-    <%= link_to "Show current crop", @photo.image_url(type.to_sym), target: '_blank' %>
+    <%= link_to "Show current crop", @photo.image_url(type.to_sym), target: '_blank', style: 'display: block; margin: 10px 0' %>
     <%= image_tag @photo.image_url(:large), id: "#{type}_cropbox" %>
 
     <% %w[x y w h].each do |attribute| %>
