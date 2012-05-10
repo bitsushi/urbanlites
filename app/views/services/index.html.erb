@@ -3,7 +3,7 @@
 <% @services.each do |service| %>
   <li style="background-image: url(<%= service.image.url if service.image.present? %>)">
     <div class="inner">
-    <div class="title"><%= service.name %></div>
+    <h1 class="title"><%= service.name %></h1>
     <div class="description"><%= service.description %></div>
     </div>
   </li>

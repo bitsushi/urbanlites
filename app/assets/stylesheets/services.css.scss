@@ -16,6 +16,11 @@ ul#services {
 
     background: image-url('services/lighting_design.jpg');
 
+    * {
+      opacity:inherit;
+      filter:inherit;
+    }
+
     .inner {
       border: 1px solid $blue;
       height: 460px;
@@ -33,14 +38,12 @@ ul#services {
     }
 
     .title {
-      @include bold;
+//      @include bold;
     }
 
     .description {
       bottom: 1px;
       font-size: 1em;
-      opacity:inherit;
-      filter:inherit;
     }
   }
 }

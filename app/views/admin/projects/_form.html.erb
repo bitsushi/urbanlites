@@ -5,23 +5,23 @@
   <fieldset>
     <legend>Details</legend>
     <div class="field">
-      <%= f.label :name %>
+      <%= f.label :name %><%= mark_required(@project, :name) %>
       <%= f.text_field :name, style: 'width: 300px' %>
     </div>
     <div class="field">
-      <%= f.label :who %>
+      <%= f.label :who %><%= mark_required(@project, :who) %>
       <%= f.text_field :who, style: 'width: 300px' %>
     </div>
     <div class="field">
-      <%= f.label :where %>
+      <%= f.label :where %><%= mark_required(@project, :where) %>
       <%= f.text_field :where, style: 'width: 300px' %>
     </div>
     <div class="field">
-      <%= f.label :what %>
+      <%= f.label :what %><%= mark_required(@project, :what) %>
       <%= f.text_field :what, style: 'width: 300px' %>
     </div>
     <div class="field">
-      <%= f.label :description %>
+      <%= f.label :description %><%= mark_required(@project, :description) %>
       <%= f.text_area :description %>
     </div>
   </fieldset>

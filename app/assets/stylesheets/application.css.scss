@@ -39,8 +39,9 @@ $break-large: 1200px;
 
 @mixin font-face($font-family, $url) {
    @font-face {
-      font-family: '#{$font-family}';
-      src: url('#{$url}.eot?') format('eot'), url('#{$url}.woff') format('woff'), url('#{$url}.svg') format('svg'), url('#{$url}.ttf') format('truetype');
+      font-family: $font-family;
+//      src: url('#{$url}.eot?') format('eot'), url('#{$url}.woff') format('woff'), url('#{$url}.svg') format('svg'), url('#{$url}.ttf') format('truetype');
+      src: url('#{$url}.woff') format('woff');
    }
 }
 
@@ -48,8 +49,8 @@ $break-large: 1200px;
 @include font-face('FormataMedium', '/assets/Formata-Medium');
 @include font-face('FormataItalic', '/assets/Formata-Italic');
 
-@mixin bold { font-family: FormataMedium; font-weight: bold; }
-@mixin italic { font-family: FormataItalic; font-style: italic; }
+@mixin bold { font-family: FormataMedium, Tahoma, Arial, sans-serif; font-weight: normal; }
+@mixin italic { font-family: FormataItalic, Tahoma, Arial, sans-serif; font-style: italic; }
 
 $column-width: 160px !default;
 $gutter-width: 10px !default;
@@ -202,7 +203,7 @@ body {
   color: #FFF;
   font-size: 14px;
   min-width: 940px;
-  font-family: Formata;
+  font-family: Formata, Tahoma, Arial, sans-serif;
 
   height: 95%;
   margin: 0;
@@ -230,6 +231,7 @@ q p, blockquote p {
   img {
     margin-bottom: 10px;
   }
+
 }
 
 #contact_details {
@@ -240,13 +242,16 @@ q p, blockquote p {
     font-size: 2.1em;
     padding: 0;
     margin: 0;
-    a {
-      color: #FFF;
-    }
   }
   span {
     display: block;
     color: #C5D2F3;
+  }
+  a {
+    color: #C5D2F3;
+  }
+  a:hover {
+    color: #FFF;
   }
 }
 

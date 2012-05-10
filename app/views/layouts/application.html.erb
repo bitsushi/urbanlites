@@ -11,13 +11,6 @@
 <!--  <meta name="viewport" content="width=device-width">-->
   <meta name="viewport" content="width=940">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <!--[if IE]>
-  <style type="text/css" media="screen">
-    * {
-      font-family: Tahoma !important;
-    }
-  </style>
-  <![endif]-->
   <%= javascript_include_tag("//maps.googleapis.com/maps/api/js?sensor=false") if action_name == "contact" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "modernizr" %>
@@ -42,7 +35,7 @@
       <div id="contact_details">
         <div id="telephone_number">Call us on 0161 402 3271</div>
         <span>to see how UrbanLites can light up your event.</span>
-        <span>Alternatively, send us an email to chris@urbanlites.com</span>
+        <span>Alternatively, send us an email to <%= mail_to "chris@urbanlites.com", "chris@urbanlites.com" %></span>
       </div>
     </div>
   </header>

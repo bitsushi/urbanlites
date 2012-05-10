@@ -8,5 +8,5 @@ jQuery ->
       ->
         $(this).find('div.description').fadeIn(200, -> this.style.removeAttribute('filter'); )
       ->
-        $(this).find('div.description').stop().fadeOut()
+        $(this).find('div.description').clearQueue().stop().fadeOut()
     )

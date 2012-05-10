@@ -3,15 +3,15 @@
 
   <fieldset>
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><%= mark_required(@download, :name) %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%#= f.label :description %>
+    <%#= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :file %>
+    <%= f.label :file %><%= mark_required(@download, :file) %>
     <%= f.hidden_field :file_cache %>
     <%= f.file_field :file %>
     <%= link_to(@download.file, @download.file.url, target: '_blank') if @download.file %>

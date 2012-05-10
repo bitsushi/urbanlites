@@ -5,15 +5,15 @@
   <fieldset>
     <legend>Details</legend>
     <div class="field">
-      <%= f.label :headline %>
+      <%= f.label :headline %><%= mark_required(@ethos, :headline) %>
       <%= f.text_field :headline %>
     </div>
     <div class="field">
-      <%= f.label :description %>
+      <%= f.label :description %><%= mark_required(@ethos, :description) %>
       <%= f.text_area :description %>
     </div>
     <div class="field">
-      <%= f.label :image %>
+      <%= f.label :image %><%= mark_required(@ethos, :image) %>
       <%= f.file_field :image %><br/>
       <%= image_tag(@ethos.image.url, width: 200) if @ethos.image.present? %>
     </div>

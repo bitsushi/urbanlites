@@ -1,14 +1,16 @@
 <%= form_for ['admin',@service] do |f| %>
+  <%= render "application/error_messages", :target => @service %>
+
 <fieldset>
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><%= mark_required(@service, :name) %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field"><%= mark_required(@service, :description) %>
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  <div class="field"><%= mark_required(@service, :image) %>
     <%= f.label :image %><br />
     <%= f.file_field :image %><br/>
     <%= image_tag(@service.image.url, width: 80) if @service.image.url %>

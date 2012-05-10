@@ -1,13 +1,16 @@
 # http://snook.ca/archives/javascript/simplest-jquery-slideshow
 
 changeDetails = ->
-  $('#sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
-  $('#sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
-  $('#sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
-  $('#sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
-  $('#sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
-  $('#sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )
-  $('#sushislider h1').html( $('#sushislider ul li.item:first').data('name') )
+  $('#c-pages-a-home #sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
+  $('#c-pages-a-home #sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
+  $('#c-pages-a-home #sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
+  $('#c-pages-a-home #sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
+  $('#c-pages-a-home #sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
+  $('#c-pages-a-home #sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )
+  $('#c-pages-a-home #sushislider h1').html( $('#sushislider ul li.item:first').data('name') )
+
+  $('#c-pages-a-our_ethos #sushislider h1').html( $('#sushislider ul li.item:first').data('headline') )
+  $('#c-pages-a-our_ethos #sushislider .description').html( $('#sushislider ul li.item:first').data('description') )
 
 setActive = ->
 
@@ -63,7 +66,8 @@ prev = (num=1) ->
 
 startTimer = ->
   clearInterval window.interval
-  window.interval = setInterval (-> next()), 3000
+  unless $("body#c-pages-a-our_ethos").size() > 0
+    window.interval = setInterval (-> next()), 3000
 
   index = $('#sushislider li.item:first').data('index')
   $('#sushislider ol li').removeClass('active')
