@@ -6,12 +6,12 @@
   <table class="sortable" data-update-url="<%= sort_admin_projects_url %>">
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Quotes</th>
-        <th>Photos</th>
-        <th>Videos</th>
-        <th></th>
+        <th class="move"></th>
+        <th class="name">Name</th>
+        <th class="quotes">Quotes</th>
+        <th class="photos">Photos</th>
+        <th class="videos">Videos</th>
+        <th class="actions"></th>
       </tr>
     </thead>
   <% @projects.each do |project| %>
@@ -21,7 +21,7 @@
       <td><%= project.quotes.size %></td>
       <td><%= project.photos.size %></td>
       <td><%= project.videos.size %></td>
-      <td><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?", class: 'delete' %></td>
+      <td class="actions"><%= link_to "Delete", admin_project_path(project), method: :delete, confirm: "Are you sure?", class: 'delete' %></td>
     <% end %>
   <% end %>
   </table>

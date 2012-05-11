@@ -210,6 +210,25 @@ td { vertical-align: top; }
 @import "jquery.Jcrop.css";
 @import 'bourbon';
 
+table {
+  border: 1px solid #EEE;
+  width: 100%;
+  th {
+    text-align: left;
+    padding: 10px;
+    background: #EEE;
+    color: #888;
+    text-shadow: 1px 1px 1px #F5F5F5;
+    font-weight: normal;
+  }
+  th.move {
+    width: 15px;
+  }
+  th.actions {
+    width: 70px;
+  }
+}
+
 img, a {
   border: 0;
 }
@@ -354,6 +373,15 @@ header {
     text-shadow: 1px 1px 1px #164B1D;
     text-decoration: none;
     font-weight: bold;
+  }
+}
+
+.flash {
+  padding: 10px;
+  text-align: center;
+  background: #F8FFB8;
+  &.warning, &.error {
+    background: #FF9696;
   }
 }
 

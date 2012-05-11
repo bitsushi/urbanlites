@@ -3,6 +3,13 @@
   <span class="hint">Drag to reorder.</span>
 
   <table class="sortable" data-update-url="<%= sort_admin_downloads_url %>">
+    <thead>
+      <th class="move"></th>
+      <th class="name">Name</th>
+      <th class="link">Link</th>
+      <th class="actions"></th>
+    </thead>
+    <tbody>
   <% @downloads.each do |download| %>
     <%= content_tag_for :tr, download do %>
       <td class="move"><%= image_tag "move.png" %></td>
@@ -11,6 +18,7 @@
       <td><%= link_to "Delete", admin_download_path(download), method: 'delete', confirm: "Are you sure?", class: 'delete' %></td>
     <% end %>
   <% end %>
+  </tbody>
   </table>
 </div>
 

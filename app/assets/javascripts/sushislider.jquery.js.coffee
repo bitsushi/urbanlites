@@ -4,6 +4,8 @@ changeDetails = ->
   $('#c-pages-a-home #sushislider #project_who').html( $('#sushislider ul li.item:first').data('who') )
   $('#c-pages-a-home #sushislider #project_what').html( $('#sushislider ul li.item:first').data('what') )
   $('#c-pages-a-home #sushislider #project_where').html( $('#sushislider ul li.item:first').data('where') )
+  $('#c-pages-a-home #sushislider #project_when').html( $('#sushislider ul li.item:first').data('when') )
+
   $('#c-pages-a-home #sushislider .quote q').html( $('#sushislider ul li.item:first').data('quote') )
   $('#c-pages-a-home #sushislider .quote span.author').html( $('#sushislider ul li.item:first').data('quote-author') )
   $('#c-pages-a-home #sushislider .quote span.organisation').html( $('#sushislider ul li.item:first').data('quote-organisation') )

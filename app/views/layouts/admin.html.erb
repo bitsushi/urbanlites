@@ -13,22 +13,25 @@
 
   <header>
     <div class="container">
+    <ul id="navigation">
+      <li><%= link_to "Frontpage", admin_frontpage_index_path %></li>
+      <li><%= link_to "Projects", admin_projects_path %></li>
+      <li><%= link_to "Services", admin_services_path %></li>
+      <li><%= link_to "Our Ethos", admin_ethoses_path %></li>
+      <li><%= link_to "Downloads", admin_downloads_path %></li>
 
-  <ul id="navigation">
-    <li><%= link_to "Frontpage", admin_frontpage_index_path %></li>
-    <li><%= link_to "Projects", admin_projects_path %></li>
-    <li><%= link_to "Services", admin_services_path %></li>
-    <li><%= link_to "Our Ethos", admin_ethoses_path %></li>
-    <li><%= link_to "Downloads", admin_downloads_path %></li>
+      <%#= link_to "Contact", admin_projects_path %>
+      <li><%= link_to("Preview Site", root_path) %></li>
 
-    <%#= link_to "Contact", admin_projects_path %>
-    <li><%= link_to("Preview Site", root_path) %></li>
-
-    <!--<li><%= current_user %></li>-->
-    <li id="logout"><%= link_to "Logout", logout_path %></li>
-  </ul>
+      <!--<li><%= current_user %></li>-->
+      <li id="logout"><%= link_to "Logout", logout_path %></li>
+    </ul>
   </div>
   </header>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "flash #{name}" %>
+  <% end %>
 
   <div role="main">
     <div class="container"><%= yield %></div>

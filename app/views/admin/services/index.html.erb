@@ -4,13 +4,17 @@
   <span class="hint">All services. Because of the design of the page if you need to add or remove any so that there are no longer five please contact Rapport.</span>
 
 <table class="sortable" data-update-url="<%= sort_admin_services_url %>">
+  <thead>
+    <th class="move"></th>
+    <th class="name">Name</th>
+  </thead>
+  <tbody>
 <% @services.each do |service| %>
-<%= content_tag_for :tr, service do %>
-
+  <%= content_tag_for :tr, service do %>
     <td class="move"><%= image_tag "move.png" %></td>
-
-  <td><%= link_to service, edit_admin_service_path(service) %></td>
+    <td><%= link_to service, edit_admin_service_path(service) %></td>
+  <% end %>
 <% end %>
-<% end %>
+  </tbody>
 </table>
 </div>

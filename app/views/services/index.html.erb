@@ -4,7 +4,7 @@
   <li style="background-image: url(<%= service.image.url if service.image.present? %>)">
     <div class="inner">
     <h1 class="title"><%= service.name %></h1>
-    <div class="description"><%= service.description %></div>
+    <div class="description"><%= simple_format service.description %></div>
     </div>
   </li>
 <% end %>

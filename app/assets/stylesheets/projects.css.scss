@@ -72,6 +72,9 @@ body#c-projects-a-show {
   h1 {
     position: absolute;
     z-index: 999;
+    background: image-url('pngs/black_bg.png');
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
   }
 
   #window_container {
@@ -119,6 +122,9 @@ body#c-projects-a-show {
 
   #project_detail {
     @include grid(3);
+    &.no-videos {
+      @include grid(5);
+    }
   }
 
   #in_more_detail {

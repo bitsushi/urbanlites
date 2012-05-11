@@ -39,7 +39,7 @@
 </div>
 <% end %>
 
-<div id="project_detail">
+<div id="project_detail" class="<%= 'no-videos' if @project.videos.empty? %>">
 <h2><%= @project.name %></h2>
 <span id="in_more_detail">In more detail</span>
 <%= simple_format @project.description %>
@@ -49,12 +49,11 @@
   <% @project.quotes.each do |quote| %>
   <li class="quote">
     <blockquote><%= simple_format "‘#{quote.body}’" %></blockquote>
-    <span class="author"><%= quote.author %>, <%= quote.organisation %></span>
+    <span class="author"><%= quote.author %><%=  ", #{quote.organisation}" if quote.organisation.present? %></span>
   </li>
   <% end %>
 </ul>
 <% end %>
-
 </div>
 
 

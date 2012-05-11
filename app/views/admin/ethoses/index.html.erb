@@ -4,6 +4,12 @@
   <span class="hint">Each slide on the Ethos page. Drag to reorder.</span>
 
 <table class="sortable" data-update-url="<%= sort_admin_ethoses_url %>">
+  <thead>
+    <th class="move"></th>
+    <th class="headline">Headline</th>
+    <th class="actions"></th>
+  </thead>
+  <tbody>
 <% @ethoses.each do |ethos| %>
 <%= content_tag_for :tr, ethos do %>
   <td class="move"><%= image_tag "move.png" %></td>
@@ -11,6 +17,7 @@
   <td><%= link_to 'Delete', admin_ethos_path(ethos), method: 'delete', confirm: 'Are you sure you want to delete this ethos?', class: 'delete' %></td>
 <% end %>
 <% end %>
+</tbody>
 </table>
 </div>
 

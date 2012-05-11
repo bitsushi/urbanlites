@@ -121,11 +121,18 @@ header {
     padding: 35px 0 20px;
   }
 }
-
 #admin_bar {
-	background: white;
-	padding: 10px;
+  background: #2D9940;
+  @extend .clearfix;
+  margin-bottom: 10px;
+  padding: 15px;
 	text-align: center;
+  a {
+    color: #FFF;
+    text-shadow: 1px 1px 1px #164B1D;
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
 $footerheight: 140px;

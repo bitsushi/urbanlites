@@ -5,8 +5,8 @@
   <%#= admin_quote_path(f.object), remote: true, method: 'delete', confirm: 'Are you sure?', %>
   <%# end %>
   <div class="field">
-  <%= f.label :body %>
-  <%= f.text_area :body, placeholder: "Urban Lights were great", rows: 6 %>
+  <%= f.label :body %><%= mark_required(f.object, :body) %>
+  <%= f.text_area :body, placeholder: "Urban Lights were great", rows: 4 %>
   </div>
   <div class="field">
   <%= f.label :author %>
