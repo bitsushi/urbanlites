@@ -14,11 +14,16 @@ body#c-pages-a-our_ethos {
       }
     }
 
-    h1 {
+    .headline {
       margin: 0;
       font-size: 3em;
       padding: 0;
       line-height: 1.4em;
+      @include bold;
+      p {
+        margin: 0;
+        padding: 0;
+      }
     }
 
     .inner {

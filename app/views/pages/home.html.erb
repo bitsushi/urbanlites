@@ -8,7 +8,7 @@
     <div id="inner_wrapper">
     <% project = Project.first %>
 
-    <h1>hello</h1>
+    <h1>Loading...</h1>
     <ul>
       <% @projects.each do |project| %>
         <% quote = project.quotes.first(:order => "RANDOM()") %>
