@@ -1,3 +1,5 @@
+@import 'bourbon';
+@import "jquery.jcrop.css";
 
 /* =============================================================================
    HTML5 display definitions
@@ -205,10 +207,6 @@ td { vertical-align: top; }
    Author:
    ========================================================================== */
 
-
-
-@import "jquery.Jcrop.css";
-@import 'bourbon';
 
 table {
   border: 1px solid #EEE;
