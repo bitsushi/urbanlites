@@ -93,6 +93,8 @@ jQuery ->
 
   if $('#sushislider ul li.item').size() <= 1
     $('#sushislider ol, #sushislider #next, #sushislider #previous').hide()
+    $("#sushislider ol li:first").addClass('active')
+    changeDetails()
   else
     $('#sushislider').swipeEvents()
       .bind("swipeLeft",  -> $('#sushislider #next').trigger('click') )
