@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  default_scope order('window_ordinal ASC, id DESC')
+  default_scope order('ordinal ASC, id DESC')
 
 
   extend FriendlyId
