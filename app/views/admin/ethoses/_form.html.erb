@@ -6,7 +6,7 @@
     <legend>Details</legend>
     <div class="field">
       <%= f.label :headline %><%= mark_required(@ethos, :headline) %>
-      <%= f.text_field :headline %>
+      <%= f.text_area :headline, rows: 2 %>
     </div>
     <div class="field">
       <%= f.label :description %><%= mark_required(@ethos, :description) %>

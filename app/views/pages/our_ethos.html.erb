@@ -8,14 +8,14 @@
 
       <div class="inner_container">
         <div class="inner">
-          <h1>aa</h1>
-          <div class="description">bb</div>
+          <div class="headline">Headline</div>
+          <div class="description">Description</div>
         </div>
       </div>
 
     <ul>
       <% Ethos.all.each_with_index do |ethos,index| %>
-      <li class="item" style="background: url(<%= ethos.image.url if ethos.image.present? %>)" data-index="<%= index %>" data-headline="<%= ethos.headline %>" data-description="<%= simple_format ethos.description %>">
+      <li class="item" style="background: url(<%= ethos.image.url if ethos.image.present? %>)" data-index="<%= index %>" data-headline="<%= simple_format ethos.headline %>" data-description="<%= simple_format ethos.description %>">
       </li>
       <% end %>
     </ul>

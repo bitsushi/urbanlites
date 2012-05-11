@@ -84,13 +84,15 @@ body#c-projects-a-show {
     }
   }
 
-  .bjqs-markers {
-    position: absolute;
-    bottom: 10px;
-    right: 25px;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-  }
+//  .bjqs-markers {
+//    position: absolute;
+//    bottom: 10px;
+//    right: 25px;
+//    background: image-url('pngs/black_bg.png');
+////    background: rgba(0,0,0,0.8);
+//    background: red !important;
+//    padding: 10px;
+//  }
 
   h1#project_name, h1#project_meta {
     position: relative;
@@ -104,21 +106,21 @@ body#c-projects-a-show {
 
 
 
-  ol.bjqs-markers li {
-    height: 100px;
-    width: 100px;
-    background: $blue;
-    &:hover img {
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-    	filter: alpha(opacity=60);
-      opacity: .6;
-    }
-    &.active-marker img {
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    	filter: alpha(opacity=100);
-      opacity: 1;
-    }
-  }
+//  ol.bjqs-markers li {
+//    height: 100px;
+//    width: 100px;
+//    background: $blue;
+//    &:hover img {
+//      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+//      filter: alpha(opacity=60);
+//      opacity: .6;
+//    }
+//    &.active-marker img {
+//      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+//      filter: alpha(opacity=100);
+//      opacity: 1;
+//    }
+//  }
 
   #project_detail {
     @include grid(3);
