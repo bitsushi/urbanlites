@@ -1,6 +1,7 @@
 <fieldset class="quote" id="<%= dom_id f.object %>">
   <legend>Quote</legend>
   <%# unless f.object.new_record? %>
+  <%= f.hidden_field :_destroy, class: 'delete_checkbox' %>
   <%= link_to "remove", '#', class: 'delete remove_fields' %>
   <%#= admin_quote_path(f.object), remote: true, method: 'delete', confirm: 'Are you sure?', %>
   <%# end %>
@@ -21,5 +22,4 @@
   <%= f.text_field :organisation, placeholder: "Virgin", style: 'width: 300px' %>
   </div>
   <%#= f.label :_destroy, 'Delete Quote' %>
-  <%= f.hidden_field :_destroy, class: 'delete_checkbox' %>
 </fieldset>
