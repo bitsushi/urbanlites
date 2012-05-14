@@ -5,4 +5,9 @@ class Tweet < ActiveRecord::Base
   def to_s
     body
   end
+
+  def url
+    "http://twitter.com/#!/urbanlites/status/#{uid}"
+  end
+
 end

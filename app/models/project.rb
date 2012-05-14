@@ -1,10 +1,12 @@
 class Project < ActiveRecord::Base
 
+  default_scope order('window_ordinal ASC, id DESC')
+
+
   extend FriendlyId
   friendly_id :name, use: :slugged
   has_many :quotes
 
-  default_scope order('ordinal ASC, id DESC')
 
   scope :frontpage_eligible, where('photos_count > 0')
 

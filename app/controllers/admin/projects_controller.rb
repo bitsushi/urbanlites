@@ -2,7 +2,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def sort
     params[:project].each_with_index do |id, index|
-      Project.update_all({ordinal: index+1}, {id: id})
+      Project.update_all({window_ordinal: index+1}, {id: id})
     end
     render nothing: true
   end

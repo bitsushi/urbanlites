@@ -4,7 +4,7 @@ require 'open-uri'
 namespace :fetch do
   desc "From Twitter"
   task :twitter => :environment do
-    results = JSON.parse(open("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=bitsushi&count=10").read)
+    results = JSON.parse(open("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=urbanlites&count=10").read)
     results.each do |result|
       # begin
 
@@ -26,7 +26,7 @@ namespace :fetch do
   end
 
   task :youtube => :environment do
-    results = JSON.parse(open("http://gdata.youtube.com/feeds/base/users/IndieChatter/uploads?alt=json&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile").read)
+    results = JSON.parse(open("http://gdata.youtube.com/feeds/base/users/urbanlitesuk/uploads?alt=json&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile").read)
     results['feed']['entry'].each do |result|
       begin
         if result['link'][0]['href'].present?

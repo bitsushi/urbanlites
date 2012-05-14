@@ -3,7 +3,7 @@
   <span class="hint">Select projects you want to be displayed in the frontpage window from the dropdown below. Then drag them into the order you want them to be shown, it will save automatically.<br/>Note: <strong>Only projects with at least one image will be listed below</strong></span>
 
 <%= form_tag update_frontpage_items_admin_projects_path, id: 'update_frontpage_items', remote: true do %>
-<%= select_tag 'project', options_for_select(Project.order('window_ordinal ASC, name ASC').frontpage_eligible.map{ |p| [p.name, p.id ]}, Project.frontpage_eligible.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
+<%= select_tag 'project', options_for_select(Project.frontpage_eligible.map{ |p| ["#{p.name} #{p.window_ordinal}", p.id ]}, Project.frontpage_eligible.map{|p| p.id if p.window_ordinal > 0}),  multiple: true, id: 'multi' %>
  <%#= button_tag 'save', id: 'save_window_ordinals', disabled: true, class: 'button' %>
 <% end %>
 </div>

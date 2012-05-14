@@ -76,7 +76,7 @@ prev = (num=1) ->
 startTimer = ->
   clearInterval window.interval
   unless $("body#c-pages-a-our_ethos").size() > 0
-    window.interval = setInterval (-> next()), 3000
+    window.interval = setInterval (-> next()), 7000
 
   index = $('#sushislider li.item:first').data('index')
   $('#sushislider ol li').removeClass('active')
