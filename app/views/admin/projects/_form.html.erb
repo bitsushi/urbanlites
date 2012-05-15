@@ -22,7 +22,7 @@
     </div>
     <div class="field">
       <%= f.label :when %><%= mark_required(@project, :when) %>
-      <%= f.date_select :when, order: [:month, :year] %>
+      <%= f.date_select :when, order: [:month, :year], end_year: Time.now.year %>
     </div>
     <div class="field">
       <%= f.label :description %><%= mark_required(@project, :description) %>
