@@ -37,7 +37,7 @@
       <% @project.photos.each do |photo| %>
         <% unless photo.new_record? %>
           <%= content_tag_for :li, photo do %>
-            <%= link_to "#{image_tag(photo.image_url(:thumb))}".html_safe, edit_admin_photo_path(photo) %>
+            <%= link_to "#{image_tag( [photo.image_url(:thumb),'?',Time.now.to_i].join )}".html_safe, edit_admin_photo_path(photo) %>
           <% end %>
         <% end %>
       <% end %>
