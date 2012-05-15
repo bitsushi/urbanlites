@@ -3,6 +3,9 @@
 
 en:
   hello: "Hello world"
+  date:
+    formats:
+      home: "%B %Y"
   time:
     formats:
       micro: "%d/%m/%y"

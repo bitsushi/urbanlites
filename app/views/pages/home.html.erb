@@ -14,7 +14,7 @@
       <% @projects.each do |project| %>
         <% quote = project.quotes.first(:order => "RANDOM()") %>
 
-        <li class="item" style="background-image: url(<%= project.frontpage_image %>)" data-url="<%= project_path(project) %>" data-who="<%= project.who %>" data-name="<%= project.name %>" data-what="<%= project.what %>" data-when="<%= project.when %>" data-where="<%= project.where %>" data-quote="<%= simple_format "‘#{truncate quote.body, length: 170}’" if quote %>" data-quote-author="<%= quote.author if quote %>" data-quote-organisation="<%= quote.organisation if quote %>" >
+        <li class="item" style="background-image: url(<%= project.frontpage_image %>)" data-url="<%= project_path(project) %>" data-who="<%= project.who %>" data-name="<%= project.name %>" data-what="<%= project.what %>" data-when="<%= l(project.when, format: :home) %>" data-where="<%= project.where %>" data-quote="<%= simple_format "‘#{truncate quote.body, length: 170}’" if quote %>" data-quote-author="<%= quote.author if quote %>" data-quote-organisation="<%= quote.organisation if quote %>" >
           <!--<h2>Management Event 2012</h2>-->
         </li>
       <% end %>
