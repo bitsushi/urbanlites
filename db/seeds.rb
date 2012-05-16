@@ -31,6 +31,9 @@ User.delete_all
 User.create!(email: 'john@bitsushi.com', password: 'pass', password_confirmation: 'pass')
 User.create!(email: 'paul@rapportevents.com', password: 'r4pp0rt', password_confirmation: 'r4pp0rt')
 
+User.create!(email: 'danny@urbanlites.com', password: '!URB4Nlites!', password_confirmation: '!URB4Nlites!')
+User.create!(email: 'chris@urbanlites.com', password: '!URB4Nlites!', password_confirmation: '!URB4Nlites!')
+
 Ethos.delete_all
 Ethos.create(headline: 'Equipment kept to highest standard', description: 'Our equipment will always be meticulously maintained and prepared, so it looks professional, is in perfect working condition and does your event justice.')
 Ethos.create(headline: 'We try harder and go further than our competitors', description: "We know we're not the biggest lighting company around, hey, we're not even the biggest in Manchester, but this is why we try harder and go further than anyone else. We guarantee you won't get a better service from any other lighting company.")
