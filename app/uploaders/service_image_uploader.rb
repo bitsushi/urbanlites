@@ -29,7 +29,7 @@ class ServiceImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  resize_to_fill(160,460)
+  resize_to_fill(205,460)
   #
   # def scale(width, height)
   #   # do something

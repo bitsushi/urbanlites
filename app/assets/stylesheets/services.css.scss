@@ -5,7 +5,10 @@ ul#services {
     @extend .clearfix;
   clear: both;
   li {
-    @include grid(1);
+    width: 205px;
+    margin: 0 10px;
+    float: left;
+    // @include grid(1);
 //    border: 1px solid black;
 //    display: block;
 //    width: grid-width(2);
@@ -13,8 +16,7 @@ ul#services {
 //    margin-right: 10px;
     @extend .clearfix;
     position: relative;
-
-    background: image-url('services/lighting_design.jpg');
+    background: no-repeat;
 
     * {
       opacity:inherit;
@@ -23,13 +25,13 @@ ul#services {
 
     .inner {
       border: 1px solid $blue;
-      height: 460px;
+      height: 458px;
     }
 
     .title, .description {
       position: absolute;
       //      width: 100%;
-      width: 138px;
+      width: 183px;
       padding: 10px;
       background: image-url('pngs/black_bg.png');
       background: rgba(0,0,0,0.7);
