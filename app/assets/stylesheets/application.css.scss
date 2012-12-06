@@ -106,7 +106,7 @@ h6 {
 }
 
 header {
-  background: #000 image-url('header_bg.jpg') top right no-repeat;
+  background: #000 image-url('header.jpg') top center repeat-y;
 
   @extend .clearfix;
   border-bottom: 1px solid $blue;
